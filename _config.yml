@@ -2,14 +2,30 @@
 title: "Jekyll Fun"
 # title: "Kyle Brumm :: Developer//Designer"
 email: kjbrum@msn.com
-description: "My new jekyll site for blogging."
-# description: "Iowa based developer with a focus on WordPress theme development."
+description: "Iowa based web developer and designer, with a focus on WordPress theme development."
 # baseurl: ""
-# url: ""
-twitter_username: kyle_brumm
-github_username:  kjbrum
+url: "http://kylebrumm.com"
+contact:
+  email:
+    url: "mailto:kjbrum@msn.com"
+    username: "kjbrum@msn.com"
+  github:
+    url: "http://github.com/"
+    username: "kjbrum"
+  facebook:
+    url: "http://facebook.com/"
+    username: "kylebrumm"
+  twitter:
+    url: "http://twitter.com/"
+    username: "kyle_brumm"
+  dribbble:
+    url: "http://dribbble.com/"
+    username: "kjbrum"
+
+
 exclude: ["node_modules", "gulpfile.js", "package.json"]
 
 # Build settings
 markdown: kramdown
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 permalink: pretty

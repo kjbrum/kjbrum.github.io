@@ -4,4 +4,4 @@ title: Contact
 permalink: /contact/
 ---
 
-Contact form will go here.
+The contact form will go here as well as other relevant stuff.

@@ -68,7 +68,7 @@ gulp.task('styles', function() {
 		.pipe(plumber())
 		// .pipe(sass({sourceComments: 'map', sourceMap: 'sass'}))
 		.pipe(sass())
-		.on('error', handleErrors)
+		// .on('error', handleErrors)
 		.pipe(rename('main.css'))
 		.pipe(gulp.dest(destPaths.styles))
 		.pipe(minifyCSS())
@@ -135,7 +135,8 @@ gulp.task('browser-sync', function () {
 		server: {
 			baseDir: '_site'
 		},
-		port: 5555
+		port: 5555,
+		open: false
 	});
 });
 

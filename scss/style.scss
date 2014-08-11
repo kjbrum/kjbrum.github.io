@@ -1,13 +1,20 @@
+@import "partials/colors";
 @import "jekyll";
 
-html {
-	background: #555;
+html, body {
+	background: $blue-dark;
+	color: $white;
 }
 
-.post,
-.post-content {
-	ol, ul {
-		margin-left: 0 !important;
-		padding-left: 0 !important;
+hr {
+	border-color: $purple;
+	border-width: 1px 0 0 0;
+}
+
+a {
+	color: $purple;
+  text-decoration: none;
+	&:hover {
+		color: lighten($purple, 5%);
 	}
 }
