@@ -1,10 +1,9 @@
 ---
 layout: post
-title:  "Welcome to my Jekyll Site!"
-date:   2014-08-11 11:58:31
-categories: jekyll update
+title:  "Learning to use GulpJS"
+date:   2014-08-11 13:00:00
+<!-- categories: gulpjs learning tools -->
 ---
-
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
 To add new posts, simply add a file in the `_posts` directory that follows the convention: YYYY-MM-DD-name-of-post.ext.
 

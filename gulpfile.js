@@ -118,7 +118,7 @@ gulp.task('watch', function() {
 	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.styles, ['styles']);
 	gulp.watch(paths.images, ['images']);
-	gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
+	gulp.watch(['index.html', '*.md', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
 });
 
 // Browser Sync - autoreload the browser
@@ -127,7 +127,9 @@ gulp.task('browser-sync', function () {
 	var files = [
 		'**/*.html',
 		'**/*.php',
-		'build/**/*'
+		'build/css/main.min.css',
+		'build/js/main.min.js',
+		'build/img/**/*.{png,jpg,jpeg,gif}'
 	];
 	browserSync.init(files, {
 		server: {
