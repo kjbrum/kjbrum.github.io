@@ -17,10 +17,6 @@ body {
 
 h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
 
-a         { text-decoration: none; }
-a:hover   { text-decoration: underline; }
-a:visited { color: $purple; }
-
 /* Utility */
 
 .wrap:before,
@@ -49,22 +45,23 @@ a:visited { color: $purple; }
 .site-title:hover,
 .site-title:visited {
   display: block;
-  font-size: 26px;
+  font-size: 30px;
   letter-spacing: -1px;
   float: left;
-  line-height: 56px;
+  line-height: 80px;
   position: relative;
   z-index: 1;
 }
 
 .site-nav {
   float: right;
-  line-height: 56px;
+  line-height: 80px;
 }
 
 .site-nav .menu-icon { display: none; }
 
 .site-nav .page-link {
+	font-size: 22px;
   margin-left: 20px;
   letter-spacing: -.5px;
 }
@@ -100,16 +97,6 @@ a:visited { color: $purple; }
   color: $white;
 }
 
-.github-icon-svg,
-.twitter-icon-svg {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  position: relative;
-  top: 3px;
-}
-
-
 /* Page Content styles */
 /* ----------------------------------------------------------*/
 
@@ -121,21 +108,27 @@ a:visited { color: $purple; }
 /* Home styles */
 /* ----------------------------------------------------------*/
 
-.home h1 { margin-bottom: 25px; }
+.home h1 {
+	margin-bottom: 25px;
+}
 
-.posts { list-style-type: none; }
+.posts {
+	list-style: none;
+}
 
-.posts li { margin-bottom: 30px; }
+.posts li {
+	margin-bottom: 30px;
+}
 
 .posts .post-link {
-  font-size: 24px;
+  font-size: 30px;
   letter-spacing: -1px;
   line-height: 1;
 }
 
 .posts .post-date {
   display: block;
-  font-size: 15px;
+  font-size: 18px;
   color: $white;
 }
 
@@ -147,7 +140,6 @@ a:visited { color: $purple; }
 
 .post-header h1 {
   font-size: 42px;
-  letter-spacing: -1.75px;
   line-height: 1;
   font-weight: 300;
 }

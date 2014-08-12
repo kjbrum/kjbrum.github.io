@@ -2,12 +2,12 @@
 title: "Jekyll Fun"
 # title: "Kyle Brumm :: Developer//Designer"
 email: kjbrum@msn.com
-description: "Iowa based web developer and designer, with a focus on WordPress theme development."
+# description: "Iowa based web developer and designer, with a focus on WordPress theme development."
 # baseurl: ""
 url: "http://kylebrumm.com"
 contact:
   email:
-    url: "mailto:kjbrum@msn.com"
+    url: "mailto:"
     username: "kjbrum@msn.com"
   github:
     url: "http://github.com/"

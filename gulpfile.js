@@ -14,19 +14,16 @@ var notify = require('gulp-notify');
 var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
-var sass = require('gulp-sass');
+var sass = require('gulp-ruby-sass'); // Requires ruby
 var uglify = require('gulp-uglify');
 var cp = require('child_process');
-
-var jekyllMessages = {
-		jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
-};
 
 // Define our paths
 var paths = {
 	scripts: 'js/**/*.js',
 	styles: 'scss/**/*.scss',
-	images: 'img/**/*.{png,jpg,jpeg,gif}'
+	images: 'img/**/*.{png,jpg,jpeg,gif}',
+	html: ['index.html', '*.md', '_includes/*.html', '_layouts/*.html', '_posts/*']
 };
 
 var destPaths = {
@@ -36,14 +33,17 @@ var destPaths = {
 	html: 'build/validated'
 };
 
+var jekyllMessages = {
+		jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
+};
+
 // Error Handling
+// Send error to notification center with gulp-notify
 var handleErrors = function() {
-	// Send error to notification center with gulp-notify
 	notify.onError({
 		title: "Compile Error",
 		message: "<%= error.message %>"
 	}).apply(this, arguments);
-	// Keep gulp from hanging on this task
 	this.emit('end');
 };
 
@@ -66,15 +66,22 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 gulp.task('styles', function() {
 	return gulp.src(paths.styles)
 		.pipe(plumber())
-		// .pipe(sass({sourceComments: 'map', sourceMap: 'sass'}))
+		.pipe(sass({sourcemap: true, sourcemapPath: paths.styles}))
+		.pipe(gulp.dest('_site/'+destPaths.styles)) // Used for injecting
+		.pipe(browserSync.reload({stream:true}))
+		.pipe(gulp.dest(destPaths.styles))
+		.pipe(notify('Styles task complete!'));
+});
+
+// Compile our Sass
+gulp.task('build-styles', function() {
+	return gulp.src(paths.styles)
+		.pipe(plumber())
 		.pipe(sass())
-		// .on('error', handleErrors)
+		.pipe(minifyCSS())
 		.pipe(rename('main.css'))
 		.pipe(gulp.dest(destPaths.styles))
-		.pipe(minifyCSS())
-		.pipe(rename('main.min.css'))
-		.pipe(gulp.dest(destPaths.styles))
-		.pipe(notify('Styles tasks complete!'));
+		.pipe(notify('Build styles task complete!'));
 });
 
 // Lint, minify, and concat our JS
@@ -85,8 +92,10 @@ gulp.task('scripts', function() {
 		.pipe(jshint.reporter('default'))
 		.pipe(uglify())
 		.pipe(concat('main.min.js'))
+		.pipe(gulp.dest('_site/'+destPaths.scripts)) // Used for injecting
+		.pipe(browserSync.reload({stream:true}))
 		.pipe(gulp.dest(destPaths.scripts))
-		.pipe(notify('Scripts tasks complete!'));
+		.pipe(notify('Script tasks complete!'));
 });
 
 // Compress Images
@@ -97,6 +106,8 @@ gulp.task('images', function() {
 			progressive: true,
 			interlaced: true
 		})))
+		.pipe(gulp.dest('_site/'+destPaths.images)) // Used for injecting
+		.pipe(browserSync.reload({stream:true}))
 		.pipe(gulp.dest(destPaths.images))
 		.pipe(notify('Image optimized!'));
 });
@@ -118,7 +129,7 @@ gulp.task('watch', function() {
 	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.styles, ['styles']);
 	gulp.watch(paths.images, ['images']);
-	gulp.watch(['index.html', '*.md', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
+	gulp.watch(paths.html, ['jekyll-rebuild']);
 });
 
 // Browser Sync - autoreload the browser
@@ -151,5 +162,5 @@ gulp.task('default', function(cb) {
 
 // Build Task
 gulp.task('build', function(cb) {
-	runSequence('clean', 'build-images', 'scripts', 'styles', 'jekyll-build', cb);
+	runSequence('clean', 'build-images', 'build-styles', 'scripts', 'jekyll-build', cb);
 });

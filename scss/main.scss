@@ -6,6 +6,10 @@ html, body {
 	color: $white;
 }
 
+body {
+	display: none;
+}
+
 hr {
 	border-color: $purple;
 	border-width: 1px 0 0 0;
@@ -13,8 +17,8 @@ hr {
 
 a {
 	color: $purple;
-  text-decoration: none;
+  text-decoration: none !important;
 	&:hover {
-		color: lighten($purple, 5%);
+		color: $teal;
 	}
 }
