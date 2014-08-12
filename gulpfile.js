@@ -33,10 +33,6 @@ var destPaths = {
 	html: 'build/validated'
 };
 
-var jekyllMessages = {
-		jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
-};
-
 // Error Handling
 // Send error to notification center with gulp-notify
 var handleErrors = function() {
@@ -51,7 +47,7 @@ var handleErrors = function() {
  * Build the Jekyll Site
  */
 gulp.task('jekyll-build', function (done) {
-	browserSync.notify(jekyllMessages.jekyllBuild);
+	browserSync.notify('<span style="color: grey">Running:</span> $ jekyll build');
 	return cp.spawn('jekyll', ['build'], {stdio: 'inherit'}).on('close', done);
 });
 
@@ -67,7 +63,7 @@ gulp.task('styles', function() {
 	return gulp.src(paths.styles)
 		.pipe(plumber())
 		.pipe(sass({sourcemap: true, sourcemapPath: paths.styles}))
-		.pipe(gulp.dest('_site/'+destPaths.styles)) // Used for injecting
+		.pipe(gulp.dest('_site/'+destPaths.styles)) // Used for injecting with Jekyll
 		.pipe(browserSync.reload({stream:true}))
 		.pipe(gulp.dest(destPaths.styles))
 		.pipe(notify('Styles task complete!'));
@@ -92,7 +88,7 @@ gulp.task('scripts', function() {
 		.pipe(jshint.reporter('default'))
 		.pipe(uglify())
 		.pipe(concat('main.min.js'))
-		.pipe(gulp.dest('_site/'+destPaths.scripts)) // Used for injecting
+		.pipe(gulp.dest('_site/'+destPaths.scripts)) // Used for injecting with Jekyll
 		.pipe(browserSync.reload({stream:true}))
 		.pipe(gulp.dest(destPaths.scripts))
 		.pipe(notify('Script tasks complete!'));
@@ -106,7 +102,7 @@ gulp.task('images', function() {
 			progressive: true,
 			interlaced: true
 		})))
-		.pipe(gulp.dest('_site/'+destPaths.images)) // Used for injecting
+		.pipe(gulp.dest('_site/'+destPaths.images)) // Used for injecting with Jekyll
 		.pipe(browserSync.reload({stream:true}))
 		.pipe(gulp.dest(destPaths.images))
 		.pipe(notify('Image optimized!'));
