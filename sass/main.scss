@@ -1,0 +1,99 @@
+// FontAwesome
+@import "font-awesome/font-awesome";
+
+// Wonderful mixins
+@import "partials/mixins";
+
+// Colors
+@import "partials/colors";
+
+// Grid system
+@import "partials/grid";
+
+html,
+html a {
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+html * {
+	@include transition(0.3s ease-out);
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	background: $dark-blue;
+	color: $white;
+}
+
+body {
+	display: none;
+}
+
+body {
+	&:before,
+	&:after {
+		content: '';
+		position: fixed;
+		left: auto;
+		right: auto;
+		height: 50%;
+		z-index: -1;
+	}
+	&:before {
+		top: 0;
+		background: $teal;
+		@include transition(0.5s);
+	}
+	&:before {
+		top: 50%;
+		background: $purple;
+	}
+}
+hr {
+	border-color: $purple;
+	border-width: 1px 0 0 0;
+}
+
+a {
+	color: $purple;
+  text-decoration: none !important;
+	&:hover {
+		color: $teal;
+	}
+}
+
+html, body { height: 100%; }
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
+
+/* Utility */
+
+.wrapper:before,
+.wrapper:after { content:""; display:table; }
+.wrapper:after { clear: both; }
+.wrapper {
+  max-width: 1200px;
+  padding: 0 30px;
+  margin: 0 auto;
+  zoom: 1;
+}
+
+.page-content {
+  padding: 30px 0;
+}
+
+
+// Page stuff
+@import "partials/header";
+@import "partials/home";
+@import "partials/interior";
+@import "partials/footer";

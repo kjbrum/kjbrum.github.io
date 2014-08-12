@@ -1,0 +1,150 @@
+$transition-duration: 0.5s;
+
+@include keyframes(mainTrans) {
+	0% {
+		background: $purple;
+	}
+	50%, 100% {
+		background: transparent;
+	}
+}
+@include keyframes(beforeTrans) {
+	0% {
+		top: 0.625rem;
+		@include rotate(0);
+	}
+	50% {
+		top: 0;
+		@include rotate(0);
+	}
+	100% {
+		top: 0;
+		@include rotate(45deg);
+	}
+}
+@include keyframes(afterTrans) {
+	0% {
+		top: -0.625rem;
+		@include rotate(0);
+	}
+	50% {
+		top: 0;
+		@include rotate(0);
+	}
+	100% {
+		top: 0;
+		@include rotate(-45deg);
+	}
+}
+
+.site-header {
+	background: $dark-blue;
+  border-top: 5px solid $teal;
+  border-bottom: 1px solid $teal;
+}
+
+.site-title,
+.site-title:hover,
+.site-title:visited {
+	position: relative;
+  display: block;
+  font-size: 30px;
+  float: left;
+  line-height: 80px;
+  z-index: 1;
+}
+
+.site-nav {
+  float: right;
+  line-height: 80px;
+}
+
+.nav-menu-trigger {
+	position: relative;
+	display: inline-block;
+	z-index: 9999;
+	margin-left: 1rem;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	font-weight: 800;
+	line-height: 2.2rem;
+	@include transition($transition-duration);
+	&:hover {
+		.bar,
+		.bar:before,
+		.bar:after {
+			background: $teal;
+		}
+	}
+	.bar {
+		position: relative;
+		display: inline-block;
+		width: 2.2rem;
+		height: 0.3125rem;
+		background: $purple;
+		@include transition($transition-duration);
+		&:before,
+		&:after {
+			position: absolute;
+			content: '';
+			display: block;
+			height: 0.3125rem;
+			width: 2.2rem;
+			background: $purple;
+			z-index: -1;
+			@include transition($transition-duration);
+			@include rotate(0);
+		}
+		&:before {
+			top: 0.625rem;
+		}
+		&:after {
+			top: -0.625rem;
+		}
+	}
+	&.open {
+		color: $teal;
+		.bar {
+			background: transparent;
+			@include animation(mainTrans 0.5s);
+			&:before,
+			&:after {
+				background: $teal;
+			}
+			&:before {
+				top: 0;
+				@include rotate(45deg);
+				@include animation(beforeTrans 0.5s);
+			}
+			&:after {
+				top: 0;
+				@include rotate(-45deg);
+				@include animation(afterTrans 0.5s);
+			}
+		}
+	}
+}
+
+.nav-menu {
+	@include fixed(0, null, null, 0);
+	@include square(100%);
+	@include translateY(-100%);
+	@include transition(0.5s);
+	background: rgba($dark-blue, 0.8);
+	&.visible {
+		@include translateY(0);
+	}
+	ul {
+		margin-top: 100px;
+		width: 100%;
+		text-align: center;
+		li {
+			display: block;
+			padding: 10px 0;
+			a {
+				font-size: 2rem;
+				line-height: 1;
+			}
+		}
+	}
+}

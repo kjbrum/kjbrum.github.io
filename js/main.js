@@ -7,4 +7,10 @@ $(function() {
 		});
 		e.preventDefault();
 	});
+
+	$('body').on('click', '.nav-menu-trigger', function(e) {
+		$(this).toggleClass('open');
+		$('.nav-menu').toggleClass('visible');
+		e.preventDefault();
+	});
 });

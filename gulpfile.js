@@ -21,7 +21,7 @@ var cp = require('child_process');
 // Define our paths
 var paths = {
 	scripts: 'js/**/*.js',
-	styles: 'scss/**/*.scss',
+	styles: 'sass/**/*.scss',
 	images: 'img/**/*.{png,jpg,jpeg,gif}',
 	html: ['index.html', '*.md', '_includes/*.html', '_layouts/*.html', '_posts/*']
 };
@@ -32,6 +32,8 @@ var destPaths = {
 	images: 'build/img/',
 	html: 'build/validated'
 };
+
+var filesToMove = ['sass/fonts'];
 
 // Error Handling
 // Send error to notification center with gulp-notify
@@ -149,6 +151,11 @@ gulp.task('browser-sync', function () {
 
 gulp.task('clean', function() {
 	return gulp.src('build').pipe(clean());
+});
+
+gulp.task('move', function() {
+	gulp.src(filesToMove)
+	.pipe(gulp.dest(destPaths.styles));
 });
 
 // Default Task

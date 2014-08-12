@@ -1,0 +1,42 @@
+.site-footer {
+  border-top: 1px solid $teal;
+  padding: 20px 0;
+}
+
+.site-footer ul {
+	list-style: none;
+	li {
+		display: inline-block;
+		a {
+			display: inline-block;
+			font-family: $fa;
+			font-size: 2.5rem;
+			padding: 0 5px;
+		}
+		&:nth-of-type(1) > a {
+			&:before {
+				content: $fa-var-envelope;
+			}
+		}
+		&:nth-of-type(2) > a {
+			&:before {
+				content: $fa-var-github-alt;
+			}
+		}
+		&:nth-of-type(3) > a {
+			&:before {
+				content: $fa-var-facebook;
+			}
+		}
+		&:nth-of-type(4) > a {
+			&:before {
+				content: $fa-var-twitter;
+			}
+		}
+		&:nth-of-type(5) > a {
+			&:before {
+				content: $fa-var-dribbble;
+			}
+		}
+	}
+}

@@ -1,29 +1,16 @@
 <footer class="site-footer">
 
-	<div class="wrap">
-
-
-		<div class="footer-col-1 column">
-			<h3 class="footer-heading">Get ahold of me:</h3>
-			<ul>
-				{% for sites in site.contact %}
-					{% if sites %}<li>
-						{{ sites[0] | capitalize }}:</span>
-						<a href="{{ sites[1].url }}{{ sites[1].username }}">
-							<span class="username">{{ sites[1].username }}</span>
-						</a>
-					</li>{% endif %}
-				{% endfor %}
-			</ul>
-		</div>
-
-		<div class="footer-col-2 column">
-		</div>
-
-		<div class="footer-col-3 column">
-			<p class="text">{{ site.description }}</p>
-		</div>
-
+	<div class="wrapper">
+		Get ahold of me:
+		<ul>
+			{% for sites in site.contact %}
+				{% if sites %}<li>
+					<a href="{{ sites[1].url }}{{ sites[1].username }}">
+						<span class="username"></span>
+					</a>
+				</li>{% endif %}
+			{% endfor %}
+		</ul>
 	</div>
 
 	<script type="text/javascript" src="/build/js/main.min.js"></script>
