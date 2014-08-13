@@ -4,18 +4,28 @@
 		<a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 
 		<div class="site-nav">
-			<a href="#" class="nav-menu-trigger">Menu <div class="bar"></div></a>
+			<a href="#" class="nav-menu-trigger"><span>Menu</span> <div class="bar"></div></a>
 		</div>
 	</div>
 
 </header>
 
 <nav class="nav-menu">
-	<ul>
-		{% for page in site.pages %}
-			{% if page.title %}
-				<li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-			{% endif %}
+	<ul class="page-links">
+		<li><a class="page-link" href="/about">About</a></li>
+		<li><a class="page-link" href="/work">Work</a></li>
+		<li><a class="page-link" href="/contact">Contact</a></li>
+	</ul>
+
+	<h2>Get ahold of me</h2>
+	<ul class="social-icons">
+		{% for sites in site.contact %}
+			{% if sites %}<li>
+				<a href="{{ sites[1].url }}{{ sites[1].username }}">
+					<span class="username"></span>
+				</a>
+			</li>{% endif %}
 		{% endfor %}
 	</ul>
+
 </nav>

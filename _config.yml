@@ -1,10 +1,12 @@
 # Site settings
-title: "Kyle Brumm"
+title: "<span>Kyle</span> Brumm"
 # title: "Kyle Brumm :: Developer//Designer"
-email: kjbrum@msn.com
-# description: "Iowa based web developer and designer, with a focus on WordPress theme development."
+description: "Iowa based web developer and designer, with a focus on WordPress theme development."
 # baseurl: ""
+
+# Contact Variables
 url: "http://kylebrumm.com"
+email: kjbrum@msn.com
 contact:
   email:
     url: "mailto:"
@@ -22,10 +24,10 @@ contact:
     url: "http://dribbble.com/"
     username: "kjbrum"
 
-
+# Exclude from the Jekyll build
 exclude: ["node_modules", "gulpfile.js", "package.json"]
 
-# Build settings
+# Other Settings
 markdown: kramdown
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 permalink: pretty

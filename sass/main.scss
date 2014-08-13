@@ -1,3 +1,6 @@
+// Normalize that shit
+@import "partials/normalize";
+
 // FontAwesome
 @import "font-awesome/font-awesome";
 
@@ -6,6 +9,9 @@
 
 // Colors
 @import "partials/colors";
+
+// Fonts
+@import "partials/fonts";
 
 // Grid system
 @import "partials/grid";
@@ -16,10 +22,18 @@ html a {
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }
 
-html * {
-	@include transition(0.3s ease-out);
-	margin: 0;
-	padding: 0;
+html {
+	*,
+	*:before,
+	*:after {
+		@include transition(0.3s ease-out);
+		margin: 0;
+		padding: 0;
+	}
+}
+
+span {
+ 	@include transition(none);
 }
 
 html, body {
@@ -28,32 +42,19 @@ html, body {
 }
 
 body {
-	display: none;
+	// display: none;
+	font-family: $ds;
+  font-size: 100%;
+  line-height: 1.8;
 }
 
-body {
-	&:before,
-	&:after {
-		content: '';
-		position: fixed;
-		left: auto;
-		right: auto;
-		height: 50%;
-		z-index: -1;
-	}
-	&:before {
-		top: 0;
-		background: $teal;
-		@include transition(0.5s);
-	}
-	&:before {
-		top: 50%;
-		background: $purple;
-	}
-}
 hr {
 	border-color: $purple;
 	border-width: 1px 0 0 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	letter-spacing: -2px;
 }
 
 a {
@@ -63,19 +64,6 @@ a {
 		color: $teal;
 	}
 }
-
-html, body { height: 100%; }
-
-body {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 300;
-}
-
-h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
-
-/* Utility */
 
 .wrapper:before,
 .wrapper:after { content:""; display:table; }
