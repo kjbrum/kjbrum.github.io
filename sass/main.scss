@@ -39,6 +39,9 @@ span {
 html, body {
 	background: $dark-blue;
 	color: $white;
+	&.open {
+		overflow: hidden;
+	}
 }
 
 body {
@@ -55,6 +58,29 @@ hr {
 
 h1,h2,h3,h4,h5,h6 {
 	letter-spacing: -2px;
+  line-height: 1;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+h1 {
+  font-size: 38px;
+  letter-spacing: -1.25px;
+}
+
+h2 {
+  font-size: 32px;
+  letter-spacing: -1.25px;
+}
+
+h3 {
+  font-size: 26px;
+  letter-spacing: -1px;
+}
+
+h4 {
+  font-size: 20px;
+  letter-spacing: -1px;
 }
 
 a {
@@ -76,6 +102,7 @@ a {
 }
 
 .page-content {
+  // padding: 180px 0 30px 0;
   padding: 30px 0;
 }
 

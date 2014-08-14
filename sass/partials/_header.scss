@@ -35,41 +35,56 @@
 	}
 }
 
-.site-header,
-.nav-menu {
-  font-family: $raleway;
-}
-.site-header {
-	background: $dark-blue;
-  border-top: 5px solid transparent;
-  border-bottom: 1px solid $teal;
-}
-
 .site-title,
 .site-nav {
 	line-height: 150px;
-  @include bp(small) {
-  	line-height: 80px;;
-  }
+	@include bp(small) {
+		line-height: 80px;;
+	}
 }
+
+.site-header,
+.nav-menu {
+	font-family: $raleway;
+}
+
+.site-header {
+	position: relative;
+	background: $dark-blue;
+	border-top: 5px solid $teal;
+	border-bottom: 1px solid $teal;
+	z-index: 9999;
+	&.scrolled {
+		position: fixed;
+		width: 100%;
+		.site-title,
+		.site-nav {
+			line-height: 80px;
+		}
+		.site-title {
+			font-size: 2rem;
+		}
+	}
+}
+
 .site-title,
 .site-title:hover,
 .site-title:visited {
 	position: relative;
-  display: block;
-  font-size: 2.5rem;
-  float: left;
-  z-index: 1;
-  span {
-  	font-weight: 700;
-  }
-  @include bp(small) {
-  	font-size: 1.8rem;
-  }
+	display: block;
+	font-size: 2.5rem;
+	float: left;
+	z-index: 9999;
+	span {
+		font-weight: 700;
+	}
+	@include bp(small) {
+		font-size: 1.8rem;
+	}
 }
 
 .site-nav {
-  float: right;
+	float: right;
 }
 
 .nav-menu-trigger {
@@ -84,21 +99,26 @@
 	span {
 		position: relative;
 		top: 7px;
+		@include bp(small) {
+			display: none !important;
+		}
 	}
-  @include bp(small) {
-  	font-size: 25px;
-  }
-	&:hover {
-		.bar,
-		.bar:before,
-		.bar:after {
-			background: $teal;
-		}
-		.bar:before {
-			top: 0.8rem;
-		}
-		.bar:after {
-			top: -0.8rem;
+	@include bp(small) {
+		font-size: 25px;
+	}
+	@include bp(not-small) {
+		&:hover {
+			.bar,
+			.bar:before,
+			.bar:after {
+				background: $teal;
+			}
+			.bar:before {
+				top: 0.8rem;
+			}
+			.bar:after {
+				top: -0.8rem;
+			}
 		}
 	}
 	.bar {
@@ -156,9 +176,16 @@
 	@include square(100%);
 	@include translateY(-100%);
 	@include transition(0.5s);
-	&.visible {
+	z-index: 9998;
+	overflow: hidden;
+	&.open {
 		@include translateY(0);
 		top: -5px;
+	}
+	&.scrolled {
+		.page-links {
+			margin-top: 90px;
+		}
 	}
 	h2 {
 		margin-top: 20px;
@@ -166,9 +193,9 @@
 	.page-links {
 		margin-top: 160px;
 		width: 100%;
-	  @include bp(small) {
-	  	margin-top: 90px;
-	  }
+		@include bp(small) {
+			margin-top: 90px;
+		}
 		li {
 			display: block;
 			a {

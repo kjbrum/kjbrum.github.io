@@ -9,8 +9,23 @@ $(function() {
 	// });
 
 	$('body').on('click', '.nav-menu-trigger', function(e) {
-		$(this).toggleClass('open');
-		$('.nav-menu').toggleClass('visible');
+		$(this).add('.nav-menu, html, body').toggleClass('open');
 		e.preventDefault();
+	});
+	$(document).keyup(function(e) {
+		if(e.keyCode == 27) {
+			$('.nav-menu-trigger').removeClass('open');
+			$('.nav-menu').removeClass('open');
+		}
+	});
+
+	$(window).scroll(function(e) {
+		if($(window).scrollTop() > 0) {
+			$('.site-header, .nav-menu').addClass('scrolled');
+			$('.site-nav span').fadeOut(300);
+		} else {
+			$('.site-header, .nav-menu').removeClass('scrolled');
+			$('.site-nav span').fadeIn(300);
+		}
 	});
 });

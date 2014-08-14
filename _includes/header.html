@@ -12,9 +12,9 @@
 
 <nav class="nav-menu">
 	<ul class="page-links">
-		<li><a class="page-link" href="/about">About</a></li>
-		<li><a class="page-link" href="/work">Work</a></li>
-		<li><a class="page-link" href="/contact">Contact</a></li>
+		{% for page in site.pages | sort:"name" %}
+			{% if page.title %}<li><a href="{{ page.url }}">{{ page.title }}</a></li>{% endif %}
+		{% endfor %}
 	</ul>
 
 	<h2>Get ahold of me</h2>
