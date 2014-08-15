@@ -48,15 +48,19 @@
 	font-family: $raleway;
 }
 
+// http://tympanus.net/Blueprints/AnimatedHeader/
 .site-header {
 	position: relative;
 	background: $dark-blue;
 	border-top: 5px solid $teal;
 	border-bottom: 1px solid $teal;
+	overflow: hidden;
+	height: 150px;
+	width: 100%;
 	z-index: 9999;
 	&.scrolled {
 		position: fixed;
-		width: 100%;
+		height: 80px;
 		.site-title,
 		.site-nav {
 			line-height: 80px;
@@ -64,6 +68,9 @@
 		.site-title {
 			font-size: 2rem;
 		}
+	}
+	@include bp(small) {
+		height: 80px;
 	}
 }
 
@@ -79,7 +86,7 @@
 		font-weight: 700;
 	}
 	@include bp(small) {
-		font-size: 1.8rem;
+		font-size: 2rem;
 	}
 }
 
@@ -175,7 +182,6 @@
 	text-align: center;
 	@include square(100%);
 	@include translateY(-100%);
-	@include transition(0.5s);
 	z-index: 9998;
 	overflow: hidden;
 	&.open {

@@ -26,7 +26,7 @@ html {
 	*,
 	*:before,
 	*:after {
-		@include transition(0.3s ease-out);
+		@include transition(0.3s);
 		margin: 0;
 		padding: 0;
 	}
