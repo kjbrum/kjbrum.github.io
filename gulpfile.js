@@ -22,6 +22,7 @@ var cp = require('child_process');
 var paths = {
 	scripts: 'js/**/*.js',
 	styles: 'sass/**/*.scss',
+	fonts: 'sass/fonts/*',
 	images: 'img/**/*.{png,jpg,jpeg,gif}',
 	html: ['index.html', '*.md', '_includes/*.html', '_layouts/*.html', '_posts/*']
 };
@@ -29,11 +30,10 @@ var paths = {
 var destPaths = {
 	scripts: 'build/js',
 	styles: 'build/css',
+	fonts: 'build/fonts',
 	images: 'build/img/',
 	html: 'build/validated'
 };
-
-var filesToMove = ['sass/fonts'];
 
 // Error Handling
 // Send error to notification center with gulp-notify
@@ -153,17 +153,17 @@ gulp.task('clean', function() {
 	return gulp.src('build').pipe(clean());
 });
 
-gulp.task('move', function() {
-	gulp.src(filesToMove)
-	.pipe(gulp.dest(destPaths.styles));
+gulp.task('move-fonts', function() {
+	gulp.src(paths.fonts)
+	.pipe(gulp.dest(destPaths.fonts));
 });
 
 // Default Task
 gulp.task('default', function(cb) {
-	runSequence('clean', 'images', 'scripts', 'styles', 'jekyll-build', 'browser-sync', 'watch', cb);
+	runSequence('clean', 'images', 'scripts', 'styles', 'move-fonts', 'jekyll-build', 'browser-sync', 'watch', cb);
 });
 
 // Build Task
 gulp.task('build', function(cb) {
-	runSequence('clean', 'build-images', 'build-styles', 'scripts', 'jekyll-build', cb);
+	runSequence('clean', 'build-images', 'build-styles', 'scripts', 'move-fonts', 'jekyll-build', cb);
 });

@@ -1,16 +1,16 @@
 ---
 layout: page
-title: Work
-permalink: /work/
+title: Projects
+permalink: /projects/
 ---
 
-This is where my work will be displayed.
+This is where my projects will be displayed.
 
-<div class="work">
+<div class="project">
 
 	<ul class="posts">
 	  {% for post in site.posts %}
-	    {% if post.categories contains "work" %}
+	    {% if post.categories contains "project" %}
 	      <li>
 	        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
 	        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>

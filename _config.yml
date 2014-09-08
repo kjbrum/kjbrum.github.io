@@ -24,6 +24,8 @@ contact:
     url: "http://dribbble.com/"
     username: "kjbrum"
 
+# Disqus shortname
+disqus_short_name: "juicynexus"
 # Exclude from the Jekyll build
 exclude: ["node_modules", "gulpfile.js", "package.json"]
 

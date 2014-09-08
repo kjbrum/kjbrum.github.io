@@ -5,7 +5,7 @@
 @import "font-awesome/font-awesome";
 
 // Wonderful mixins
-@import "partials/mixins";
+@import "partials/toolbox";
 
 // Colors
 @import "partials/colors";
@@ -29,6 +29,9 @@ html {
 		@include transition(0.3s);
 		margin: 0;
 		padding: 0;
+	}
+	i {
+		@include transition(0);
 	}
 }
 
@@ -91,11 +94,15 @@ a {
 	}
 }
 
+img {
+	max-width: 100%;
+}
+
 .wrapper:before,
 .wrapper:after { content:""; display:table; }
 .wrapper:after { clear: both; }
 .wrapper {
-  max-width: 1200px;
+  max-width: 1024px;
   padding: 0 30px;
   margin: 0 auto;
   zoom: 1;
@@ -103,7 +110,14 @@ a {
 
 .page-content {
   // padding: 180px 0 30px 0;
+  margin-top: 170px;
   padding: 30px 0;
+  &.scrolled {
+  	margin-top: 100px;
+  }
+  @include bp(small) {
+  	margin-top: 100px;
+  }
 }
 
 

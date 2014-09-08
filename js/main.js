@@ -20,12 +20,14 @@ $(function() {
 	});
 
 	$(window).scroll(function(e) {
-		if($(window).scrollTop() > 0) {
-			$('.site-header, .nav-menu').addClass('scrolled');
-			$('.site-nav span').fadeOut(300);
-		} else {
-			$('.site-header, .nav-menu').removeClass('scrolled');
-			$('.site-nav span').fadeIn(300);
+		if($(window).scrollTop() + $(window).height() < $(document).height()) {
+			if($(window).scrollTop() > 0) {
+				$('.site-header, .nav-menu, .page-content').addClass('scrolled');
+				$('.site-nav span').fadeOut(300);
+			} else {
+				$('.site-header, .nav-menu, .page-content').removeClass('scrolled');
+				$('.site-nav span').fadeIn(300);
+			}
 		}
 	});
 });

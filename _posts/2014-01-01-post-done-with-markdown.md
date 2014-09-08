@@ -2,7 +2,6 @@
 layout: post
 title:  "Post Done with Markdown"
 date:   2014-01-01 00:00:00
-postImage: "/build/img/kitty.jpg"
 ---
 
 ### Headings: ###

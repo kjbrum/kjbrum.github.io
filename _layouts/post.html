@@ -1,19 +1,19 @@
 ---
 layout: default
+comments: true
 ---
 <div class="post">
 
-  <header class="post-header">
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-    <h1>{{ page.title }}</h1>
-  </header>
+	<header class="post-header">
+		<p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+		<h1>{{ page.title }}</h1>
+	</header>
 
-  <article class="post-content">
-  <!-- {{ content }} -->
-  {{ content | markdownify }}
-  </article>
+	<article class="post-content">
+	<!-- {{ content }} -->
+	{{ content | markdownify }}
+	</article>
 
-  <a href="{{ page.previous.url }}">Previous Post</a> | 
-  <a href="{{ page.next.url }}">Next Post</a>
+	{% include disqus.html %}
 
 </div>
