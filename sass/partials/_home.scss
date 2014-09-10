@@ -1,26 +1,7 @@
-/* Home styles */
-/* ----------------------------------------------------------*/
-
-.home h1 {
-	margin-bottom: 25px;
-}
-
-.posts {
-	list-style: none;
-}
-
-.posts li {
-	margin-bottom: 30px;
-}
-
-.posts .post-link {
-  font-size: 30px;
-  letter-spacing: -1px;
-  line-height: 1;
-}
-
-.posts .post-date {
-  display: block;
-  font-size: 18px;
-  color: $white;
+.latest {
+	@include container;
+	.latest-posts,
+	.latest-projects {
+		@include span(6);
+	}
 }

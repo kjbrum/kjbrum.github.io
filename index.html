@@ -1,18 +1,40 @@
 ---
 layout: default
+image: desk-headphones.jpg
+line1: Hello. My name is Kyle Brumm.
+line2: I'm an Iowa based developer/designer.
 ---
 
-<div class="home">
+<div class="page">
 
-  <ul class="posts">
-    {% for post in site.posts %}
-	    {% unless post.categories contains "project" %}
-	      <li>
-	        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-	        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-	      </li>
-	    {% endunless %}
-    {% endfor %}
-  </ul>
+	<div class="latest">
+
+		<div class="latest-posts">
+			<ul>
+				{% for post in site.posts %}
+					{% unless post.categories contains "project" %}
+						<li>
+							<span class="post-date">{{ post.date | date: "%-d %b %Y" }}</span>
+							<a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+						</li>
+					{% endunless %}
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div class="latest-projects">
+			<ul>
+				{% for post in site.posts %}
+					{% unless post.categories contains "project" %}
+						<li>
+							<span class="post-date">{{ post.date | date: "%-d %b %Y" }}</span>
+							<a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+						</li>
+					{% endunless %}
+				{% endfor %}
+			</ul>
+		</div>
+		
+	</div>
 
 </div>

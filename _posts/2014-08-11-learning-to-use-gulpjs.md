@@ -2,6 +2,7 @@
 layout: post
 title:  "Learning to use GulpJS"
 date:   2014-08-11 13:00:00
+image: iphone.jpg
 <!-- categories: gulpjs learning tools -->
 ---
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!

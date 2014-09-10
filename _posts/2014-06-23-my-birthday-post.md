@@ -2,6 +2,7 @@
 layout: post
 title:  "My Birthday Post!"
 date:   2014-06-23 12:00:00
+image: desk-apple.jpg
 <!-- categories: gulpjs learning tools -->
 ---
 This is a post about my birthday or something?

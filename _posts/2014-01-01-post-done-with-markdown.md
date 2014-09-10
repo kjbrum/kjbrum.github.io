@@ -1,7 +1,8 @@
 ---
 layout: post
-title:  "Post Done with Markdown"
+title:  "Post Made with Markdown"
 date:   2014-01-01 00:00:00
+image: desk.jpg
 ---
 
 ### Headings: ###
@@ -77,7 +78,8 @@ This is an inline image ![This is the inline images alt text](http://placekitten
 
 This is a reference image ![This is the reference images alt text][reference-image]
 
-[reference-image]: http://placekitten.com/450/100
+<!-- [reference-image]: http://placekitten.com/450/200 -->
+[reference-image]: /build/img/{{ page.image-filename }}
 
 
 --------------------------------------------------------------------------------

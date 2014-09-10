@@ -1,6 +1,6 @@
 <header class="site-header">
 
-	<div class="wrapper">
+	<div class="site-header-contents">
 		<a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 
 		<div class="site-nav">
@@ -28,5 +28,20 @@
 			</li>{% endif %}
 		{% endfor %}
 	</ul>
-
 </nav>
+
+	<div id="masthead" style="background: url('/build/img/{{ page.image }}') no-repeat top center">
+		<div class="masthead-header">
+			{% if page.line1 %}
+				<h1><span>{{ page.line1 }}</span></h1>
+			{% else %}
+				<h1 class="page-title"><span>{{ page.title }}</span></h1>
+			{% endif %}
+			{% if page.line2 %}
+				<h2><span>{{ page.line2 }}</span></h2>
+			{% else %}
+				<h3 class="page-date"><span>{{ page.date | date: "%b %-d, %Y" }}</span></h3>
+			{% endif %}
+			</h1>
+		</div>
+	</div>

@@ -37,9 +37,9 @@
 
 .site-title,
 .site-nav {
-	line-height: 150px;
+	line-height: $header-height;
 	@include bp(small) {
-		line-height: 80px;;
+		line-height: $header-height-small;;
 	}
 }
 
@@ -57,22 +57,26 @@
 	border-top: 5px solid $teal;
 	border-bottom: 1px solid $teal;
 	overflow: hidden;
-	height: 150px;
+	// height: 150px;
 	width: 100%;
 	z-index: 9999;
 	&.scrolled {
-		height: 80px;
+		// height: 80px;
 		.site-title,
 		.site-nav {
-			line-height: 80px;
+			line-height: $header-height-small;
 		}
 		.site-title {
 			font-size: 2rem;
 		}
 	}
 	@include bp(small) {
-		height: 80px;
+		// height: 80px;
 	}
+}
+
+.site-header-contents {
+	@include container;
 }
 
 .site-title,
@@ -191,21 +195,16 @@
 	overflow: hidden;
 	&.open {
 		@include translateY(0);
-		top: -5px;
-	}
-	&.scrolled {
-		.page-links {
-			margin-top: 90px;
-		}
+		top: 0;
 	}
 	h2 {
 		margin-top: 20px;
 	}
 	.page-links {
-		margin-top: 160px;
+		margin-top: $header-height + 6px;
 		width: 100%;
 		@include bp(small) {
-			margin-top: 90px;
+			margin-top: $header-height-small + 6px;
 		}
 		li {
 			display: block;
@@ -219,6 +218,11 @@
 					background: lighten($dark-blue, 5%);
 				}
 			}
+		}
+	}
+	&.scrolled {
+		.page-links {
+			margin-top: $header-height-small + 6px;
 		}
 	}
 	.social-icons {
@@ -256,6 +260,44 @@
 					content: $fa-var-dribbble;
 				}
 			}
+		}
+	}
+}
+
+#masthead {
+	border-bottom: 1px solid $teal;
+	@include size(100%, 500px);
+	margin-top: $header-height + 6px;
+	@include background-size(cover !important);
+	&.scrolled {
+		margin-top: $header-height-small + 6px;
+	}
+	@include bp(small) {
+		margin-top: $header-height-small + 6px;
+	}
+}
+
+.masthead-header {
+	@include container();
+	@include relative(50%);
+	@include translateY(-50%);
+	h1,
+	h2,
+	.page-date {
+		font-family: $raleway;
+		line-height: 1.6;
+		color: $dark-blue;
+		font-size: 3.2rem;
+		margin: 0;
+		span {
+			padding: 5px 15px;
+			background: rgba($teal, 0.8);
+		}
+	}
+	.page-date {
+		font-size: 1.6rem;
+		span {
+			background: rgba($white, 0.8);
 		}
 	}
 }

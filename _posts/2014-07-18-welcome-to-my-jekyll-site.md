@@ -2,6 +2,7 @@
 layout: post
 title:  "Welcome to my Jekyll Site!"
 date:   2014-07-18 11:58:31
+image: desk-ping-pong.jpg
 categories: jekyll update
 ---
 
