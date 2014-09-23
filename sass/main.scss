@@ -1,6 +1,9 @@
 // Normalize that shit
 @import "partials/normalize";
 
+// Animistion
+@import "animsition";
+
 // FontAwesome
 @import "font-awesome/font-awesome";
 
@@ -15,11 +18,11 @@
 
 // Susy Grid System
 @import "susy/susy";
-$container-width: 64rem;
+$container-width: 75rem;
 $susy: (
 	container: $container-width,
 	columns: 12,
-	global-box-sizing: border-box
+	global-box-sizing: border-box,
 );
 
 // Extra Variables
@@ -42,10 +45,18 @@ html {
 		margin: 0;
 		padding: 0;
 	}
-	i,
-	span {
-		@include transition(0);
+	strong,
+	span,
+	em,
+	b,
+	i {
+		@include transition(0 !important);
+		&:before,
+		&:after {
+			@include transition(0 !important);
+		}
 	}
+
 }
 
 html, body {
@@ -68,9 +79,11 @@ hr {
 }
 
 h1,h2,h3,h4,h5,h6 {
+	font-family: $raleway;
 	letter-spacing: -2px;
 	line-height: 1;
 	font-weight: 300;
+	text-transform: uppercase;
 	margin: 10px 0;
 }
 
@@ -106,8 +119,16 @@ img {
 	max-width: 100%;
 }
 
+.animsition-loading {
+	color: $teal !important;
+	text-indent: -9999px;
+	width: 50px;
+	@include centerer;
+}
+
 // Page stuff
 @import "partials/header";
 @import "partials/home";
+@import "partials/project";
 @import "partials/interior";
 @import "partials/footer";

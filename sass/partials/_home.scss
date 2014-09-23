@@ -1,7 +1,42 @@
+#masthead {
+	border-bottom: 1px solid $teal;
+	@include size(100%, 500px);
+	margin-top: $header-height + 6px;
+	@include background-size(cover !important);
+	&.scrolled {
+		margin-top: $header-height-small + 6px;
+	}
+	@include bp(small) {
+		margin-top: $header-height-small + 6px;
+	}
+}
+
+.masthead--header {
+	@include container();
+	@include relative(50%);
+	@include translateY(-50%);
+	h1,
+	h2 {
+		font-family: $raleway;
+		line-height: 1.6;
+		color: $dark-blue;
+		font-size: 3.2rem;
+		margin: 0;
+		span {
+			padding: 5px 15px;
+			background: rgba($teal, 0.8);
+		}
+	}
+}
+
 .latest {
 	@include container;
-	.latest-posts,
-	.latest-projects {
-		@include span(6);
-	}
+}
+
+.latest--posts {
+	@include span(6 of 12);
+}
+
+.latest--projects {
+	@include span(last 6 of 12);
 }

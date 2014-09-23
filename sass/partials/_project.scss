@@ -1,0 +1,33 @@
+.page--projects {
+	@include container(100%);
+}
+.project--single {
+	position: relative;
+	@include span(4 of 12 no-gutters);
+	height: 250px;
+	@include background-size(cover !important);
+	&:hover {
+		background-position: 55% !important;
+		.project--single--overlay {
+			@include opacity(100);
+			.project--single--title {
+				@include centerer;
+			}
+		}
+	}
+}
+
+.project--single--overlay {
+	@include coverer;
+	@include opacity(0);
+	background: rgba($teal, 0.75);
+	color: $dark-blue;
+	text-align: center;
+}
+
+.project--single--title {
+	@include centerer;
+	font-weight: 700;
+	margin: 0;
+	@include translate(-50%, -50px);
+}

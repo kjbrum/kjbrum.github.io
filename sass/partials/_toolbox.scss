@@ -194,11 +194,11 @@ $breakpoints: (	// Breakpoint settings
 // --------------------------------------------------
 // KEYFRAMES
 // --------------------------------------------------
-@mixin keyframes( $animationName ) {
- @-webkit-keyframes $animationName { @content; }
- @-moz-keyframes $animationName { @content; }
- @-o-keyframes $animationName { @content; }
- @keyframes $animationName { @content; }
+@mixin keyframes($animationName) {
+ @-webkit-keyframes #{$animationName} { @content; }
+ @-moz-keyframes #{$animationName} { @content; }
+ @-o-keyframes #{$animationName} { @content; }
+ @keyframes #{$animationName} { @content; }
 }
 
 

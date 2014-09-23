@@ -3,15 +3,15 @@
 
 	{% include head.html %}
 
-		<body>
+		<body class="animsition">
 
-		{% include header.html %}
+			{% include header.html %}
 
-		<div class="contents{% if page.url != '/' %} not-home{% endif %}">
-			{{ content }}
-		</div>
+			<div class="contents{% if page.url != '/' %} not-home{% endif %}">
+				{{ content }}
+			</div>
 
-		{% include footer.html %}
+			{% include footer.html %}
 
 		</body>
 </html>

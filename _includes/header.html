@@ -1,25 +1,26 @@
-<header class="site-header">
+<header class="site--header">
 
-	<div class="site-header-contents">
-		<a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+	<div class="site--header--contents">
+		<a class="site--title" href="{{ site.baseurl }}/">Kyle Brumm</a>
+		<!-- <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a> -->
 
-		<div class="site-nav">
-			<a href="#" class="nav-menu-trigger"><span>Menu</span> <div class="bar"></div></a>
+		<div class="site--nav">
+			<a href="#" class="nav--menu--trigger"><span>Menu</span> <div class="bar"></div></a>
 		</div>
 	</div>
 
 </header>
 
-<nav class="nav-menu">
-	<ul class="page-links">
-		<li><a href="{{ site.baseurl }}/">Home</a></li>
+<nav class="nav--menu">
+	<ul class="nav--menu--links">
+		<li><a href="{{ site.baseurl }}/" class="animsition-link">Home</a></li>
 		{% for page in site.pages | sort:"name" %}
-			{% if page.title %}<li><a href="{{ page.url }}">{{ page.title }}</a></li>{% endif %}
+			{% if page.title %}<li><a href="{{ page.url }}" class="animsition-link">{{ page.title }}</a></li>{% endif %}
 		{% endfor %}
 	</ul>
 
 	<h2>Get ahold of me</h2>
-	<ul class="social-icons">
+	<ul class="social--icons">
 		{% for sites in site.contact %}
 			{% if sites %}<li>
 				<a href="{{ sites[1].url }}{{ sites[1].username }}">
@@ -30,18 +31,13 @@
 	</ul>
 </nav>
 
+{% if page.url == '/' %}
 	<div id="masthead" style="background: url('/build/img/{{ page.image }}') no-repeat top center">
-		<div class="masthead-header">
-			{% if page.line1 %}
-				<h1><span>{{ page.line1 }}</span></h1>
-			{% else %}
-				<h1 class="page-title"><span>{{ page.title }}</span></h1>
-			{% endif %}
+		<div class="masthead--header">
+			<h1><span>{{ page.line1 }}</span></h1>
 			{% if page.line2 %}
 				<h2><span>{{ page.line2 }}</span></h2>
-			{% else %}
-				<h3 class="page-date"><span>{{ page.date | date: "%b %-d, %Y" }}</span></h3>
 			{% endif %}
-			</h1>
 		</div>
 	</div>
+{% endif %}

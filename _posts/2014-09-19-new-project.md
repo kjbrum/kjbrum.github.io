@@ -1,8 +1,11 @@
 ---
-layout: post
-title:  "Post Made with Markdown"
-date:   2014-01-01 00:00:00
+layout: project
+title:  "New Project"
+date:   2014-09-19 12:00:00
+image: desk-top.jpg
+categories: project
 ---
+
 
 ### Headings: ###
 

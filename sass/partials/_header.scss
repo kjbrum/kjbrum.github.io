@@ -35,21 +35,20 @@
 	}
 }
 
-.site-title,
-.site-nav {
+.site--title,
+.site--nav {
 	line-height: $header-height;
 	@include bp(small) {
 		line-height: $header-height-small;;
 	}
 }
 
-.site-header,
-.nav-menu {
+.site--header,
+.nav--menu {
 	font-family: $raleway;
 }
 
-// http://tympanus.net/Blueprints/AnimatedHeader/
-.site-header {
+.site--header {
 	position: relative;
 	position: fixed;
 	top: 0;
@@ -57,31 +56,27 @@
 	border-top: 5px solid $teal;
 	border-bottom: 1px solid $teal;
 	overflow: hidden;
-	// height: 150px;
 	width: 100%;
 	z-index: 9999;
+	@include translate3d(0,0,0);
 	&.scrolled {
-		// height: 80px;
-		.site-title,
-		.site-nav {
+		.site--title,
+		.site--nav {
 			line-height: $header-height-small;
 		}
-		.site-title {
+		.site--title {
 			font-size: 2rem;
 		}
 	}
-	@include bp(small) {
-		// height: 80px;
-	}
 }
 
-.site-header-contents {
+.site--header--contents {
 	@include container;
 }
 
-.site-title,
-.site-title:hover,
-.site-title:visited {
+.site--title,
+.site--title:hover,
+.site--title:visited {
 	position: relative;
 	display: block;
 	font-size: 2.5rem;
@@ -95,11 +90,11 @@
 	}
 }
 
-.site-nav {
+.site--nav {
 	float: right;
 }
 
-.nav-menu-trigger {
+.nav--menu--trigger {
 	position: relative;
 	display: inline-block;
 	z-index: 9999;
@@ -140,7 +135,8 @@
 		width: 2.2rem;
 		height: 0.3125rem;
 		background: $purple;
-		@include box-shadow(0 0 1px rgba(0, 0, 0, 0.05));
+		@include box-shadow(0 0 1px rgba($black, 0.05));
+		@include translate3d(0,0,0);
 		&:before,
 		&:after {
 			position: absolute;
@@ -150,9 +146,8 @@
 			width: 2.2rem;
 			background: $purple;
 			z-index: -1;
-			@include box-shadow(0 0 1px rgba(0, 0, 0, 0.05));
-			// -webkit-backface-visibility: hidden;
-			@include rotate(0);
+			@include box-shadow(0 0 1px rgba($black, 0.05));
+			@include transform(translate3d(0,0,0) rotate(0));
 		}
 		&:before {
 			top: 0.625rem;
@@ -184,7 +179,7 @@
 	}
 }
 
-.nav-menu {
+.nav--menu {
 	@include fixed(5px, null, null, 0);
 	background: rgba($dark-blue, 0.95);
 	border-bottom: 5px solid $teal;
@@ -200,7 +195,7 @@
 	h2 {
 		margin-top: 20px;
 	}
-	.page-links {
+	.nav--menu--links {
 		margin-top: $header-height + 6px;
 		width: 100%;
 		@include bp(small) {
@@ -215,17 +210,17 @@
 				line-height: 1;
 				background: transparent;
 				&:hover {
-					background: lighten($dark-blue, 5%);
+					background: $light-blue;
 				}
 			}
 		}
 	}
 	&.scrolled {
-		.page-links {
+		.nav-menu--links {
 			margin-top: $header-height-small + 6px;
 		}
 	}
-	.social-icons {
+	.social--icons {
 		li {
 			display: inline-block;
 			a {
@@ -260,44 +255,6 @@
 					content: $fa-var-dribbble;
 				}
 			}
-		}
-	}
-}
-
-#masthead {
-	border-bottom: 1px solid $teal;
-	@include size(100%, 500px);
-	margin-top: $header-height + 6px;
-	@include background-size(cover !important);
-	&.scrolled {
-		margin-top: $header-height-small + 6px;
-	}
-	@include bp(small) {
-		margin-top: $header-height-small + 6px;
-	}
-}
-
-.masthead-header {
-	@include container();
-	@include relative(50%);
-	@include translateY(-50%);
-	h1,
-	h2,
-	.page-date {
-		font-family: $raleway;
-		line-height: 1.6;
-		color: $dark-blue;
-		font-size: 3.2rem;
-		margin: 0;
-		span {
-			padding: 5px 15px;
-			background: rgba($teal, 0.8);
-		}
-	}
-	.page-date {
-		font-size: 1.6rem;
-		span {
-			background: rgba($white, 0.8);
 		}
 	}
 }
