@@ -208,9 +208,11 @@
 				font-size: 2rem;
 				padding: 30px 0;
 				line-height: 1;
+				text-transform: uppercase;
 				background: transparent;
 				&:hover {
-					background: $light-blue;
+					letter-spacing: 2px;
+					background: rgba($light-blue, 0.5);
 				}
 			}
 		}
