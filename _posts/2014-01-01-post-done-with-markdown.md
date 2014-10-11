@@ -73,12 +73,13 @@ Neutra keffiyeh *street art, Odd Future* **biodiesel** Tumblr Echo Park _Intelli
 
 ### Images: ###
 
-This is an inline image ![This is the inline images alt text](http://placekitten.com/350/200)
+This is an inline image
+![This is the inline images alt text](http://placekitten.com/350/200)
 
-This is a reference image ![This is the reference images alt text][reference-image]
+This is a reference image
+![This is the reference images alt text][reference-image]
 
-<!-- [reference-image]: http://placekitten.com/450/200 -->
-[reference-image]: /build/img/{{ page.image-filename }}
+[reference-image]: http://s.ngm.com/2010/12/milky-way/img/milky-way-galaxy-615.jpg
 
 
 --------------------------------------------------------------------------------

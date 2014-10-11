@@ -1,9 +1,6 @@
 // Normalize that shit
 @import "partials/normalize";
 
-// Animistion
-@import "animsition";
-
 // FontAwesome
 @import "font-awesome/font-awesome";
 
@@ -16,18 +13,8 @@
 // Fonts
 @import "partials/fonts";
 
-// Susy Grid System
-@import "susy/susy";
-$container-width: 75rem;
-$susy: (
-	container: $container-width,
-	columns: 12,
-	global-box-sizing: border-box,
-);
-
 // Extra Variables
-$header-height: 124px;
-$header-height-small: 74px;
+$header-height: 74px;
 
 html,
 html a {
@@ -40,7 +27,7 @@ html {
 	*,
 	*:before,
 	*:after {
-		@include box-sizing(inherit);
+		@include box-sizing(border-box);
 		@include transition(0.3s ease-out);
 		margin: 0;
 		padding: 0;
@@ -62,6 +49,7 @@ html {
 html, body {
 	background: $dark-blue;
 	color: $white;
+	height: 100%;
 	&.open {
 		overflow: hidden;
 	}
@@ -117,13 +105,6 @@ a {
 
 img {
 	max-width: 100%;
-}
-
-.animsition-loading {
-	color: $teal !important;
-	text-indent: -9999px;
-	width: 50px;
-	@include centerer;
 }
 
 // Page stuff

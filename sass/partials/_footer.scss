@@ -1,8 +1,20 @@
+@include keyframes(pulse) {
+	from {
+		@include scale(1);
+	}
+	to {
+		@include scale(1.4);
+	}
+}
+
 .site-footer {
+	font-size: 1.2rem;
   border-top: 1px solid $teal;
   padding: 20px 0;
   text-align: center;
   .fa-heart {
+  	padding: 0 4px;
   	color: #ff5555;
+  	@include animation(pulse 1s ease-in-out infinite alternate);
   }
 }

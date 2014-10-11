@@ -1,42 +1,120 @@
-#masthead {
-	border-bottom: 1px solid $teal;
-	@include size(100%, 500px);
-	margin-top: $header-height + 6px;
-	@include background-size(cover !important);
-	&.scrolled {
-		margin-top: $header-height-small + 6px;
-	}
-	@include bp(small) {
-		margin-top: $header-height-small + 6px;
-	}
-}
-
-.masthead--header {
-	@include container();
-	@include relative(50%);
-	@include translateY(-50%);
-	h1,
-	h2 {
-		font-family: $raleway;
-		line-height: 1.6;
-		color: $dark-blue;
-		font-size: 3.2rem;
-		margin: 0;
-		span {
-			padding: 5px 15px;
-			background: rgba($teal, 0.8);
+.home-nav-menu {
+	text-align: center;
+	min-height: 100%;
+	@include flexbox;
+	@include flex-direction(column);
+	font-family: $raleway;
+	> li {
+		display: block;
+		overflow: hidden;
+		@include flex;
+		@include flexbox;
+		@include flex-direction(column);
+		@include justify-content(center);
+		> a {
+			display: block;
+			@include flex;
+			@include flexbox;
+			@include flex-direction(column);
+			@include justify-content(center);
+			font-size: 4rem;
+			text-transform: uppercase;
+			&:hover {
+				letter-spacing: 2px;
+				background: rgba($light-blue, 0.5);
+			}
 		}
 	}
-}
-
-.latest {
-	@include container;
-}
-
-.latest--posts {
-	@include span(6 of 12);
-}
-
-.latest--projects {
-	@include span(last 6 of 12);
+	.profile {
+		max-width: 64rem;
+		margin: 0 auto;
+		img {
+			float: left;
+			border: 2px solid $purple;
+			@include border-radius(50%);
+			width: 200px;
+			margin-right: 20px;
+			@include bp(max, 64rem) {
+				float: none;
+				width: 280px;
+			}
+		}
+		.intro {
+			float: left;
+			margin-top: 40px;
+			h1 {
+				font-size: 2rem;
+				text-align: left;
+				display: block;
+				color: $dark-blue;
+				background: $teal;
+				margin: 0;
+				padding: 5px 20px;
+				line-height: 1.5;
+				&:first-of-type {
+					margin-bottom: 15px;
+				}
+				span {
+					font-weight: 600;
+				}
+				@include bp(medium) {
+					font-size: 2rem;
+					text-align: center;
+				}
+			}
+			@include bp(max, 64rem) {
+				margin-top: 0;
+				float: none;
+			}
+		}
+		@include bp(max, 64rem) {
+			width: 100%;
+		}
+	}
+	.home-social-icons {
+		li {
+			display: inline-block;
+			a {
+				display: inline-block;
+				font-family: $fa;
+				font-size: 5rem;
+				margin: 0 40px;
+				&:before {
+					@include transition(none);
+				}
+				&:hover {
+					@include translateY(-10px);
+				}
+				@include bp(medium) {
+					font-size: 4rem;
+					margin: 0 20px;
+				}
+			}
+			&:nth-of-type(1) > a {
+				&:before {
+					content: $fa-var-envelope-o;
+				}
+			}
+			&:nth-of-type(2) > a {
+				&:before {
+					content: $fa-var-github-alt;
+				}
+			}
+			&:nth-of-type(3) > a {
+				&:before {
+					content: $fa-var-facebook;
+				}
+			}
+			&:nth-of-type(4) > a {
+				&:before {
+					content: $fa-var-twitter;
+				}
+			}
+			&:nth-of-type(5) > a {
+				&:before {
+					content: $fa-var-dribbble;
+				}
+			}
+		}
+	}
 }

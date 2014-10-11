@@ -65,7 +65,7 @@ gulp.task('styles', function() {
 	return gulp.src(paths.styles)
 		.pipe(plumber())
 		.pipe(sass({sourcemap: true, sourcemapPath: paths.styles}))
-		.pipe(gulp.dest('_site/'+destPaths.styles)) // Used for injecting with Jekyll
+		.pipe(gulp.dest('_site/'+destPaths.styles)) // Used for Jekyll
 		.pipe(browserSync.reload({stream:true}))
 		.pipe(gulp.dest(destPaths.styles))
 		.pipe(notify('Styles task complete!'));
@@ -90,21 +90,25 @@ gulp.task('scripts', function() {
 		.pipe(jshint.reporter('default'))
 		.pipe(uglify())
 		.pipe(concat('main.min.js'))
-		.pipe(gulp.dest('_site/'+destPaths.scripts)) // Used for injecting with Jekyll
+		.pipe(gulp.dest('_site/'+destPaths.scripts)) // Used for Jekyll
 		.pipe(browserSync.reload({stream:true}))
 		.pipe(gulp.dest(destPaths.scripts))
 		.pipe(notify('Script tasks complete!'));
 });
 
+// Clean Iimages Folder
+gulp.task('clean-images', function() {
+	return gulp.src(destPaths.images+'/**/*')
+		.pipe(clean())
+		.pipe(gulp.dest('_site/'+destPaths.images)) // Used for Jekyll
+		.pipe(clean());
+});
+
 // Compress Images
-gulp.task('images', function() {
+gulp.task('images', ['clean-images'], function() {
 	return gulp.src(paths.images)
 		.pipe(plumber())
-		.pipe(cache(imagemin({
-			progressive: true,
-			interlaced: true
-		})))
-		.pipe(gulp.dest('_site/'+destPaths.images)) // Used for injecting with Jekyll
+		.pipe(gulp.dest('_site/'+destPaths.images)) // Used for Jekyll
 		.pipe(browserSync.reload({stream:true}))
 		.pipe(gulp.dest(destPaths.images))
 		.pipe(notify('Image optimized!'));
@@ -153,6 +157,12 @@ gulp.task('clean', function() {
 	return gulp.src('build').pipe(clean());
 });
 
+// Clear the cache for everything
+gulp.task('clear-cache', function() {
+  cache.clearAll();
+});
+
+// Move Fonts to Build Folder
 gulp.task('move-fonts', function() {
 	gulp.src(paths.fonts)
 	.pipe(gulp.dest(destPaths.fonts));
@@ -160,10 +170,10 @@ gulp.task('move-fonts', function() {
 
 // Default Task
 gulp.task('default', function(cb) {
-	runSequence('clean', 'images', 'scripts', 'styles', 'move-fonts', 'jekyll-build', 'browser-sync', 'watch', cb);
+	runSequence('clean', 'clear-cache', 'images', 'scripts', 'styles', 'move-fonts', 'jekyll-build', 'browser-sync', 'watch', cb);
 });
 
 // Build Task
 gulp.task('build', function(cb) {
-	runSequence('clean', 'build-images', 'build-styles', 'scripts', 'move-fonts', 'jekyll-build', cb);
+	runSequence('clean', 'clear-cache', 'build-images', 'build-styles', 'scripts', 'move-fonts', 'jekyll-build', cb);
 });

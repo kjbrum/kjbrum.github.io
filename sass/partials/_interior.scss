@@ -1,17 +1,10 @@
 .contents {
-	&.not-home {
-		margin-top: 170px;
-		padding: 30px 0;
-		&.scrolled {
-			margin-top: 100px;
-		}
-		@include bp(small) {
-			margin-top: 100px;
-		}
-	}
+	margin-top: 100px;
+	padding: 30px 0;
 }
 
 .page,
 .post {
-	@include container;
+	max-width: 64rem;
+	margin: 0 auto;
 }

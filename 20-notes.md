@@ -1,18 +1,18 @@
 ---
 layout: page
-title: Projects
-permalink: /projects/
+title: Notes
+permalink: /notes/
 ---
 
-<div class="page-projects">
+<div class="page-notes">
 	<ul>
 		{% for post in site.posts %}
-			{% if post.categories contains "project" %}
+			{% unless post.categories contains "project" %}
 				<li>
 					<span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
 					<a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 				</li>
-			{% endif %}
+			{% endunless %}
 		{% endfor %}
 	</ul>
 </div>

@@ -35,20 +35,19 @@
 	}
 }
 
-.site--title,
-.site--nav {
+.site-title,
+.site-nav {
 	line-height: $header-height;
 	@include bp(small) {
-		line-height: $header-height-small;;
 	}
 }
 
-.site--header,
-.nav--menu {
+.site-header,
+.nav-menu {
 	font-family: $raleway;
 }
 
-.site--header {
+.site-header {
 	position: relative;
 	position: fixed;
 	top: 0;
@@ -59,42 +58,32 @@
 	width: 100%;
 	z-index: 9999;
 	@include translate3d(0,0,0);
-	&.scrolled {
-		.site--title,
-		.site--nav {
-			line-height: $header-height-small;
-		}
-		.site--title {
-			font-size: 2rem;
-		}
-	}
 }
 
-.site--header--contents {
-	@include container;
+.site-header-contents {
+	max-width: 64rem;
+	margin: 0 auto;
 }
 
-.site--title,
-.site--title:hover,
-.site--title:visited {
+.site-title,
+.site-title:hover,
+.site-title:visited {
 	position: relative;
 	display: block;
-	font-size: 2.5rem;
+	font-size: 2rem;
 	float: left;
 	z-index: 9999;
+	text-transform: uppercase;
 	span {
 		font-weight: 700;
 	}
-	@include bp(small) {
-		font-size: 2rem;
-	}
 }
 
-.site--nav {
+.site-nav {
 	float: right;
 }
 
-.nav--menu--trigger {
+.nav-menu-trigger {
 	position: relative;
 	display: inline-block;
 	z-index: 9999;
@@ -104,13 +93,6 @@
 	font-weight: 800;
 	line-height: 2.2rem;
 	@include translateZ(0);
-	span {
-		position: relative;
-		top: 7px;
-		@include bp(small) {
-			display: none !important;
-		}
-	}
 	@include bp(small) {
 		font-size: 25px;
 	}
@@ -179,7 +161,7 @@
 	}
 }
 
-.nav--menu {
+.nav-menu {
 	@include fixed(5px, null, null, 0);
 	background: rgba($dark-blue, 0.95);
 	border-bottom: 5px solid $teal;
@@ -195,17 +177,14 @@
 	h2 {
 		margin-top: 20px;
 	}
-	.nav--menu--links {
+	.nav-menu-links {
 		margin-top: $header-height + 6px;
 		width: 100%;
-		@include bp(small) {
-			margin-top: $header-height-small + 6px;
-		}
 		li {
 			display: block;
 			a {
 				display: block;
-				font-size: 2rem;
+				font-size: 2.5rem;
 				padding: 30px 0;
 				line-height: 1;
 				text-transform: uppercase;
@@ -217,19 +196,14 @@
 			}
 		}
 	}
-	&.scrolled {
-		.nav-menu--links {
-			margin-top: $header-height-small + 6px;
-		}
-	}
-	.social--icons {
+	.social-icons {
 		li {
 			display: inline-block;
 			a {
 				display: inline-block;
 				font-family: $fa;
-				font-size: 2.5rem;
-				padding: 0 5px;
+				font-size: 3.5rem;
+				margin: 0 20px;
 				@include transition(none);
 			}
 			&:nth-of-type(1) > a {

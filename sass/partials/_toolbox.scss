@@ -247,6 +247,13 @@ $breakpoints: (	// Breakpoint settings
 			-o-transform: $transform;
 				 transform: $transform;
 }
+@mixin transform-single($property, $value) {
+ -webkit-transform: #{$property}unquote("("#{$value}")");
+		-moz-transform: #{$property}unquote("("#{$value}")");
+		 -ms-transform: #{$property}unquote("("#{$value}")");
+			-o-transform: #{$property}unquote("("#{$value}")");
+				 transform: #{$property}unquote("("#{$value}")");
+}
 @mixin transform-origin($transform-origin...) {
  -webkit-transform-origin: $transform-origin;
 		-moz-transform-origin: $transform-origin;
@@ -262,132 +269,65 @@ $breakpoints: (	// Breakpoint settings
 				 transform-style: $transform-style;
 }
 @mixin rotate($deg) {
-	-webkit-transform: rotate($deg);
-		 -moz-transform: rotate($deg);
-			-ms-transform: rotate($deg);
-			 -o-transform: rotate($deg);
-					transform: rotate($deg);
+	@include transform-single(rotate, $deg);
 }
 @mixin rotateX($deg) {
-	-webkit-transform: rotateX($deg);
-		 -moz-transform: rotateX($deg);
-			-ms-transform: rotateX($deg);
-			 -o-transform: rotateX($deg);
-					transform: rotateX($deg);
+	@include transform-single(rotateX, $deg);
 }
 @mixin rotateY($deg) {
-	-webkit-transform: rotateY($deg);
-		 -moz-transform: rotateY($deg);
-			-ms-transform: rotateY($deg);
-			 -o-transform: rotateY($deg);
-					transform: rotateY($deg);
+	@include transform-single(rotateY, $deg);
 }
 @mixin rotateZ($deg) {
-	-webkit-transform: rotateZ($deg);
-		 -moz-transform: rotateZ($deg);
-			-ms-transform: rotateZ($deg);
-			 -o-transform: rotateZ($deg);
-					transform: rotateZ($deg);
+	@include transform-single(rotateZ, $deg);
 }
 @mixin rotate3d($rotate3d...) {
-	-webkit-transform: rotate3d($rotate3d);
-		 -moz-transform: rotate3d($rotate3d);
-			-ms-transform: rotate3d($rotate3d);
-			 -o-transform: rotate3d($rotate3d);
-					transform: rotate3d($rotate3d);
+	@include transform-single(rotate3d, $rotate3d);
 }
 @mixin scale($ratio) {
-	-webkit-transform: scale($ratio);
-		 -moz-transform: scale($ratio);
-			-ms-transform: scale($ratio);
-			 -o-transform: scale($ratio);
-					transform: scale($ratio);
+	@include transform-single(scale, $ratio);
 }
 @mixin scaleX($ratio) {
-	-webkit-transform: scaleX($ratio);
-		 -moz-transform: scaleX($ratio);
-			-ms-transform: scaleX($ratio);
-			 -o-transform: scaleX($ratio);
-					transform: scaleX($ratio);
+	@include transform-single(scaleX, $ratio);
 }
 @mixin scaleY($ratio) {
-	-webkit-transform: scaleY($ratio);
-		 -moz-transform: scaleY($ratio);
-			-ms-transform: scaleY($ratio);
-			 -o-transform: scaleY($ratio);
-					transform: scaleY($ratio);
+	@include transform-single(scaleY, $ratio);
 }
 @mixin scaleZ($ratio) {
-	-webkit-transform: scaleZ($ratio);
-		 -moz-transform: scaleZ($ratio);
-			-ms-transform: scaleZ($ratio);
-			 -o-transform: scaleZ($ratio);
-					transform: scaleZ($ratio);
+	@include transform-single(scaleZ, $ratio);
 }
 @mixin scale3d($x, $y, $z) {
-	-webkit-transform: scale3d($x, $y, $z);
-		 -moz-transform: scale3d($x, $y, $z);
-			-ms-transform: scale3d($x, $y, $z);
-			 -o-transform: scale3d($x, $y, $z);
-					transform: scale3d($x, $y, $z);
+	$multi-var: $x, $y, $z;
+	@include transform-single(scale3d, $multi-var);
 }
 @mixin skew($x, $y) {
-	-webkit-transform: skew($x, $y);
-		 -moz-transform: skew($x, $y);
-			-ms-transform: skewX($x) skewY($y);
-			 -o-transform: skew($x, $y);
-					transform: skew($x, $y);
+	$multi-var: $x, $y;
+	@include transform-single(skew, $multi-var);
 	-webkit-backface-visibility: hidden;
 }
 @mixin skewX($deg) {
-	-webkit-transform: skewX($deg);
-		 -moz-transform: skewX($deg);
-			-ms-transform: skewX($deg);
-			 -o-transform: skewX($deg);
-					transform: skewX($deg);
+	@include transform-single(skewX, $deg);
 	-webkit-backface-visibility: hidden;
 }
 @mixin skewY($deg) {
-	-webkit-transform: skewY($deg);
-		 -moz-transform: skewY($deg);
-			-ms-transform: skewY($deg);
-			 -o-transform: skewY($deg);
-					transform: skewY($deg);
+	@include transform-single(skewY, $deg);
 	-webkit-backface-visibility: hidden;
 }
 @mixin translate($x, $y) {
-	-webkit-transform: translate($x, $y);
-		 -moz-transform: translate($x, $y);
-			-ms-transform: translate($x, $y);
-			 -o-transform: translate($x, $y);
-					transform: translate($x, $y);
+	$multi-var: $x, $y;
+	@include transform-single(translate, $multi-var);
 }
 @mixin translateX($x) {
-	-webkit-transform: translateX($x);
-		 -moz-transform: translateX($x);
-			-ms-transform: translateX($x);
-			 -o-transform: translateX($x);
-					transform: translateX($x);
+	@include transform-single(translateX, $x);
 }
 @mixin translateY($y) {
-	-webkit-transform: translateY($y);
-		 -moz-transform: translateY($y);
-			-ms-transform: translateY($y);
-			 -o-transform: translateY($y);
-					transform: translateY($y);
+	@include transform-single(translateY, $y);
 }
 @mixin translateZ($z) {
-	-webkit-transform: translateZ($z);
-		 -moz-transform: translateZ($z);
-			-ms-transform: translateZ($z);
-			 -o-transform: translateZ($z);
-					transform: translateZ($z);
+	@include transform-single(translateZ, $z);
 }
 @mixin translate3d($x, $y, $z) {
-	-webkit-transform: translate3d($x, $y, $z);
-		 -moz-transform: translate3d($x, $y, $z);
-			 -o-transform: translate3d($x, $y, $z);
-					transform: translate3d($x, $y, $z);
+	$multi-var: $x, $y, $z;
+	@include transform-single(translate3d, $multi-var);
 }
 
 
@@ -656,8 +596,8 @@ $breakpoints: (	// Breakpoint settings
 	-ms-flex-direction: $value;
 	flex-direction: $value;
 }
-	// Shorter version:
-	@mixin flex-dir($value: false) { @include flex-direction($value); }
+// Shorter version:
+@mixin flex-dir($value: false) { @include flex-direction($value); }
 
 //----------------------------------------------------------------------
 
@@ -1050,8 +990,6 @@ $breakpoints: (	// Breakpoint settings
  font: 0/0 a;
  color: transparent;
  text-shadow: none;
- background-color: transparent;
- border: 0;
 }
 
 // Center an element
@@ -1060,7 +998,7 @@ $breakpoints: (	// Breakpoint settings
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  @include translate(-50%, -50%);
 }
 
 // Cover everything
@@ -1071,6 +1009,27 @@ $breakpoints: (	// Breakpoint settings
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+// Add hover state
+// ---------------
+@mixin hoverer($attr, $normal, $hovered) {
+	#{$attr}: #{$normal};
+	&:hover {
+		#{$attr}: #{$hovered};
+	}
+}
+
+// Add responsive styling for multiple widths
+// ------------------------------------------
+@mixin responsive($attr, $full, $medium:false, $small:false) {
+	#{$attr}: #{$full};
+	@include bp(medium) {
+		#{$attr}: #{$medium};
+	}
+	@include bp(small) {
+		#{$attr}: #{$small};
+	}
 }
 
 // Position Mixin
@@ -1087,7 +1046,7 @@ $left-default:   null !default;
 
 	$allowed_types: 'absolute' 'relative' 'fixed';
 	@if not index($allowed_types, $type) {
-		@warn "Unknow position: #{$type}.";
+		@warn "Unknown position: #{$type}.";
 	}
 	@each $data in top $top, right $right, bottom $bottom, left $left {
 		#{nth($data, 1)}: nth($data, 2);

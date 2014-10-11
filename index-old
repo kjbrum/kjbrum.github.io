@@ -1,0 +1,73 @@
+---
+layout: default
+image: desk-headphones.jpg
+line1: Hello. My name is Kyle Brumm.
+line2: I'm an Iowa based developer/designer.
+---
+
+<div class="page">
+
+	<div class="latest">
+
+		<div class="latest--posts" data-scroll-reveal="enter left">
+			<h3>Recent Posts</h3>
+			<ul>
+				{% for post in site.posts %}
+					{% unless post.categories contains "project" %}
+						<li>
+							<span class="post--date">{{ post.date | date: "%b %-d, %Y" }}</span>
+							<a class="post--title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+						</li>
+					{% endunless %}
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div class="latest--projects" data-scroll-reveal="enter right">
+			<h3>Recent Projects</h3>
+			<div>
+				{% for post in site.categories.project limit:3 %}
+					<a class="project--single" href="{{ post.url | prepend: site.baseurl }}" style="background: url('/build/img/{{ post.image }}') no-repeat center center">
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+		
+	</div>
+
+</div>
+
+<div>
+	<p>Try-hard meh street art letterpress iPhone tilde.  Try-hard farm-to-table hoodie, bicycle rights Truffaut Williamsburg semiotics.  Craft beer fap Helvetica crucifix shabby chic.  Selvage Bushwick pour-over master cleanse, fanny pack slow-carb dreamcatcher Echo Park meh +1.  Tousled tilde roof party bespoke, single-origin coffee pickled bitters brunch Vice retro post-ironic small batch sustainable shabby chic.  High Life Brooklyn trust fund bitters.  +1 church-key DIY, meggings fashion axe Wes Anderson.</p>
+	<img src="/build/img/desk-apple.jpg">
+</div>
+<div data-scroll-reveal="enter right over 2s">
+	<h1>VHS next level normcore</h1>
+</div>
+<div data-scroll-reveal="enter right over 2s">
+	<h2>Plaid fap cornhole YOLO American Apparel Pinterest</h2>
+</div>
+<div data-scroll-reveal="enter right over 2s">
+	<h3>Chillwave pork belly Marfa authentic</h3>
+</div>
+<div data-scroll-reveal="enter left">
+	<strong>Freegan single-origin coffee semiotics Brooklyn raw denim fixie yr mumblecore.</strong>
+	<img src="/build/img/desk-headphones.jpg">
+</div>
+<div data-scroll-reveal="enter right">
+	<img src="/build/img/desk-ping-pong.jpg">
+</div>
+<div data-scroll-reveal="enter left">
+	<img src="/build/img/desk.jpg">
+</div>
+<div data-scroll-reveal="enter right">
+	<img src="/build/img/desk-top.jpg">
+	<p>Pinterest meh cray twee chambray synth.  Single-origin coffee bespoke before they sold out, keffiyeh slow-carb meh Kickstarter McSweeney's locavore umami.  Church-key VHS direct trade  authentic, keytar hashtag Pinterest Brooklyn flexitarian iPhone.  Master cleanse aesthetic heirloom, Cosby sweater mixtape irony selvage.  Ennui meggings mlkshk chia.  Heirloom Pitchfork High Life ennui, banh mi yr plaid fap cornhole YOLO American Apparel Pinterest locavore Cosby sweater swag.  Brunch seitan Wes Anderson Vice High Life, small batch pickled.</p>
+	<p>Intelligentsia Austin hoodie, direct trade.  Before they sold out fanny pack tote bag flexitarian farm-to-table, mlkshk paleo direct trade  lomo kitsch pug normcore High Life put a bird on it.  Photo booth 90's blog flannel Echo Park.  Pickled Portland hella Brooklyn single-origin coffee.  Fanny pack Vice Thundercats, synth paleo sriracha whatever cardigan polaroid 90's normcore shabby chic.  Seitan tilde banh mi, fap plaid XOXO biodiesel keffiyeh vegan viral whatever umami bitters mumblecore fashion axe.  Roof party before they sold out fanny pack Etsy, keffiyeh stumptown twee leggings.</p>
+</div>
+<div data-scroll-reveal>
+	<img src="/build/img/edc.jpg">
+</div>
+<div data-scroll-reveal="enter left">
+	<img src="/build/img/kitty.jpg">
+</div>
