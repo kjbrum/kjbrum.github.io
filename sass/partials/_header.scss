@@ -1,4 +1,4 @@
-@include keyframes(mainTrans) {
+@keyframes mainTrans {
 	0% {
 		background: $teal;
 	}
@@ -6,7 +6,7 @@
 		background: transparent;
 	}
 }
-@include keyframes(beforeTrans) {
+@keyframes beforeTrans {
 	0% {
 		top: 0.625rem;
 		@include rotate(0);
@@ -20,7 +20,7 @@
 		@include rotate(45deg);
 	}
 }
-@include keyframes(afterTrans) {
+@keyframes afterTrans {
 	0% {
 		top: -0.625rem;
 		@include rotate(0);
@@ -57,6 +57,7 @@
 	overflow: hidden;
 	width: 100%;
 	z-index: 9999;
+	padding: 0 1rem;
 	@include translate3d(0,0,0);
 }
 
@@ -117,7 +118,7 @@
 		width: 2.2rem;
 		height: 0.3125rem;
 		background: $purple;
-		@include box-shadow(0 0 1px rgba($black, 0.05));
+		box-shadow: 0 0 1px rgba($black, 0.05);
 		@include translate3d(0,0,0);
 		&:before,
 		&:after {
@@ -128,8 +129,8 @@
 			width: 2.2rem;
 			background: $purple;
 			z-index: -1;
-			@include box-shadow(0 0 1px rgba($black, 0.05));
-			@include transform(translate3d(0,0,0) rotate(0));
+			box-shadow: 0 0 1px rgba($black, 0.05);
+			transform: translate3d(0,0,0) rotate(0);
 		}
 		&:before {
 			top: 0.625rem;
@@ -142,7 +143,7 @@
 		color: $teal;
 		.bar {
 			background: transparent;
-			@include animation(mainTrans 0.5s);
+			animation: mainTrans 0.5s;
 			&:before,
 			&:after {
 				background: $teal;
@@ -150,12 +151,12 @@
 			&:before {
 				top: 0;
 				@include rotate(45deg);
-				@include animation(beforeTrans 0.5s);
+				animation: beforeTrans 0.5s;
 			}
 			&:after {
 				top: 0;
 				@include rotate(-45deg);
-				@include animation(afterTrans 0.5s);
+				animation: afterTrans 0.5s;
 			}
 		}
 	}
@@ -185,13 +186,20 @@
 			a {
 				display: block;
 				font-size: 2.5rem;
-				padding: 30px 0;
-				line-height: 1;
+				line-height: 3.5;
 				text-transform: uppercase;
 				background: transparent;
 				&:hover {
 					letter-spacing: 2px;
 					background: rgba($light-blue, 0.5);
+				}
+				@include bp(medium) {
+					font-size: 2.2rem;
+					line-height: 3;
+				}
+				@include bp(small) {
+					font-size: 1.6rem;
+					line-height: 2.5;
 				}
 			}
 		}
@@ -202,9 +210,17 @@
 			a {
 				display: inline-block;
 				font-family: $fa;
-				font-size: 3.5rem;
-				margin: 0 20px;
-				@include transition(none);
+				font-size: 5rem;
+				margin: 0 30px;
+				transition: none;
+				@include bp(medium) {
+					font-size: 4rem;
+					margin: 0 20px;
+				}
+				@include bp(small) {
+					font-size: 2.5rem;
+					margin: 0 10px;
+				}
 			}
 			&:nth-of-type(1) > a {
 				&:before {

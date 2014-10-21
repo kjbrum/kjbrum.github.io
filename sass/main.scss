@@ -23,12 +23,12 @@ html a {
 }
 
 html {
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 	*,
 	*:before,
 	*:after {
-		@include box-sizing(border-box);
-		@include transition(0.3s ease-out);
+		box-sizing: border-box;
+		transition: 0.3s ease-out;
 		margin: 0;
 		padding: 0;
 	}
@@ -37,10 +37,10 @@ html {
 	em,
 	b,
 	i {
-		@include transition(0 !important);
+		transition: none !important;
 		&:before,
 		&:after {
-			@include transition(0 !important);
+			transition: none !important;
 		}
 	}
 

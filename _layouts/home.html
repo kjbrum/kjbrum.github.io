@@ -11,7 +11,7 @@
 							<img src="build/img/profile.jpg">
 							<div class="intro">
 								<h1>Hello. My name is <span>Kyle</span> Brumm.</h1>
-								<h1>I'm an <span>Iowa</span> based developer/designer.</h1></li>
+								<h2>I'm an <span>Iowa</span> based developer/designer.</h2></li>
 							</div>
 						</div>
 					{% for page in site.pages | sort:"name" %}
@@ -21,9 +21,7 @@
 						<ul class="home-social-icons">
 							{% for sites in site.contact %}
 								{% if sites %}<li>
-									<a href="{{ sites[1].url }}{{ sites[1].username }}">
-										<span class="username"></span>
-									</a>
+									<a href="{{ sites[1].url }}{{ sites[1].username }}" target="_blank"></a>
 								</li>{% endif %}
 							{% endfor %}
 						</ul>

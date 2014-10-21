@@ -2,6 +2,7 @@
 var gulp = require('gulp');
 
 // Plugins
+var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var cache = require('gulp-cache');
 var clean = require('gulp-clean');
@@ -65,6 +66,7 @@ gulp.task('styles', function() {
 	return gulp.src(paths.styles)
 		.pipe(plumber())
 		.pipe(sass({sourcemap: true, sourcemapPath: paths.styles}))
+		.pipe(autoprefixer())
 		.pipe(gulp.dest('_site/'+destPaths.styles)) // Used for Jekyll
 		.pipe(browserSync.reload({stream:true}))
 		.pipe(gulp.dest(destPaths.styles))
@@ -76,6 +78,9 @@ gulp.task('build-styles', function() {
 	return gulp.src(paths.styles)
 		.pipe(plumber())
 		.pipe(sass())
+		.pipe(autoprefixer({
+			cascade: false
+		}))
 		.pipe(minifyCSS())
 		.pipe(rename('main.css'))
 		.pipe(gulp.dest(destPaths.styles))

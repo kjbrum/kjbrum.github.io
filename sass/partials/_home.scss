@@ -1,27 +1,33 @@
 .home-nav-menu {
 	text-align: center;
 	min-height: 100%;
-	@include flexbox;
-	@include flex-direction(column);
+	display: flex;
+	flex-direction: column;
 	font-family: $raleway;
 	> li {
 		display: block;
 		overflow: hidden;
-		@include flex;
-		@include flexbox;
-		@include flex-direction(column);
-		@include justify-content(center);
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		justify-content: center;
 		> a {
 			display: block;
-			@include flex;
-			@include flexbox;
-			@include flex-direction(column);
-			@include justify-content(center);
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+			justify-content: center;
 			font-size: 4rem;
 			text-transform: uppercase;
 			&:hover {
 				letter-spacing: 2px;
 				background: rgba($light-blue, 0.5);
+			}
+			@include bp(medium) {
+				font-size: 3.5rem;
+			}
+			@include bp(small) {
+				font-size: 2.5rem;
 			}
 		}
 	}
@@ -31,18 +37,23 @@
 		img {
 			float: left;
 			border: 2px solid $purple;
-			@include border-radius(50%);
+			border-radius: 50%;
 			width: 200px;
 			margin-right: 20px;
-			@include bp(max, 64rem) {
+			@include bp(medium) {
 				float: none;
 				width: 280px;
+				margin: 0;
+			}
+			@include bp(small) {
+				width: 200px;
 			}
 		}
 		.intro {
 			float: left;
 			margin-top: 40px;
-			h1 {
+			h1,
+			h2 {
 				font-size: 2rem;
 				text-align: left;
 				display: block;
@@ -62,12 +73,18 @@
 					text-align: center;
 				}
 			}
-			@include bp(max, 64rem) {
+			@include bp(medium) {
 				margin-top: 0;
 				float: none;
 			}
+			@include bp(small) {
+				h1,
+				h2 {
+					font-size: 1.2rem;
+				}
+			}
 		}
-		@include bp(max, 64rem) {
+		@include bp(medium) {
 			width: 100%;
 		}
 	}
@@ -78,9 +95,9 @@
 				display: inline-block;
 				font-family: $fa;
 				font-size: 5rem;
-				margin: 0 40px;
+				margin: 0 30px;
 				&:before {
-					@include transition(none);
+					transition: none;
 				}
 				&:hover {
 					@include translateY(-10px);
@@ -88,6 +105,10 @@
 				@include bp(medium) {
 					font-size: 4rem;
 					margin: 0 20px;
+				}
+				@include bp(small) {
+					font-size: 2.5rem;
+					margin: 0 10px;
 				}
 			}
 			&:nth-of-type(1) > a {
