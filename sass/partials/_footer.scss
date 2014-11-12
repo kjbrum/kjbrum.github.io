@@ -1,9 +1,9 @@
 @keyframes pulse {
 	from {
-		@include scale(1);
+		transform: scale(1);
 	}
 	to {
-		@include scale(1.4);
+		transform: scale(1.4);
 	}
 }
 

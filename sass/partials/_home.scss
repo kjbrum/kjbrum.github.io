@@ -100,7 +100,7 @@
 					transition: none;
 				}
 				&:hover {
-					@include translateY(-10px);
+					transform: translateY(-10px);
 				}
 				@include bp(medium) {
 					font-size: 4rem;

@@ -27,8 +27,10 @@ $(function() {
 		}
 	});
 
-	hooks('Juicy Nexus', 'Site visitor!', 'tvy1gEJZ6e');
-	
+	if($(location).attr('href') == 'http://juicynex.us/') {
+		hooks('Juicy Nexus', 'Site visitor!', 'tvy1gEJZ6e');
+	}
+
 });
 
 //hooks
