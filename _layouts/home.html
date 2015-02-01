@@ -5,7 +5,30 @@
 
 		<body>
 
+				<!-- <ul class="home-nav-menu">
+					<li>
+						<div class="profile">
+							<img src="build/img/profile.jpg">
+							<div class="intro">
+								<h1>Hello. My name is <span>Kyle</span> Brumm.</h1>
+								<h2>I'm an <span>Iowa</span> based developer/designer.</h2></li>
+							</div>
+						</div>
+					{% for page in site.pages | sort:"name" %}
+						{% if page.title %}<li><a href="{{ page.url }}">{{ page.title }}</a></li>{% endif %}
+					{% endfor %}
+					<li>
+						<ul class="home-social-icons">
+							{% for sites in site.contact %}
+								{% if sites %}<li>
+									<a href="{{ sites[1].url }}{{ sites[1].username }}" target="_blank"></a>
+								</li>{% endif %}
+							{% endfor %}
+						</ul>
+					</li>
+				</ul>
 
+			{% include footer.html %} -->
 
  		</body>
 </html>
