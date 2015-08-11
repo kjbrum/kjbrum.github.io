@@ -1,0 +1,305 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Kyle Brumm</title><description>Musings from development escapades.</description><link>http://kjbrum.github.io/</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 11 Aug 2015 05:01:37 GMT</lastBuildDate><atom:link href="http://kjbrum.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>My Personal Bash Profile</title><description>&lt;p&gt;I don't know about anyone else, but I love finding and creating new things to put in my &lt;code&gt;.bash_profile&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I like to think that I have a lot of useful things in mine so I figured it would be nice to share it with everyone. I update it every&lt;/p&gt;</description><link>http://kjbrum.github.io/my-personal-bash-profile/</link><guid isPermaLink="false">89a8bef3-ec78-4225-9eb7-d8c3448e3227</guid><category>Tips &amp; Tricks</category><category>Misc</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Thu, 06 Aug 2015 04:25:00 GMT</pubDate><content:encoded>&lt;p&gt;I don't know about anyone else, but I love finding and creating new things to put in my &lt;code&gt;.bash_profile&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I like to think that I have a lot of useful things in mine so I figured it would be nice to share it with everyone. I update it every now and then, so you can always check back for an updated version.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/77b7af04191267b053e9.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>The Ultimate WordPress Setup</title><description>Repositories, databases, dependencies. Nobody said setting up a WordPress site was easy, until now. Check out this bash script that does the heavy lifting.</description><link>http://kjbrum.github.io/the-ultimate-wordpress-setup/</link><guid isPermaLink="false">d27761a7-fdd0-4254-9c4b-4d06a01ed8d5</guid><dc:creator>Kyle Brumm</dc:creator><pubDate>Fri, 31 Jul 2015 22:31:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/the-ultimate-wp-setup.jpg" alt="The Ultimate WordPress Setup"&gt;&lt;/p&gt;
+
+&lt;p&gt;If you haven't noticed by now, here at Happy Medium, we like to make WordPress sites. The majority of our sites we create are done with &lt;a href="https://wordpress.org/"&gt;WordPress&lt;/a&gt;. I don't think I'm alone when I say setting up a new project sucks. There are just so many things you have to remember to do and it seems like a never ending list. When I started at Happy Medium, I remember learning the process of setting up a new website, it was a lot to remember. It's not like it was &lt;em&gt;terrible&lt;/em&gt; or anything, it was just a lot for a new employee to learn, as well as being pretty time consuming. If you read my last blog post, you may recall me saying that if I can make something more efficient, I am going to.  &lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2 id="theproblem"&gt;THE PROBLEM:&lt;/h2&gt;
+
+&lt;p&gt;Let me give you an example. I have a task to set up a new WordPress site for "Client X". A typical workflow would look something like:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create a &lt;a href="https://git-scm.com/"&gt;Git&lt;/a&gt; repository (&lt;a href="https://github.com/"&gt;Github&lt;/a&gt; / &lt;a href="https://bitbucket.org/"&gt;BitBucket&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Setup a staging server&lt;/li&gt;
+&lt;li&gt;Clone our base WordPress repo&lt;/li&gt;
+&lt;li&gt;Clone our base plugin and theme&lt;/li&gt;
+&lt;li&gt;Create a local database&lt;/li&gt;
+&lt;li&gt;Run the, &lt;em&gt;very simple&lt;/em&gt;, prepare script&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That's just to name a few, but if you are like us, you have a laundry list of tasks to complete before actually have a new site up and running. For setting things up, we use a tool called &lt;a href="https://github.com/Mixd/wp-deploy"&gt;wp-deploy&lt;/a&gt;. It's a framework for deploying WordPress sites using &lt;a href="http://capistranorb.com/"&gt;Capistrano&lt;/a&gt;, it's pretty amazing. Along with deployment, it also has WordPress included as a &lt;a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules"&gt;submodule&lt;/a&gt;. Now this is all fine and dandy, but it doesn't help a whole lot with the initial setup of a site.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/struggle-puppy.gif" alt="struggle-puppy"&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2 id="thesolution"&gt;THE SOLUTION:&lt;/h2&gt;
+
+&lt;p&gt;I have been trying to learn more about bash scripting lately, so I figured this would be a great opportunity to learn a few things and make the team's lives a little easier. I started by breaking the setup process into small chunks and tackling them one by one. I started with the base &lt;a href="https://github.com/Mixd/wp-deploy/blob/master/config/prepare.sh"&gt;prepare.sh&lt;/a&gt; script and expanded on it. The overall goal of the script was to make it so the user would only have to answer simple prompts and make as few decisions as possible.&lt;/p&gt;
+
+&lt;h3 id="configuration"&gt;CONFIGURATION&lt;/h3&gt;
+
+&lt;p&gt;The first thing you have to do with a new wp-deploy project, is setup your configuration file. The simplest thing to do was to ask the user to input the project "slug". If we continue with our example, our slug would be "clientx". Once the user inputs the project slug, it's smooth sailing from their.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Before running the script, you will need to add your credentials to the config.cfg file. This is used to keep your personal information in it's own file and separate from the script.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tasks Completed:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Clone the latest version of WordPress&lt;/li&gt;
+&lt;li&gt;Update the configuration files with the project slug&lt;/li&gt;
+&lt;li&gt;Create a local database&lt;/li&gt;
+&lt;li&gt;Install Ruby dependencies&lt;/li&gt;
+&lt;li&gt;Set up WordPress locally&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="bitbucket"&gt;BITBUCKET&lt;/h3&gt;
+
+&lt;p&gt;Here at HM, we like to use Bitbucket for storing our projects. If you don't use version control, you should! For every project we need to create a new repository for storing the code. To make this work, I used BitBuckets API. After running a couple &lt;a href="http://curl.haxx.se/"&gt;curl&lt;/a&gt; requests you will have a new repository with all your deployment keys. &lt;a href="https://confluence.atlassian.com/display/BITBUCKET/repository+Resource#repositoryResource-POSTanewrepository"&gt;Read More on the BitBucket API.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Your deployment keys will need to be added to the deployment.txt file. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tasks Completed:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create a BitBucket repository using the project slug&lt;/li&gt;
+&lt;li&gt;Add your deployment keys to the new repository&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="serverpilot"&gt;SERVERPILOT&lt;/h3&gt;
+
+&lt;p&gt;We use ServerPilot for managing all our projects and servers. Just like our repository, we need to set up a new staging site. I took the same approach with this, using a couple curl requests got the job done. I found out that when you create a new ServerPilot app, it isn't instantly available to have a database added to it. To fix this I had to do a bit of text parsing in order to get the information I needed. I stored the app creation request in a variable and then parsed it to get the new app ID (used to create the database) and the action ID (used to check when the app was created). After the app was finished being created, I was able to add a database using the previously parsed app ID. &lt;a href="https://github.com/ServerPilot/API"&gt;Read more on the ServerPilot API.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tasks Completed:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create a new ServerPilot application&lt;/li&gt;
+&lt;li&gt;Create a new database for the application (randomly generated username and password)&lt;/li&gt;
+&lt;li&gt;Update the database.yml with the database credentials&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="pluginsthemes"&gt;PLUGINS/THEMES&lt;/h3&gt;
+
+&lt;p&gt;For most projects, we have our own plugin and theme that we have rolled up to help get things started and create consistency. Along with those we have a few plugins that find their way into almost every project as well. To get these set up, we would have to clone each one of them into their respective directories (plugins or themes). Additionally, our theme comes Grunt ready with a few helpful tasks (Sass compiling, minification, browser syncing, SVG spriting). In order for all these to work properly, we have to install our &lt;abbr title="Node Package Manager"&gt;NPM&lt;/abbr&gt; packages and run our default Grunt task. Simple enough, just a couple commands and we're good to go!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tasks Completed:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Clone the needed plugins and themes&lt;/li&gt;
+&lt;li&gt;Update the Gruntfile with our project slug&lt;/li&gt;
+&lt;li&gt;Install NPM packages&lt;/li&gt;
+&lt;li&gt;Run the initial Grunt task&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="miscellaneous"&gt;MISCELLANEOUS&lt;/h3&gt;
+
+&lt;p&gt;There is an amazing WordPress tool call &lt;a href="http://wp-cli.org/"&gt;WP-CLI&lt;/a&gt; and if you haven't heard of it, you should check it out. In short, it gives you a &lt;abbr title="Command Link Interface"&gt;CLI&lt;/abbr&gt; for WordPress. Throughout the script, various tasks are completed using the CLI.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tasks Completed:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Activate plugins and theme&lt;/li&gt;
+&lt;li&gt;Create a primary menu (Main Menu)&lt;/li&gt;
+&lt;li&gt;Create a "Home" page and set it to the front page&lt;/li&gt;
+&lt;li&gt;Create additional pages (the user is prompted to input a comma separated list of pages)&lt;/li&gt;
+&lt;li&gt;Create a "Blog" page and set it to the page for posts&lt;/li&gt;
+&lt;li&gt;Update rewrite structure and timezone&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2 id="theresult"&gt;THE RESULT:&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Where does this leave us?&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;We can now set up a new WordPress site with only a few keystrokes! This is amazing news. A task that use to take us anywhere from 15 - 30 minutes, now only takes us around 5 minutes. With all that extra time, you could easily get through another HM blog post!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/mind-blown.gif" alt="mind-blown"&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Where do we go from here?&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Obviously this script isn't going to fit into everybody's workflow perfectly, but I'm sure there are pieces that can be extracted and used on their own in a lot of cases. Finding that perfect setup is like finding a unicorn. Although there are always going to be ways to improve, hopefully this will at least help you head in that direction.  &lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2 id="tldr"&gt;TL;DR:&lt;/h2&gt;
+
+&lt;p&gt;Setting up a new WordPress site takes way too long, and there are too many things to remember to do. This script solves that problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What this script will do:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Clone the latest version of WordPress&lt;/li&gt;
+&lt;li&gt;Update the configuration files with the project slug&lt;/li&gt;
+&lt;li&gt;Create a local database&lt;/li&gt;
+&lt;li&gt;Install Ruby dependencies&lt;/li&gt;
+&lt;li&gt;Set up WordPress locally&lt;/li&gt;
+&lt;li&gt;Create a BitBucket repository using the project slug&lt;/li&gt;
+&lt;li&gt;Add your deployment keys to the new repository&lt;/li&gt;
+&lt;li&gt;Create a new ServerPilot application&lt;/li&gt;
+&lt;li&gt;Create a new database for the application (randomly generated username and password)&lt;/li&gt;
+&lt;li&gt;Update the database.yml with the database credentials&lt;/li&gt;
+&lt;li&gt;Clone the needed plugins and themes&lt;/li&gt;
+&lt;li&gt;Update the Gruntfile with our project slug&lt;/li&gt;
+&lt;li&gt;Install NPM packages&lt;/li&gt;
+&lt;li&gt;Run the initial Grunt task&lt;/li&gt;
+&lt;li&gt;Activate plugins and theme&lt;/li&gt;
+&lt;li&gt;Create a primary menu (Main Menu)&lt;/li&gt;
+&lt;li&gt;Create a "Home" page and set it to the front page&lt;/li&gt;
+&lt;li&gt;Create additional pages (the user is prompted to input a comma separated list of pages)&lt;/li&gt;
+&lt;li&gt;Create a "Blog" page and set it to the page for posts&lt;/li&gt;
+&lt;li&gt;Update rewrite structure and timezone&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Think you have a better WordPress setup? Let me know in the comments. I'm always looking for ways to improve the way we do things here.&lt;/p&gt;
+
+&lt;p&gt;Feel free to head over to Github and grab &lt;a href="https://gist.github.com/kjbrum/04a243995c3334edbd23"&gt;the script&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title>Smooth Scrolling to Elements with JavaScript</title><description>&lt;p&gt;I always find myself searching for this little snippet on Google, so I decided it was about time I save it so it's easier to find from now on.&lt;/p&gt;
+
+&lt;p&gt;This will make every anchor tag on your site that has an &lt;code&gt;href="#"&lt;/code&gt; scroll smoothly to the desired element.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/12be2a913b987d206f23.js"&gt;&lt;/script&gt;</description><link>http://kjbrum.github.io/smooth-scrolling-to-elements-with-javascript/</link><guid isPermaLink="false">9fa95c08-8e30-46bb-ad29-ead7999de5e9</guid><category>Snippets</category><category>JavaScript</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Tue, 14 Jul 2015 04:18:00 GMT</pubDate><content:encoded>&lt;p&gt;I always find myself searching for this little snippet on Google, so I decided it was about time I save it so it's easier to find from now on.&lt;/p&gt;
+
+&lt;p&gt;This will make every anchor tag on your site that has an &lt;code&gt;href="#"&lt;/code&gt; scroll smoothly to the desired element.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/12be2a913b987d206f23.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>Using the First Paragraph as an Excerpt</title><description>&lt;p&gt;Excerpts aren't very flexible out of the box with WordPress. That's why I came up with this nice function for getting the first paragraph of the post content. This makes it so that you don't have any excerpts that just get randomly cut off in the middle of a sentence.&lt;/p&gt;</description><link>http://kjbrum.github.io/using-the-first-paragraph-as-an-excerpt/</link><guid isPermaLink="false">1429771c-e1a7-4ee8-b582-5dc3b0b0f911</guid><category>Snippets</category><category>WordPress</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Thu, 09 Jul 2015 22:36:00 GMT</pubDate><content:encoded>&lt;p&gt;Excerpts aren't very flexible out of the box with WordPress. That's why I came up with this nice function for getting the first paragraph of the post content. This makes it so that you don't have any excerpts that just get randomly cut off in the middle of a sentence.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/8f455fa285607dabbcf5.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>Cleaning a String in PHP</title><description>&lt;p&gt;It's not uncommon to use a post title as an identifier for some functionality. This function will clean up the supplied string and return a nicely formatted one.&lt;/p&gt;
+
+&lt;p&gt;In short, it removes any whitespace, replaces spaces with hyphens, removes non-alphanumeric characters, and makes everything lowercase.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/2fe7ae874bb0547d1e8a.js"&gt;&lt;/script&gt;</description><link>http://kjbrum.github.io/cleaning-a-string-in-php/</link><guid isPermaLink="false">35023661-fad0-49fd-8857-d3c8eaf696e3</guid><category>Snippets</category><category>PHP</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Mon, 06 Jul 2015 22:34:00 GMT</pubDate><content:encoded>&lt;p&gt;It's not uncommon to use a post title as an identifier for some functionality. This function will clean up the supplied string and return a nicely formatted one.&lt;/p&gt;
+
+&lt;p&gt;In short, it removes any whitespace, replaces spaces with hyphens, removes non-alphanumeric characters, and makes everything lowercase.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/2fe7ae874bb0547d1e8a.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>6 Web Development Tools to Increase Your Efficiency</title><description>Whether you're a pro or beginner, web development tools can save time and effort when it comes to web development and design. Here are 6 tools to help.</description><link>http://kjbrum.github.io/6-web-development-tools-to-increase-your-efficiency/</link><guid isPermaLink="false">08e8767b-f933-4e9d-85e4-2ac15e73d302</guid><category>Tips &amp; Tricks</category><category>Misc</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Wed, 20 May 2015 22:30:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/web-development-tools.png" alt="Web development tools collection"&gt;&lt;/p&gt;
+
+&lt;p&gt;As a web developer, I can't stand doing things inefficiently. There are so many development, design, or just everyday tasks that we do throughout the day, that can be done more efficiently. There's even a chance that the task can be automated to take most of the leg work out out of it. That's why I like web development tools so much. If you're like me, you like getting things done so you can spend more time with friends and family, or just browsing &lt;a href="http://www.reddit.com/"&gt;reddit&lt;/a&gt; and &lt;a href="http://imgur.com/"&gt;imgur&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2 id="applications"&gt;Applications&lt;/h2&gt;
+
+&lt;p&gt;There is an endless amount of applications out there that will help you be more efficient and productive, in fact, &lt;a href="https://itsahappymedium.com/blog/latest-news/6-approved-apps-approaching-productivity/"&gt;Andrew covered some of these&lt;/a&gt; a few months back. Not only are these great for web development, but they can help with everyday tasks as well.&lt;/p&gt;
+
+&lt;h3 id="alfredhttpwwwalfredappcom_maconly_"&gt;&lt;a href="http://www.alfredapp.com/"&gt;ALFRED&lt;/a&gt; - &lt;em&gt;Mac Only&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;Alfred is an amazing application and you can do any number of things with it. In order to unlock its full potential, you have to purchase the &lt;a href="https://buy.alfredapp.com/"&gt;Powerpack&lt;/a&gt;. Let me tell you, it is well worth it. Once you have the Powerpack, you can download or even create your own "workflows." Another amazing use is the "&lt;a href="http://support.alfredapp.com/kb:spell"&gt;spell&lt;/a&gt;" command. In fact, I used it 8 times while writing this article! A few of my favorites workflows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://wemakeawesomesh.it/alfred-dev-doctor/"&gt;Dev Doctor&lt;/a&gt; - Specifically the "caniuse" command which allows you to search &lt;a href="http://caniuse.com/"&gt;caniuse.com&lt;/a&gt;. (For when you need to check if something doesn't work in &lt;abbr title="Internet Explorer"&gt;IE&lt;/abbr&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.packal.org/workflow/colors"&gt;Colors&lt;/a&gt; - Lets you easily convert colors from one format to another. (i.e. Hex to RGB)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kjbrum/alfred-workflows/blob/master/Hipsum.alfredworkflow"&gt;Hipsum&lt;/a&gt; - Grabs dummy text using the &lt;a href="http://hipsum.co/"&gt;hipsum.co&lt;/a&gt; &lt;abbr title="Application Programming Interface"&gt;API&lt;/abbr&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kjbrum/alfred-workflows/blob/master/Reddit.alfredworkflow"&gt;Reddit&lt;/a&gt; - Puts the top posts of &lt;a href="http://reddit.com"&gt;reddit.com&lt;/a&gt; at your fingertips.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Feel free to check out all my &lt;a href="https://github.com/kjbrum/alfred-workflows"&gt;personal workflows on Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.alfredapp.com/"&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/alfred-colors.png" alt="alfred-colors" title=""&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="spectaclehttpspectacleappcom_maconly_"&gt;&lt;a href="http://spectacleapp.com/"&gt;SPECTACLE&lt;/a&gt; - &lt;em&gt;Mac Only&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;Do you ever find yourself struggling to move and organize all your windows? Spectacle can fix that! With Spectacle, you will be able to easily arrange your windows with minimal effort. It's as simple as &lt;em&gt;Command +&lt;/em&gt; &lt;em&gt;Option&lt;/em&gt; &lt;em&gt;+ Right Arrow&lt;/em&gt;. Your window is now covering the right half of your screen. BOOM! The shortcuts are easily customizable, and better yet, the project is &lt;a href="https://github.com/eczarny/spectacle"&gt;open source&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://spectacleapp.com/"&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/spectacle.png" alt="spectacle" title=""&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="flycuthttpsgithubcomtermitflycut_maconly_"&gt;&lt;a href="https://github.com/TermiT/Flycut"&gt;FLYCUT&lt;/a&gt; - &lt;em&gt;Mac Only&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;Holy smokes! If you have ever had to enter copy into a website, you know how tedious of a task it can be. Constantly going back and forth between the website and the copy document, copying paragraph by paragraph. That's just silly, don't do that! Flycut basically creates a "clipboard history" for you. This means that you can copy multiple chunks of text, and then paste them one by one with &lt;em&gt;Shift + Command + V&lt;/em&gt;. You can even sync your clipboard between computers using Dropbox. Again, Flycut is an open source project&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/TermiT/Flycut"&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/flycut.png" alt="flycut" title=""&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2 id="tools"&gt;Tools&lt;/h2&gt;
+
+&lt;p&gt;If you are a web developer, you have probably noticed the plethora of tools that have been sprouting up in the past couple of years. It is amazing to have so many great tools at our disposal, but it can be very difficult deciding what tools are really worth keeping around. I certainly haven't tried them all, but these are a few of my favorite.&lt;/p&gt;
+
+&lt;h3 id="buildtools"&gt;Build Tools&lt;/h3&gt;
+
+&lt;p&gt;If you do a lot of front end development, I'm sure you are familiar with the large number of tedious tasks that constantly need doing when making &lt;abbr title="Cascading Style Sheets"&gt;CSS&lt;/abbr&gt; or &lt;abbr title="JavaScript"&gt;JS&lt;/abbr&gt; changes. If you keep up with popular web development tools and trends, there is a high probability that you have heard of one of the many build tools out there, including &lt;a href="http://gruntjs.com/"&gt;Grunt&lt;/a&gt;, &lt;a href="http://gulpjs.com/"&gt;Gulp&lt;/a&gt;, and &lt;a href="http://brunch.io/"&gt;Brunch&lt;/a&gt;. Build tools are used to automate tasks, such as compiling Sass, minifying JS files, and compressing images. I have given both Grunt and Gulp a chance at proving themselves. They both have their pros and cons, but since starting at Happy Medium, Grunt has definitely taken the lead after using it on a day-to-day basis. Grunt has a much larger community, which in return, means that more plugins are created for it. If you don't currently use a build tool, I highly suggest giving them all a try and finding out which works best for you; they will completely change your workflow. Build tools with a &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt;: &lt;a href="https://incident57.com/codekit/"&gt;CodeKit&lt;/a&gt; (Mac) &amp;amp; &lt;a href="https://prepros.io/"&gt;Prepros&lt;/a&gt; (Windows)&lt;/p&gt;
+
+&lt;p&gt;&lt;a style="float: left" href="http://gruntjs.com"&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/grunt.png"&gt;&lt;/a&gt;&lt;a style="float: left; padding-left: 50px" href="http://gulpjs.com"&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/gulp.png"&gt;&lt;/a&gt;&lt;a style="float: left; padding-left: 50px;" href="http://brunch.io"&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/brunch.png"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br style="clear: both"&gt;&lt;/p&gt;
+
+&lt;h3 id="browsersynchttpwwwbrowsersyncio"&gt;&lt;a href="http://www.browsersync.io/"&gt;BROWSERSYNC&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;BrowserSync is another great tool for front end development. Again, I'm sure you are familiar with how tedious it can be when working with CSS and JS. For example, you make a change to your stylesheet, save the changes, and then have to go back and refresh your browser window so the changes will appear. There is no need for that - let BrowserSync help you out. A few things you get with BrowserSync:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;File syncing - the browser will automatically update when you make changes to your files&lt;/li&gt;
+&lt;li&gt;Remote Inspection - Inspect a browser on any device, remotely&lt;/li&gt;
+&lt;li&gt;URL Tunneling - Share your local sites with everyone&lt;/li&gt;
+&lt;li&gt;Interaction Sync - Any interactions you perform (click, scroll, etc...), are mirrored between your browsers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;BrowserSync has a &lt;abbr title="Command Line Interface"&gt;CLI&lt;/abbr&gt; or you can integrate it into your workflow with &lt;a href="http://www.browsersync.io/docs/grunt/"&gt;Grunt&lt;/a&gt; or &lt;a href="http://www.browsersync.io/docs/gulp/"&gt;Gulp&lt;/a&gt;. If you combine BrowserSync and Grunt a typical workflow might look something like this.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Open the terminal, navigate to your project directory, and run  &lt;code&gt;$ grunt bs. &lt;/code&gt;This will start the BrowserSync task, which will watch for changes made to your project files.  &lt;/li&gt;
+&lt;li&gt;When you make a change to a Sass file, Grunt will see the change, run that task to compile your Sass files, and then BrowserSync will update your browser accordingly.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href="http://www.browsersync.io/"&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/browsersync.png" alt="browsersync" title=""&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="wpclihttpwpcliorg"&gt;&lt;a href="http://wp-cli.org/"&gt;WP-CLI&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;If you are a WordPress developer, WP-CLI is a must have. WP-CLI is, you guessed it, a command line tool for performing WordPress tasks. Commands range from scaffolding a new plugin to flushing the rewrite rules, if it's something you can do in the admin area, it can probably be done with the CLI. If you want to fully harness the power of WP-CLI, you could write a Bash script to help you set up a new project with just a few commands. I've actually been working on my own setup script that you can &lt;a href="https://github.com/kjbrum/wp-setup-script"&gt;check it out on Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://wp-cli.org/"&gt;&lt;img src="http://kjbrum.github.io/content/images/2015/08/wp-cli.png" alt="wp-cli" title=""&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2 id="honorablementions"&gt;Honorable Mentions&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://sass-lang.com/"&gt;Sass&lt;/a&gt; - CSS preprocessor&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://bower.io/"&gt;Bower&lt;/a&gt; - A package manager for the web&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.npmjs.com/"&gt;NPM&lt;/a&gt; - Node Package Manager&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://brew.sh/"&gt;Homebrew&lt;/a&gt; - The missing package manager for OS X&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://capistranorb.com/"&gt;Capistrano&lt;/a&gt; - Remote server automation and deployment tool&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At the end of the day, it doesn't really matter what you use to help you get the job done. Just remember to always keep improving the way you do things and that it's likely you can change the way you do something each day to be more efficient. Have you heard of all these applications and tools before? What applications and tools do you use that help you be more efficient? Have a workflow you think I could use? I'm always looking for new ways to automate and save time. Leave your comments below!&lt;/p&gt;</content:encoded></item><item><title>Sorting Arrays by Key Value</title><description>&lt;p&gt;I can't remember where this came in handy, but I know I needed it at some point. This snippet does exactly what it says, sorts a JavaScript array by the supplied key value.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/8591343d83598dc53ef1.js"&gt;&lt;/script&gt;</description><link>http://kjbrum.github.io/sorting-arrays-by-key-value/</link><guid isPermaLink="false">7e17d40d-f70d-4948-90b7-0457f051cf28</guid><category>Snippets</category><category>JavaScript</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Thu, 09 Apr 2015 22:37:00 GMT</pubDate><content:encoded>&lt;p&gt;I can't remember where this came in handy, but I know I needed it at some point. This snippet does exactly what it says, sorts a JavaScript array by the supplied key value.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/8591343d83598dc53ef1.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>Remove Specified Keys from an Array</title><description>&lt;p&gt;When working with a large array of data, it's not ideal to have to loop through everything multiple times, when you don't need all the information.&lt;/p&gt;
+
+&lt;p&gt;This little helper function allows you to pass an array of keys that you no longer need, and remove them from the supplied array.&lt;/p&gt;</description><link>http://kjbrum.github.io/remove-specified-keys-from-an-array/</link><guid isPermaLink="false">30b00ca0-0c5c-412b-8fe4-d1bd534868ef</guid><category>Snippets</category><category>PHP</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Sat, 14 Mar 2015 03:19:00 GMT</pubDate><content:encoded>&lt;p&gt;When working with a large array of data, it's not ideal to have to loop through everything multiple times, when you don't need all the information.&lt;/p&gt;
+
+&lt;p&gt;This little helper function allows you to pass an array of keys that you no longer need, and remove them from the supplied array.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/a92ebd2d4fc3fded6bc2.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>Searching for Values in Arrays</title><description>&lt;p&gt;While dealing with 3rd party API's, it's common to deal with multidimensional arrays. Unfortunately PHP only has a built in function for looking for a value in a single dimension array.&lt;/p&gt;
+
+&lt;p&gt;This snippet will loop through all the arrays inside the multidimensional array and looks for the supplied value. This&lt;/p&gt;</description><link>http://kjbrum.github.io/searching-for-values-in-arrays/</link><guid isPermaLink="false">1459822e-e3ed-4bd0-9a74-62c61bdf3593</guid><category>Snippets</category><category>PHP</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Fri, 13 Mar 2015 00:51:00 GMT</pubDate><content:encoded>&lt;p&gt;While dealing with 3rd party API's, it's common to deal with multidimensional arrays. Unfortunately PHP only has a built in function for looking for a value in a single dimension array.&lt;/p&gt;
+
+&lt;p&gt;This snippet will loop through all the arrays inside the multidimensional array and looks for the supplied value. This function will work with single dimension arrays, multidimensional arrays, and associative arrays.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/73e89a40e14631c08553.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>Converting a CSV File to an Array</title><description>&lt;p&gt;A while back, I built a WordPress plugin that would communicate with a Google Drive spreadsheet. It would download the spreadsheet as a CSV, and then pull the file in and convert it to an array. That's how this snippet came to be!&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/3181df2bc451bac361a4.js"&gt;&lt;/script&gt;</description><link>http://kjbrum.github.io/converting-a-csv-file-to-an-array/</link><guid isPermaLink="false">7fbc4a74-cd19-489e-aa4f-f4e90841a77d</guid><category>PHP</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Fri, 13 Mar 2015 00:45:00 GMT</pubDate><content:encoded>&lt;p&gt;A while back, I built a WordPress plugin that would communicate with a Google Drive spreadsheet. It would download the spreadsheet as a CSV, and then pull the file in and convert it to an array. That's how this snippet came to be!&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/3181df2bc451bac361a4.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>Getting Attachment Image Data</title><description>&lt;p&gt;In my opinion, WordPress does a terrible job of supplying developers with functions for getting attachment image data.&lt;/p&gt;
+
+&lt;p&gt;Sometimes it's nice to be able to get all the data available for an attachment image, and nothing like this is built into WordPress. This snippet will allow you to do just&lt;/p&gt;</description><link>http://kjbrum.github.io/getting-attachment-image-data/</link><guid isPermaLink="false">c81e5f6b-ac67-481f-a956-287a0cf0dc69</guid><category>Snippets</category><category>WordPress</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Wed, 11 Mar 2015 22:35:00 GMT</pubDate><content:encoded>&lt;p&gt;In my opinion, WordPress does a terrible job of supplying developers with functions for getting attachment image data.&lt;/p&gt;
+
+&lt;p&gt;Sometimes it's nice to be able to get all the data available for an attachment image, and nothing like this is built into WordPress. This snippet will allow you to do just that. It will even give you all the different image sizes in a nice array.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/028ccc3ff718e77f9f78.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>Implementing Social Sharing Popup Windows</title><description>&lt;p&gt;Social sharing is all the craze these days, right, maybe, I think so. It's nice being able to have a small little window popup instead of opening a whole new window on the user.&lt;/p&gt;
+
+&lt;p&gt;Just toss the code in your JavaScript file and wrap your social share links in a&lt;/p&gt;</description><link>http://kjbrum.github.io/implementing-social-sharing-popup-windows/</link><guid isPermaLink="false">ac2bcccf-9f32-495f-9a4b-59bbf8d838c6</guid><category>Snippets</category><category>JavaScript</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Fri, 06 Mar 2015 00:39:00 GMT</pubDate><content:encoded>&lt;p&gt;Social sharing is all the craze these days, right, maybe, I think so. It's nice being able to have a small little window popup instead of opening a whole new window on the user.&lt;/p&gt;
+
+&lt;p&gt;Just toss the code in your JavaScript file and wrap your social share links in a container with a &lt;code&gt;.social-share&lt;/code&gt; class and reap the rewards.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/9fa7948aceb969434445.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>Create a Custom Length Content String</title><description>&lt;p&gt;Sometimes excerpts just don't cut it. This snippet will allow you to grab a specified amount of words from the post's content. You can optionally remove all the html tags (except paragraph and anchor).&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/5d90663036d64e5f5c9f.js"&gt;&lt;/script&gt;</description><link>http://kjbrum.github.io/create-a-custom-length-content-string/</link><guid isPermaLink="false">22acb837-ae49-424a-b879-2b1dc87b2c0f</guid><category>Snippets</category><category>WordPress</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Thu, 26 Feb 2015 00:20:00 GMT</pubDate><content:encoded>&lt;p&gt;Sometimes excerpts just don't cut it. This snippet will allow you to grab a specified amount of words from the post's content. You can optionally remove all the html tags (except paragraph and anchor).&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/5d90663036d64e5f5c9f.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>Automated Cache Busting Styles and JavaScript</title><description>&lt;p&gt;Browser caching can be the worst sometimes. You make a change to a client's site, tell them it's live, and the next thing you know they are telling you it's not showing up.&lt;/p&gt;
+
+&lt;p&gt;This can happen a lot when you making style changes. To alleviate this issue, we can add&lt;/p&gt;</description><link>http://kjbrum.github.io/automated-cache-busting-styles-and-javascript/</link><guid isPermaLink="false">6e248be8-003e-46db-8d82-0cd3cefee088</guid><category>Snippets</category><category>Tips &amp; Tricks</category><category>WordPress</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Wed, 28 Jan 2015 00:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Browser caching can be the worst sometimes. You make a change to a client's site, tell them it's live, and the next thing you know they are telling you it's not showing up.&lt;/p&gt;
+
+&lt;p&gt;This can happen a lot when you making style changes. To alleviate this issue, we can add a version to our stylesheets and JavaScript files. We do this by using the the file's last modified time as the version.&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/76a301b9086357a89bab.js"&gt;&lt;/script&gt;</content:encoded></item><item><title>Disable Searching on Your Site</title><description>&lt;p&gt;Sometimes you just don't want/need people to be able to search. Just add this to your &lt;code&gt;functions.php&lt;/code&gt; and BAM!&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/3c4370dd3b9426bc5add.js"&gt;&lt;/script&gt;</description><link>http://kjbrum.github.io/disable-searching-on-your-site/</link><guid isPermaLink="false">05e9641a-81d9-43eb-9b49-5e5d05c163b4</guid><category>Snippets</category><category>Tips &amp; Tricks</category><category>WordPress</category><dc:creator>Kyle Brumm</dc:creator><pubDate>Sat, 20 Dec 2014 00:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Sometimes you just don't want/need people to be able to search. Just add this to your &lt;code&gt;functions.php&lt;/code&gt; and BAM!&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/kjbrum/3c4370dd3b9426bc5add.js"&gt;&lt;/script&gt;</content:encoded></item></channel></rss>
