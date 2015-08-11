@@ -1,0 +1,340 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>The Ultimate WordPress Setup</title>
+    <meta name="description" content="Repositories, databases, dependencies. Nobody said setting up a WordPress site was easy, until now. Check out this bash script that does the heavy lifting.">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=26b02e42ea">
+    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css?v=26b02e42ea">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+
+    <link rel="canonical" href="http://localhost:2368/the-ultimate-wordpress-setup/">
+    
+    <meta property="og:site_name" content="Kyle Brumm">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Ultimate WordPress Setup">
+    <meta property="og:description" content="Repositories, databases, dependencies. Nobody said setting up a WordPress site was easy, until now. Check out this bash script that does the heavy lifting.">
+    <meta property="og:url" content="http://localhost:2368/the-ultimate-wordpress-setup/">
+    <meta property="article:published_time" content="2015-07-31T22:31:00.000Z">
+    <meta property="article:modified_time" content="2015-08-11T04:42:10.997Z">
+    <meta property="article:tag" content="Tips &amp;amp; Tricks">
+    <meta property="article:tag" content="WordPress">
+    <meta property="article:tag" content="Misc">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="The Ultimate WordPress Setup">
+    <meta name="twitter:description" content="Repositories, databases, dependencies. Nobody said setting up a WordPress site was easy, until now. Check out this bash script that does the heavy lifting.">
+    <meta name="twitter:url" content="http://localhost:2368/the-ultimate-wordpress-setup/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Kyle Brumm",
+    "author": {
+        "@type": "Person",
+        "name": "Kyle Brumm",
+        "image": "//www.gravatar.com/avatar/2757ca80a19c1afdaf8eb59fe0250152?s=250&d=mm&r=x",
+        "url": "http://localhost:2368/author/kyle",
+        "sameAs": null,
+        "description": "Developer. Designer. Photographer. Gamer."
+    },
+    "headline": "The Ultimate WordPress Setup",
+    "url": "http://localhost:2368/the-ultimate-wordpress-setup/",
+    "datePublished": "2015-07-31T22:31:00.000Z",
+    "dateModified": "2015-08-11T04:42:10.997Z",
+    "keywords": "Tips &amp;amp; Tricks, WordPress, Misc",
+    "description": "Repositories, databases, dependencies. Nobody said setting up a WordPress site was easy, until now. Check out this bash script that does the heavy lifting."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.6">
+    <link rel="alternate" type="application/rss+xml" title="Kyle Brumm" href="http://localhost:2368/rss/">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-32465732-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body class="post-template tag-tips-tricks tag-wordpress tag-misc nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="index.html#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://localhost:2368/">Home</a></li>
+            <li class="nav-about" role="presentation"><a href="http://localhost:2368/about/">About</a></li>
+            <li class="nav-case-studies" role="presentation"><a href="http://localhost:2368/tag/case-studies/">Case Studies</a></li>
+            <li class="nav-contact" role="presentation"><a href="http://localhost:2368/contact/">Contact</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="http://localhost:2368/rss/">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo icon-arrow-left" href="http://localhost:2368">Home</a>
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">The Ultimate WordPress Setup</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="07-31-2015">July 31, 2015</time>  on <a href="../tag/tips-tricks/">Tips &amp; Tricks</a>, <a href="../tag/wordpress/">WordPress</a>, <a href="../tag/misc/">Misc</a>
+            </section>
+        </div>
+    </div>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-tips-tricks tag-wordpress tag-misc">
+
+        <section class="post-content">
+            <p><img src="../content/images/2015/08/the-ultimate-wp-setup.jpg" alt="The Ultimate WordPress Setup"></p>
+
+<p>If you haven't noticed by now, here at Happy Medium, we like to make WordPress sites. The majority of our sites we create are done with <a href="https://wordpress.org/">WordPress</a>. I don't think I'm alone when I say setting up a new project sucks. There are just so many things you have to remember to do and it seems like a never ending list. When I started at Happy Medium, I remember learning the process of setting up a new website, it was a lot to remember. It's not like it was <em>terrible</em> or anything, it was just a lot for a new employee to learn, as well as being pretty time consuming. If you read my last blog post, you may recall me saying that if I can make something more efficient, I am going to.  </p>
+
+<h2 id="theproblem">THE PROBLEM:</h2>
+
+<p>Let me give you an example. I have a task to set up a new WordPress site for "Client X". A typical workflow would look something like:</p>
+
+<ul>
+<li>Create a <a href="https://git-scm.com/">Git</a> repository (<a href="https://github.com/">Github</a> / <a href="https://bitbucket.org/">BitBucket</a>)</li>
+<li>Setup a staging server</li>
+<li>Clone our base WordPress repo</li>
+<li>Clone our base plugin and theme</li>
+<li>Create a local database</li>
+<li>Run the, <em>very simple</em>, prepare script</li>
+</ul>
+
+<p>That's just to name a few, but if you are like us, you have a laundry list of tasks to complete before actually have a new site up and running. For setting things up, we use a tool called <a href="https://github.com/Mixd/wp-deploy">wp-deploy</a>. It's a framework for deploying WordPress sites using <a href="http://capistranorb.com/">Capistrano</a>, it's pretty amazing. Along with deployment, it also has WordPress included as a <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">submodule</a>. Now this is all fine and dandy, but it doesn't help a whole lot with the initial setup of a site.</p>
+
+<p><img src="../content/images/2015/08/struggle-puppy.gif" alt="struggle-puppy"></p>
+
+<h2 id="thesolution">THE SOLUTION:</h2>
+
+<p>I have been trying to learn more about bash scripting lately, so I figured this would be a great opportunity to learn a few things and make the team's lives a little easier. I started by breaking the setup process into small chunks and tackling them one by one. I started with the base <a href="https://github.com/Mixd/wp-deploy/blob/master/config/prepare.sh">prepare.sh</a> script and expanded on it. The overall goal of the script was to make it so the user would only have to answer simple prompts and make as few decisions as possible.</p>
+
+<h3 id="configuration">CONFIGURATION</h3>
+
+<p>The first thing you have to do with a new wp-deploy project, is setup your configuration file. The simplest thing to do was to ask the user to input the project "slug". If we continue with our example, our slug would be "clientx". Once the user inputs the project slug, it's smooth sailing from their.</p>
+
+<p><strong>Note:</strong> Before running the script, you will need to add your credentials to the config.cfg file. This is used to keep your personal information in it's own file and separate from the script.</p>
+
+<p><strong>Tasks Completed:</strong></p>
+
+<ul>
+<li>Clone the latest version of WordPress</li>
+<li>Update the configuration files with the project slug</li>
+<li>Create a local database</li>
+<li>Install Ruby dependencies</li>
+<li>Set up WordPress locally</li>
+</ul>
+
+<h3 id="bitbucket">BITBUCKET</h3>
+
+<p>Here at HM, we like to use Bitbucket for storing our projects. If you don't use version control, you should! For every project we need to create a new repository for storing the code. To make this work, I used BitBuckets API. After running a couple <a href="http://curl.haxx.se/">curl</a> requests you will have a new repository with all your deployment keys. <a href="https://confluence.atlassian.com/display/BITBUCKET/repository+Resource#repositoryResource-POSTanewrepository">Read More on the BitBucket API.</a></p>
+
+<p><strong>Note:</strong> Your deployment keys will need to be added to the deployment.txt file. </p>
+
+<p><strong>Tasks Completed:</strong></p>
+
+<ul>
+<li>Create a BitBucket repository using the project slug</li>
+<li>Add your deployment keys to the new repository</li>
+</ul>
+
+<h3 id="serverpilot">SERVERPILOT</h3>
+
+<p>We use ServerPilot for managing all our projects and servers. Just like our repository, we need to set up a new staging site. I took the same approach with this, using a couple curl requests got the job done. I found out that when you create a new ServerPilot app, it isn't instantly available to have a database added to it. To fix this I had to do a bit of text parsing in order to get the information I needed. I stored the app creation request in a variable and then parsed it to get the new app ID (used to create the database) and the action ID (used to check when the app was created). After the app was finished being created, I was able to add a database using the previously parsed app ID. <a href="https://github.com/ServerPilot/API">Read more on the ServerPilot API.</a></p>
+
+<p><strong>Tasks Completed:</strong></p>
+
+<ul>
+<li>Create a new ServerPilot application</li>
+<li>Create a new database for the application (randomly generated username and password)</li>
+<li>Update the database.yml with the database credentials</li>
+</ul>
+
+<h3 id="pluginsthemes">PLUGINS/THEMES</h3>
+
+<p>For most projects, we have our own plugin and theme that we have rolled up to help get things started and create consistency. Along with those we have a few plugins that find their way into almost every project as well. To get these set up, we would have to clone each one of them into their respective directories (plugins or themes). Additionally, our theme comes Grunt ready with a few helpful tasks (Sass compiling, minification, browser syncing, SVG spriting). In order for all these to work properly, we have to install our <abbr title="Node Package Manager">NPM</abbr> packages and run our default Grunt task. Simple enough, just a couple commands and we're good to go!</p>
+
+<p><strong>Tasks Completed:</strong></p>
+
+<ul>
+<li>Clone the needed plugins and themes</li>
+<li>Update the Gruntfile with our project slug</li>
+<li>Install NPM packages</li>
+<li>Run the initial Grunt task</li>
+</ul>
+
+<h3 id="miscellaneous">MISCELLANEOUS</h3>
+
+<p>There is an amazing WordPress tool call <a href="http://wp-cli.org/">WP-CLI</a> and if you haven't heard of it, you should check it out. In short, it gives you a <abbr title="Command Link Interface">CLI</abbr> for WordPress. Throughout the script, various tasks are completed using the CLI.</p>
+
+<p><strong>Tasks Completed:</strong></p>
+
+<ul>
+<li>Activate plugins and theme</li>
+<li>Create a primary menu (Main Menu)</li>
+<li>Create a "Home" page and set it to the front page</li>
+<li>Create additional pages (the user is prompted to input a comma separated list of pages)</li>
+<li>Create a "Blog" page and set it to the page for posts</li>
+<li>Update rewrite structure and timezone</li>
+</ul>
+
+<h2 id="theresult">THE RESULT:</h2>
+
+<p><em><strong>Where does this leave us?</strong></em></p>
+
+<p>We can now set up a new WordPress site with only a few keystrokes! This is amazing news. A task that use to take us anywhere from 15 - 30 minutes, now only takes us around 5 minutes. With all that extra time, you could easily get through another HM blog post!</p>
+
+<p><img src="../content/images/2015/08/mind-blown.gif" alt="mind-blown"></p>
+
+<p><em><strong>Where do we go from here?</strong></em></p>
+
+<p>Obviously this script isn't going to fit into everybody's workflow perfectly, but I'm sure there are pieces that can be extracted and used on their own in a lot of cases. Finding that perfect setup is like finding a unicorn. Although there are always going to be ways to improve, hopefully this will at least help you head in that direction.  </p>
+
+<h2 id="tldr">TL;DR:</h2>
+
+<p>Setting up a new WordPress site takes way too long, and there are too many things to remember to do. This script solves that problem.</p>
+
+<p><strong>What this script will do:</strong></p>
+
+<ul>
+<li>Clone the latest version of WordPress</li>
+<li>Update the configuration files with the project slug</li>
+<li>Create a local database</li>
+<li>Install Ruby dependencies</li>
+<li>Set up WordPress locally</li>
+<li>Create a BitBucket repository using the project slug</li>
+<li>Add your deployment keys to the new repository</li>
+<li>Create a new ServerPilot application</li>
+<li>Create a new database for the application (randomly generated username and password)</li>
+<li>Update the database.yml with the database credentials</li>
+<li>Clone the needed plugins and themes</li>
+<li>Update the Gruntfile with our project slug</li>
+<li>Install NPM packages</li>
+<li>Run the initial Grunt task</li>
+<li>Activate plugins and theme</li>
+<li>Create a primary menu (Main Menu)</li>
+<li>Create a "Home" page and set it to the front page</li>
+<li>Create additional pages (the user is prompted to input a comma separated list of pages)</li>
+<li>Create a "Blog" page and set it to the page for posts</li>
+<li>Update rewrite structure and timezone</li>
+</ul>
+
+<p>Think you have a better WordPress setup? Let me know in the comments. I'm always looking for ways to improve the way we do things here.</p>
+
+<p>Feel free to head over to Github and grab <a href="https://gist.github.com/kjbrum/04a243995c3334edbd23">the script</a>.</p>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <section class="author">
+                <h4>Kyle Brumm</h4>
+
+                    <p>Developer. Designer. Photographer. Gamer. Get ahold of me on <a href="http://github.com/kjbrum" class="github" target="_blank">Github</a>, <a href="http://twitter.com/kyle_brumm" class="twitter" target="_blank">Twitter</a>, <a href="https://dribbble.com/kjbrum" class="dribbble" target="_blank">Dribbble</a>, or <a href="http://facebook.com/kylebrumm" class="facebook" target="_blank">Facebook</a>.</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="js-social-share fa fa-twitter-square" href="https://twitter.com/share?text=The%20Ultimate%20WordPress%20Setup&amp;url=http://localhost:2368/the-ultimate-wordpress-setup/">
+                    <span class="hidden">Twitter</span>
+                </a>
+
+                <a class="js-social-share fa fa-facebook-square" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/the-ultimate-wordpress-setup/">
+                    <span class="hidden">Facebook</span>
+                </a>
+
+                <a class="js-social-share fa fa-google-plus-square" href="https://plus.google.com/share?url=http://localhost:2368/the-ultimate-wordpress-setup/">
+                    <span class="hidden">Google+</span>
+                </a>
+
+                <a class="js-social-share fa fa-linkedin-square" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:2368/the-ultimate-wordpress-setup/&amp;title=The%20Ultimate%20WordPress%20Setup&amp;source=http://localhost:2368&amp;summary=If%20you%20haven't%20noticed%20by%20now,%20here%20at%20Happy%20Medium,%20we%20like%20to%20make%20WordPress%20sites.%20The%20majority%20of%20our%20sites%20we%20create%20are%20done%20with%20WordPress.%20I%20don't%20think%20I'm%20alone%20when%20I%20say%20setting%20up%20a%20new%20project%20sucks.%20There%20are%20just%20so%20many%20things%20you%20have%20to">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+        <hr>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'kylebrumm';
+            var disqus_identifier = 10;
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+    </article>
+</main>
+
+<!--<aside class="read-next">
+    <a class="read-next-story no-cover" href="/my-personal-bash-profile/">
+        <section class="post">
+            <h2>My Personal Bash Profile</h2>
+            <p>I don't know about anyone else, but I love finding and creating new things to put in my .bash_&hellip;</p>
+        </section>
+    </a>
+    <a class="read-next-story prev no-cover" href="/smooth-scrolling-to-elements-with-javascript/">
+        <section class="post">
+            <h2>Smooth Scrolling to Elements with JavaScript</h2>
+            <p>I always find myself searching for this little snippet on Google, so I decided it was about time I&hellip;</p>
+        </section>
+    </a>
+</aside>-->
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright">
+                <a href="http://localhost:2368">Kyle Brumm</a> © 2015
+            </section>
+            <section class="poweredby">
+                Proudly published with <a href="https://ghost.org" target="_blank">Ghost</a>
+            </section>
+        </footer>
+
+    </div>
+
+    <script src="../public/jquery.js?v=26b02e42ea"></script>
+
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=26b02e42ea"></script>
+    <script type="text/javascript" src="../assets/js/index.js?v=26b02e42ea"></script>
+
+</body>
