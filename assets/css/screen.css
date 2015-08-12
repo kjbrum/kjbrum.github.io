@@ -556,6 +556,7 @@ body.nav-opened .site-wrapper {
     transition: 0.3s ease;
     width: 40px;
     height: 40px;
+    outline: none;
 }
 
 .social-media a i {
