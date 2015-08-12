@@ -7,52 +7,117 @@
     "use strict";
 
     var $document = $(document);
+    var current_track = {
+        url: '',
+        image: '',
+        title: '',
+        artist: '',
+        album: ''
+    };
 
     $document.ready(function () {
 
         var $postContent = $(".post-content");
         $postContent.fitVids();
 
-        $(".scroll-down").arctic_scroll();
+        // $(".scroll-down").arctic_scroll();
 
         $(".menu-button, .nav-cover, .nav-close").on("click", function(e){
             e.preventDefault();
             $("body").toggleClass("nav-opened nav-closed");
         });
 
+        if($('.js-current-track').length) {
+            queryLastFM();
+        }
     });
 
-    // Arctic Scroll by Paul Adam Davis
-    // https://github.com/PaulAdamDavis/Arctic-Scroll
-    $.fn.arctic_scroll = function (options) {
+    var queryLastFM = function() {
+        $.ajax({
+            type: 'GET',
+            url: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=kjbrum&api_key=da3d6b59d72cbd535ce2405ec13b97be&limit=1&format=json',
+            dataType: 'json',
+            error: function() {
+                console.log('Error getting track from LastFM.');
+            },
+            success: function(data) {
+                var single_track;
 
-        var defaults = {
-            elem: $(this),
-            speed: 500
-        },
+                if(data.recenttracks.track[0]) {
+                    single_track = data.recenttracks.track[0];
+                } else {
+                    single_track = data.recenttracks.track;
+                }
 
-        allOptions = $.extend(defaults, options);
+                current_track.image = single_track.image[2]['#text'];
+                current_track.title = single_track.name;
+                current_track.artist = single_track.artist['#text'];
+                current_track.album = single_track.album['#text'];
 
-        allOptions.elem.click(function (event) {
-            event.preventDefault();
-            var $this = $(this),
-                $htmlBody = $('html, body'),
-                offset = ($this.attr('data-offset')) ? $this.attr('data-offset') : false,
-                position = ($this.attr('data-position')) ? $this.attr('data-position') : false,
-                toMove;
+                window.current_track = current_track;
 
-            if (offset) {
-                toMove = parseInt(offset);
-                $htmlBody.stop(true, false).animate({scrollTop: ($(this.hash).offset().top + toMove) }, allOptions.speed);
-            } else if (position) {
-                toMove = parseInt(position);
-                $htmlBody.stop(true, false).animate({scrollTop: toMove }, allOptions.speed);
-            } else {
-                $htmlBody.stop(true, false).animate({scrollTop: ($(this.hash).offset().top) }, allOptions.speed);
+                searchSpotify(current_track);
             }
         });
 
-    };
+    }
+
+    // Get track information from Spotify
+    var searchSpotify = function(current_track) {
+        var searchQuery = '';
+
+        $.each( current_track, function( key, value ) {
+            if(value) {
+                if(key != 'image') {
+                    searchQuery += key+':'+value+' ';
+                }
+            }
+        });
+
+        $.ajax({
+            type: 'GET',
+            url: 'https://api.spotify.com/v1/search?query='+encodeURIComponent(searchQuery)+'&offset=0&limit=1&type=track',
+            dataType: 'json',
+            error: function() {
+                console.log('Error getting track information from Spotify.');
+            },
+            success: function(data) {
+                if(data.tracks.items[0]) {
+                    var item = data.tracks.items[0];
+
+                    // current_track.url = item.external_urls.spotify;
+                    // current_track.title = item.name;
+                    // current_track.album = item.album.name;
+                    // current_track.image = item.album.images[1].url;
+
+                    // current_track.artist = '';
+                    // $.each( item.artists, function( key, value ) {
+                    //     current_track.artist += value.name;
+                    //     if(key != (item.artists.length - 1)) {
+                    //         current_track.artist += ', ';
+                    //     }
+                    // });
+
+                    $('.js-current-track .track-details').append('<p>&nbsp;</p><h5>Currently Playing:</h5><iframe src="https://embed.spotify.com/?uri='+encodeURIComponent(item.uri)+'" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>');
+
+                    // Get the image from Spotify
+                    // $.each( current_track, function( key, value ) {
+                    //     if(value) {
+                    //         if(key == 'url') {
+                    //             $('.js-current-track .track-details').wrap('<a href="'+value+'" target="_blank"></a>');
+                    //         } else if(key == 'image') {
+                    //             $('.js-current-track .track-details').append('<p class="image"><img src="'+value+'"></p>');
+                    //         } else {
+                    //             $('.js-current-track .track-details').append('<p class="'+key+'">'+value+'</p>');
+                    //         }
+                    //     }
+                    // });
+                } else {
+                    console.log('No matching tracks were found on Spotify.');
+                }
+            }
+        });
+    }
 
     var jsSocialShares = document.querySelectorAll('.js-social-share');
     if(jsSocialShares) {

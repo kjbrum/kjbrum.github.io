@@ -527,31 +527,73 @@ body.nav-opened .site-wrapper {
     background: #EBF2F6;
 }
 
-.main-header .subscribe {
-    display: none;
+.social-media {
     position: absolute;
+    display: none;
     top: 100%;
     left: 50%;
-    z-index: 99;
-    border: 1px solid #EBF2F6;
-    font-size: 1.2rem;
-    padding: 10px;
+    width: 100%;
     line-height: 0;
-    border-radius: 100%;
-    background: #ffffff;
-    color: #5AA8B3;
+    z-index: 99;
     transform: translate(-50%,-50%);
-    transition: 0.3s ease;
 }
 
-.home-template .main-header .subscribe,
-.archive-template .main-header .subscribe {
+.home-template .social-media,
+.author-template .social-media,
+.archive-template .social-media {
     display: block;
 }
 
-.main-header .subscribe:hover {
+.social-media a {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #EBF2F6;
+    font-size: 2.5rem;
+    /*padding: 10px;*/
+    border-radius: 100%;
+    background: #ffffff;
+    color: #919CA4;
+    transition: 0.3s ease;
+    width: 40px;
+    height: 40px;
+}
+
+.social-media a i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.social-media a:hover {
     border-color: #5AA8B3;
 }
+
+.social-media .github:hover {
+    color: #333333;
+    border-color: #333333;
+}
+.social-media .twitter:hover {
+    color: #55acee;
+    border-color: #55acee;
+}
+.social-media .google-plus:hover {
+    color: #dd4b39;
+    border-color: #dd4b39;
+}
+.social-media .linkedin:hover {
+    color: #007bb6;
+    border-color: #007bb6;
+}
+.social-media .dribbble:hover {
+    color: #ea4c89;
+    border-color: #ea4c89;
+}
+.social-media .facebook:hover {
+    color: #3b5998;
+    border-color: #3b5998;
+}
+
 
 /*.main-header .subscribe:after {
     content: '';
@@ -1277,13 +1319,13 @@ body:not(.post-template) .post-title {
     outline: 0;
 }
 
+.github:hover,
+.post-footer .share .fa-github-square {
+    color: #333333;
+}
 .twitter:hover,
 .post-footer .share .fa-twitter-square {
     color: #55acee;
-}
-.facebook:hover,
-.post-footer .share .fa-facebook-square {
-    color: #3b5998;
 }
 .google-plus:hover,
 .post-footer .share .fa-google-plus-square {
@@ -1297,9 +1339,9 @@ body:not(.post-template) .post-title {
 .post-footer .share .fa-dribbble-square {
     color: #ea4c89;
 }
-.github:hover,
-.post-footer .share .fa-github-square {
-    color: #333333;
+.facebook:hover,
+.post-footer .share .fa-facebook-square {
+    color: #3b5998;
 }
 
 
@@ -1345,7 +1387,7 @@ body:not(.post-template) .post-title {
 }
 
 /* Add a little circle in the middle of the border-bottom */
-.author-profile:after {
+/*.author-profile:after {
     display: block;
     content: "";
     width: 7px;
@@ -1358,7 +1400,7 @@ body:not(.post-template) .post-title {
     background: #FFF;
     border-radius: 100%;
     box-shadow: #FFF 0 0 0 5px;
-}
+}*/
 
 .author-image {
     -webkit-box-sizing: border-box;
@@ -2117,6 +2159,20 @@ body:not(.post-template) .post-title {
 
 }
 
+.js-current-track {
+    text-align: center;
+}
+
+.js-current-track .track-details {
+    display: inline-block;
+}
+
+.js-current-track .image,
+.js-current-track .title,
+.js-current-track .artist,
+.js-current-track .album {
+    margin-bottom: 0.5rem;
+}
 
 /* ==========================================================================
    13. Animations
