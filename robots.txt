@@ -1,3 +1,3 @@
 User-agent: *
-Sitemap: http://kjbrum.github.io/sitemap.xml
+Sitemap: http://kylebrumm.com/sitemap.xml
 Disallow: /ghost/

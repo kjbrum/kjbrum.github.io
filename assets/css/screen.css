@@ -47,7 +47,6 @@ abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: 700; }
 dfn { font-style: italic; }
 hr {
-   -moz-box-sizing: content-box;
    box-sizing: content-box;
    height: 0;
 }
@@ -88,8 +87,6 @@ input[type="checkbox"],
 input[type="radio"] { box-sizing: border-box; padding: 0; }
 input[type="search"] {
    -webkit-appearance: textfield;
-   -moz-box-sizing: content-box;
-   -webkit-box-sizing: content-box;
    box-sizing: content-box;
 }
 input[type="search"]::-webkit-search-cancel-button,
@@ -308,7 +305,6 @@ hr {
 }
 
 blockquote {
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 1.75em 0 1.75em -2.2em;
     padding: 0 0 0 1.75em;
@@ -350,7 +346,6 @@ code, tt {
 }
 
 pre {
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0 0 1.75em 0;
     border: #E3EDF3 1px solid;
@@ -389,7 +384,6 @@ kbd {
 }
 
 table {
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 1.75em 0;
     width: 100%;
@@ -483,8 +477,9 @@ margin on the iframe, cause it breaks stuff. */
     z-index: 10;
     min-height: 100%;
     background: #fff;
-    -webkit-transition: -webkit-transform 0.5s ease;
-            transition: transform 0.5s ease;
+    transition: -webkit-transform 0.5s ease;
+    transition: -ms-transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 body.nav-opened .site-wrapper {
@@ -492,8 +487,9 @@ body.nav-opened .site-wrapper {
     -webkit-transform: translate3D(-240px, 0, 0);
         -ms-transform: translate3D(-240px, 0, 0);
             transform: translate3D(-240px, 0, 0);
-    -webkit-transition: -webkit-transform 0.3s ease;
-            transition: transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: -ms-transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 
@@ -535,7 +531,9 @@ body.nav-opened .site-wrapper {
     width: 100%;
     line-height: 0;
     z-index: 99;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
 }
 
 /*.home-template .social-media,
@@ -563,7 +561,9 @@ body.nav-opened .site-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 
 .social-media a:hover {
@@ -617,8 +617,6 @@ body.nav-opened .site-wrapper {
     position: relative;
     padding-top: 5rem;
     border-top: 1px solid #EBF2F6;
-    -webkit-box-shadow: 0px -5px 10px 0px rgba(155,155,155,0.05);
-    -moz-box-shadow: 0px -5px 10px 0px rgba(155,155,155,0.05);
     box-shadow: 0px -5px 10px 0px rgba(155,155,155,0.05);
 }
 
@@ -655,9 +653,11 @@ body.nav-opened .nav-cover {
     margin-bottom: 0;
     text-align: left;
     overflow-y: auto;
-    -webkit-transition: -webkit-transform 0.5s ease,
+    transition: -webkit-transform 0.5s ease,
                         opacity 0.3s ease 0.7s;
-            transition: transform 0.5s ease,
+    transition: -ms-transform 0.5s ease,
+                        opacity 0.3s ease 0.7s;
+    transition: transform 0.5s ease,
                         opacity 0.3s ease 0.7s;
 }
 
@@ -669,9 +669,11 @@ body.nav-closed .nav {
 
 body.nav-opened .nav {
     opacity: 1;
-    -webkit-transition: -webkit-transform 0.3s ease,
+    transition: -webkit-transform 0.3s ease,
                         opacity 0s ease 0s;
-            transition: transform 0.3s ease,
+    transition: -ms-transform 0.3s ease,
+                        opacity 0s ease 0s;
+    transition: transform 0.3s ease,
                         opacity 0s ease 0s;
     -webkit-transform: translate3D(0, 0, 0);
         -ms-transform: translate3D(0, 0, 0);
@@ -711,8 +713,7 @@ body.nav-opened .nav {
     height: 1px;
     background: #ffffff;
     top: 15px;
-    -webkit-transition: background 0.15s ease;
-            transition: background 0.15s ease;
+    transition: background 0.15s ease;
 }
 
 .nav-close:before {
@@ -792,8 +793,6 @@ body.nav-opened .nav {
 }
 
 .subscribe-button {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     display: block;
     position: absolute;
@@ -873,8 +872,6 @@ body.nav-opened .nav {
 
 /* Appears in the top left corner of your home page */
 .blog-logo {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     display: inline-block;
     float: left;
@@ -914,8 +911,6 @@ body.nav-opened .nav {
 }*/
 
 .menu-button {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     display: inline-block;
     float: right;
@@ -1408,8 +1403,6 @@ body:not(.post-template) .post-title {
 }*/
 
 .author-image {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     display: block;
     position: absolute;
@@ -1491,11 +1484,9 @@ body:not(.post-template) .post-title {
    ========================================================================== */
 
 .read-next {
-    display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: stretch;
     -webkit-align-items: stretch;
     -ms-flex-align: stretch;
     align-items: stretch;
@@ -1503,7 +1494,6 @@ body:not(.post-template) .post-title {
 }
 
 .read-next-story {
-    display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -1771,8 +1761,6 @@ body:not(.post-template) .post-title {
     }
 
     .main-header {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
         box-sizing: border-box;
         height: auto;
         min-height: 240px;
@@ -1879,8 +1867,6 @@ body:not(.post-template) .post-title {
     }
 
     .read-next {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
         -webkit-flex-direction: column;
         -ms-flex-direction: column;
         flex-direction: column;
