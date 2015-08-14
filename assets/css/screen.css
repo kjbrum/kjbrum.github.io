@@ -188,7 +188,7 @@ body {
     letter-spacing: 0.01rem;
     font-size: 1.8rem;
     line-height: 1.75em;
-    color: #3A4145;
+    color: #49596B;
     -webkit-font-feature-settings: 'kern' 1;
     -moz-font-feature-settings: 'kern' 1;
     -o-font-feature-settings: 'kern' 1;
@@ -205,10 +205,10 @@ body {
 
 h1, h2, h3,
 h4, h5, h6 {
-    -webkit-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
+    /*-webkit-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
     -moz-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
-    -o-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
-    color: #3A4145;
+    -o-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;*/
+    color: #49596B;
     line-height: 1.15em;
     margin: 0 0 0.4em 0;
     font-family: "Open Sans", sans-serif;
@@ -244,7 +244,7 @@ h6 {
 }
 
 a {
-    color: #919CA4;
+    color: #666D80;
     transition: color 0.3s ease;
 }
 
@@ -299,7 +299,7 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: #EFEFEF 1px solid;
+    border-top: 1px solid #EFEFEF;
     margin: 3.2em 0;
     padding: 0;
 }
@@ -308,7 +308,7 @@ blockquote {
     box-sizing: border-box;
     margin: 1.75em 0 1.75em -2.2em;
     padding: 0 0 0 1.75em;
-    border-left: #5AA8B3 0.4em solid;
+    border-left: 0.4em solid #5AA8B3;
 }
 
 blockquote p {
@@ -340,7 +340,7 @@ code, tt {
     font-family: Inconsolata, monospace, sans-serif;
     font-size: 0.85em;
     white-space: pre-wrap;
-    border: #E3EDF3 1px solid;
+    border: 1px solid #E3EDF3;
     background: #F7FAFB;
     border-radius: 2px;
 }
@@ -348,7 +348,7 @@ code, tt {
 pre {
     box-sizing: border-box;
     margin: 0 0 1.75em 0;
-    border: #E3EDF3 1px solid;
+    border: 1px solid #E3EDF3;
     width: 100%;
     padding: 10px;
     font-family: Inconsolata, monospace, sans-serif;
@@ -371,7 +371,7 @@ kbd {
     display: inline-block;
     margin-bottom: 0.4em;
     padding: 1px 8px;
-    border: #CCC 1px solid;
+    border: 1px solid #CCC;
     color: #666;
     text-shadow: #FFF 0 1px 0;
     font-size: 0.9em;
@@ -397,7 +397,7 @@ table td {
     line-height: 20px;
     text-align: left;
     vertical-align: top;
-    border-top: #EFEFEF 1px solid;
+    border-top: 1px solid #EFEFEF;
 }
 
 table th { color: #000; }
@@ -411,7 +411,7 @@ table thead:first-child tr:first-child td {
     border-top: 0;
 }
 
-table tbody + tbody { border-top: #EFEFEF 2px solid; }
+table tbody + tbody { border-top: 2px solid #EFEFEF; }
 
 table table table { background-color: #FFF; }
 
@@ -551,7 +551,7 @@ body.nav-opened .site-wrapper {
     /*padding: 10px;*/
     border-radius: 100%;
     background: #ffffff;
-    color: #919CA4;
+    color: #666D80;
     transition: 0.3s ease;
     width: 40px;
     height: 40px;
@@ -777,14 +777,14 @@ body.nav-opened .nav {
 }
 .nav .nav-current a:after {
     content: " ";
-    /*border-bottom: rgba(255,255,255,0.5) 1px solid;*/
+    /*border-bottom: 1px solid rgba(255,255,255,0.5);*/
     width: 100%;
     height: 1px;
 }
 
 .nav a:link,
 .nav a:visited {
-    color: #3A4145;
+    color: #49596B;
 }
 
 .nav li.nav-current a,
@@ -954,8 +954,8 @@ body.nav-opened .nav {
 
 /* When the navigation is closed and there is no cover image */
 .nav-closed .no-cover .menu-button {
-    border-color: #919CA4;
-    color: #919CA4;
+    border-color: #666D80;
+    color: #666D80;
 }
 .nav-closed .no-cover .menu-button:hover {
     border-color: #5AA8B3;
@@ -1025,7 +1025,7 @@ body.nav-opened .nav {
 }
 
 .no-cover .page-description {
-    color: #919CA4;
+    color: #666D80;
 }
 
 /* Add subtle load-in animation for content on the home page */
@@ -1060,7 +1060,7 @@ body.nav-opened .nav {
     content: "";
     width: 7px;
     height: 7px;
-    border: #E7EEF2 1px solid;
+    border: 1px solid #E7EEF2;
     position: absolute;
     bottom: -5px;
     left: 50%;
@@ -1099,7 +1099,11 @@ body:not(.post-template) .post-title {
     font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     line-height: 2.2rem;
-    color: #919CA4;
+    color: #666D80;
+}
+
+.author-stats {
+    color: #666D80;
 }
 
 .author-thumb {
@@ -1111,7 +1115,7 @@ body:not(.post-template) .post-title {
 }
 
 .post-meta a {
-    color: #919CA4;
+    color: #666D80;
     text-decoration: none;
 }
 
@@ -1278,11 +1282,11 @@ body:not(.post-template) .post-title {
     font-size: 1.4rem;
     line-height: 1;
     font-style: italic;
-    color: #919CA4;
+    color: #666D80;
 }
 
 .author-meta a {
-    color: #919CA4;
+    color: #666D80;
 }
 .author-meta a:hover {
     color: #111;
@@ -1395,7 +1399,7 @@ body:not(.post-template) .post-title {
     content: "";
     width: 7px;
     height: 7px;
-    border: #E7EEF2 1px solid;
+    border: 1px solid #E7EEF2;
     position: absolute;
     bottom: -5px;
     left: 50%;
@@ -1635,12 +1639,12 @@ body:not(.post-template) .post-title {
     margin: 4rem auto;
     font-family: "Open Sans", sans-serif;
     font-size: 1.3rem;
-    color: #919CA4;
+    color: #666D80;
     text-align: center;
 }
 
 .pagination a {
-    color: #919CA4;
+    color: #666D80;
     transition: all 0.2s ease;
 }
 
@@ -1650,7 +1654,7 @@ body:not(.post-template) .post-title {
     position: absolute;
     display: inline-block;
     padding: 0 15px;
-    border: #bfc8cd 1px solid;
+    border: 1px solid #666D80;
     text-decoration: none;
     border-radius: 4px;
     transition: border 0.3s ease;
@@ -1678,14 +1682,14 @@ body:not(.post-template) .post-title {
 
 .extra-pagination {
     display: none;
-    border-bottom: #EBF2F6 1px solid;
+    border-bottom: 1px solid #EBF2F6;
 }
 .extra-pagination:after {
     display: block;
     content: "";
     width: 7px;
     height: 7px;
-    border: #E7EEF2 1px solid;
+    border: 1px solid #E7EEF2;
     position: absolute;
     bottom: -5px;
     left: 50%;
@@ -1730,7 +1734,7 @@ body:not(.post-template) .post-title {
 }
 
 .site-footer a:hover {
-    border-bottom: #bbc7cc 1px solid;
+    border-bottom: 1px solid #bbc7cc;
 }
 
 /*.poweredby {
@@ -1776,7 +1780,7 @@ body:not(.post-template) .post-title {
 
     .archive-template .main-header {
         /*min-height: 180px;*/
-        padding: 10% 0;
+        /*padding: 10% 0;*/
     }
 
     .blog-logo img {
@@ -1894,7 +1898,7 @@ body:not(.post-template) .post-title {
     }
 
     .read-next-story.no-cover + .read-next-story.no-cover {
-        border-top: rgba(0,0,100,0.06) 1px solid;
+        border-top: 1px solid rgba(0,0,100,0.06);
         border-left: none;
     }
 
@@ -2096,7 +2100,7 @@ body:not(.post-template) .post-title {
     .post-footer .author {
         margin: 0 0 2rem 0;
         padding: 0 0 1.6rem 0;
-        border-bottom: #EBF2F6 1px dashed;
+        border-bottom: 1px dashed #EBF2F6;
     }
 
     .post-footer .share {
