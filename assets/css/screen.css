@@ -985,7 +985,26 @@ body:not(.post-template) .post-title {
 }
 
 .author-stats {
+    display: block;
+    margin-bottom: 16px;
     color: #666D80;
+}
+
+.author-subscribe {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 38px;
+    padding: 0 15px;
+    border: 1px solid;
+    text-align: center;
+    font-size: 12px;
+    text-decoration: none;
+    /*text-transform: uppercase;*/
+    line-height: 35px;
+    margin-top: 16px;
+    white-space: nowrap;
+    border-radius: 3px;
+    transition: all 0.5s ease;
 }
 
 .author-thumb {
