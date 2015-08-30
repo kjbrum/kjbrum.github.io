@@ -1,27 +1,31 @@
 /**
- * Main JS file for Casper behaviours
+ * Main JS file
  */
 
 /* globals jQuery, document */
 (function ($, undefined) {
-    "use strict";
+    'use strict';
 
     $(document).ready(function () {
-
-        var $postContent = $(".post-content");
-        $postContent.fitVids();
-
-        $(".menu-button, .nav-cover, .nav-close").on("click", function(e){
+        $('.menu-button, .nav-cover, .nav-close').on('click', function(e){
             e.preventDefault();
-            $("body").toggleClass("nav-opened nav-closed");
+            $('body').toggleClass('nav-opened nav-closed');
         });
 
-        $('.js-current-track').spotify({
-            width: '100%',
-            height: 380,
-            username: 'kjbrum',
-            api_key: 'da3d6b59d72cbd535ce2405ec13b97be'
-        });
+        if($('.js-current-track').length) {
+            $('.js-current-track').spotify({
+                width: '100%',
+                height: 380,
+                username: 'kjbrum',
+                api_key: 'da3d6b59d72cbd535ce2405ec13b97be'
+            });
+        }
+
+        var $postContent = $('.post-content');
+
+        if($postContent.length) {
+            $postContent.fitVids();
+        }
     });
 
     var jsSocialShares = document.querySelectorAll('.js-social-share');
