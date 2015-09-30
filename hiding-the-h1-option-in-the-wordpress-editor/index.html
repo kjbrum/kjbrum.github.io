@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Search and Kill Processes</title>
+    <title>Hiding the H1 Option in the WordPress Editor</title>
     <meta name="description" content="">
 
     <meta name="HandheldFriendly" content="True">
@@ -15,22 +15,22 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css?v=d6ea31e57c">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
 
-    <link rel="canonical" href="http://localhost:2368/search-and-kill-processes/">
+    <link rel="canonical" href="http://localhost:2368/hiding-the-h1-option-in-the-wordpress-editor/">
     
     <meta property="og:site_name" content="Kyle Brumm">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Search and Kill Processes">
-    <meta property="og:description" content="The other day I was working on getting a Vagrant box set up. I ran into an issue where I couldn't destroy the box and couldn't find out why. I ended up needing to kill all the Vagrant processes that...">
-    <meta property="og:url" content="http://localhost:2368/search-and-kill-processes/">
-    <meta property="article:published_time" content="2015-08-17T23:51:00.000Z">
-    <meta property="article:modified_time" content="2015-08-17T23:51:22.174Z">
+    <meta property="og:title" content="Hiding the H1 Option in the WordPress Editor">
+    <meta property="og:description" content="Often when creating a WordPress theme, I will program the page.php template file to display the post title with an &amp;lt;h1&amp;gt; tag. Now I'm not an SEO strategist, but I do know that you are only suppose...">
+    <meta property="og:url" content="http://localhost:2368/hiding-the-h1-option-in-the-wordpress-editor/">
+    <meta property="article:published_time" content="2015-09-30T02:35:14.428Z">
+    <meta property="article:modified_time" content="2015-09-30T02:45:19.613Z">
     <meta property="article:tag" content="Snippets">
-    <meta property="article:tag" content="Tips &amp;amp; Tricks">
+    <meta property="article:tag" content="WordPress">
     
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Search and Kill Processes">
-    <meta name="twitter:description" content="The other day I was working on getting a Vagrant box set up. I ran into an issue where I couldn't destroy the box and couldn't find out why. I ended up needing to kill all the Vagrant processes that...">
-    <meta name="twitter:url" content="http://localhost:2368/search-and-kill-processes/">
+    <meta name="twitter:title" content="Hiding the H1 Option in the WordPress Editor">
+    <meta name="twitter:description" content="Often when creating a WordPress theme, I will program the page.php template file to display the post title with an &amp;lt;h1&amp;gt; tag. Now I'm not an SEO strategist, but I do know that you are only suppose...">
+    <meta name="twitter:url" content="http://localhost:2368/hiding-the-h1-option-in-the-wordpress-editor/">
     
     <script type="application/ld+json">
 {
@@ -45,12 +45,12 @@
         "sameAs": null,
         "description": "Developer. Designer. Photographer. Gamer."
     },
-    "headline": "Search and Kill Processes",
-    "url": "http://localhost:2368/search-and-kill-processes/",
-    "datePublished": "2015-08-17T23:51:00.000Z",
-    "dateModified": "2015-08-17T23:51:22.174Z",
-    "keywords": "Snippets, Tips &amp;amp; Tricks",
-    "description": "The other day I was working on getting a Vagrant box set up. I ran into an issue where I couldn&#x27;t destroy the box and couldn&#x27;t find out why. I ended up needing to kill all the Vagrant processes that..."
+    "headline": "Hiding the H1 Option in the WordPress Editor",
+    "url": "http://localhost:2368/hiding-the-h1-option-in-the-wordpress-editor/",
+    "datePublished": "2015-09-30T02:35:14.428Z",
+    "dateModified": "2015-09-30T02:45:19.613Z",
+    "keywords": "Snippets, WordPress",
+    "description": "Often when creating a WordPress theme, I will program the page.php template file to display the post title with an &amp;lt;h1&amp;gt; tag. Now I&#x27;m not an SEO strategist, but I do know that you are only suppose..."
 }
     </script>
 
@@ -67,7 +67,7 @@
 
 </script>
 </head>
-<body class="post-template tag-snippets tag-tips-tricks nav-closed">
+<body class="post-template tag-snippets tag-wordpress nav-closed">
 
     <div class="nav">
     <h3 class="nav-title">Menu</h3>
@@ -97,26 +97,24 @@
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">Search and Kill Processes</h1>
+            <h1 class="page-title">Hiding the H1 Option in the WordPress Editor</h1>
             <section class="post-meta">
-                <time class="post-date" datetime="08-17-2015">August 17, 2015</time>  on <a href="../tag/snippets/">Snippets</a>, <a href="../tag/tips-tricks/">Tips &amp; Tricks</a>
+                <time class="post-date" datetime="09-29-2015">September 29, 2015</time>  on <a href="../tag/snippets/">Snippets</a>, <a href="../tag/wordpress/">WordPress</a>
             </section>
         </div>
     </div>
 </header>
 
 <main class="content" role="main">
-    <article class="post tag-snippets tag-tips-tricks">
+    <article class="post tag-snippets tag-wordpress">
 
         <section class="post-content">
 
-            <p>The other day I was working on getting a Vagrant box set up. I ran into an issue where I couldn't destroy the box and couldn't find out why. I ended up needing to kill all the Vagrant processes that were running on my machine. </p>
+            <p>Often when creating a WordPress theme, I will program the <code>page.php</code> template file to display the post title with an <code>&lt;h1&gt;</code> tag. Now I'm not an SEO strategist, but I do know that you are only suppose to have one <code>&lt;h1&gt;</code> tag on a page. Because of this, it makes sense to not allow the end user of the theme to add <code>&lt;h1&gt;</code> tags to their post content.</p>
 
-<p>I learned that it's not exactly the easiest to search for a process and kill it, so I decided to make a little bash script that would let me search all the processes for a string. This would then return an array of process IDs that I could loop through, and kill, one by one.</p>
+<p>This little snippet will modify the TinyMCE editor, and remove the "Heading 1" option from the formatting dropdown. This should allow to rest easy, assuming the client doesn't decide to add the tag manually...</p>
 
-<p><em><strong>Caution:</strong> Beware what processes you are killing, you could get undesired results.</em></p>
-
-<script src="https://gist.github.com/kjbrum/ced851437f3fb8190299.js"></script>
+<script src="https://gist.github.com/kjbrum/da4eb508be09b9c336a9.js"></script>
         </section>
 
         <footer class="post-footer">
@@ -135,19 +133,19 @@
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="js-social-share fa fa-twitter-square" href="https://twitter.com/share?text=Search%20and%20Kill%20Processes&amp;url=http://localhost:2368/search-and-kill-processes/">
+                <a class="js-social-share fa fa-twitter-square" href="https://twitter.com/share?text=Hiding%20the%20H1%20Option%20in%20the%20WordPress%20Editor&amp;url=http://localhost:2368/hiding-the-h1-option-in-the-wordpress-editor/">
                     <span class="hidden">Twitter</span>
                 </a>
 
-                <a class="js-social-share fa fa-facebook-square" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/search-and-kill-processes/">
+                <a class="js-social-share fa fa-facebook-square" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/hiding-the-h1-option-in-the-wordpress-editor/">
                     <span class="hidden">Facebook</span>
                 </a>
 
-                <a class="js-social-share fa fa-google-plus-square" href="https://plus.google.com/share?url=http://localhost:2368/search-and-kill-processes/">
+                <a class="js-social-share fa fa-google-plus-square" href="https://plus.google.com/share?url=http://localhost:2368/hiding-the-h1-option-in-the-wordpress-editor/">
                     <span class="hidden">Google+</span>
                 </a>
 
-                <a class="js-social-share fa fa-linkedin-square" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:2368/search-and-kill-processes/&amp;title=Search%20and%20Kill%20Processes&amp;source=http://localhost:2368&amp;summary=The%20other%20day%20I%20was%20working%20on%20getting%20a%20Vagrant%20box%20set%20up.%20I%20ran%20into%20an%20issue%20where%20I%20couldn't%20destroy%20the%20box%20and%20couldn't%20find%20out%20why.%20I%20ended%20up%20needing%20to%20kill%20all%20the%20Vagrant%20processes%20that%20were%20running%20on%20my%20machine.%20%20I%20learned%20that%20it's%20not">
+                <a class="js-social-share fa fa-linkedin-square" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:2368/hiding-the-h1-option-in-the-wordpress-editor/&amp;title=Hiding%20the%20H1%20Option%20in%20the%20WordPress%20Editor&amp;source=http://localhost:2368&amp;summary=Often%20when%20creating%20a%20WordPress%20theme,%20I%20will%20program%20the%20page.php%20template%20file%20to%20display%20the%20post%20title%20with%20an%20&lt;h1&gt;%20tag.%20Now%20I'm%20not%20an%20SEO%20strategist,%20but%20I%20do%20know%20that%20you%20are%20only%20suppose%20to%20have%20one%20&lt;h1&gt;%20tag%20on%20a%20page.">
                     <span class="hidden">Google+</span>
                 </a>
             </section>
@@ -160,7 +158,7 @@
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES * * */
             var disqus_shortname = 'kylebrumm';
-            var disqus_identifier = 24;
+            var disqus_identifier = 30;
 
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function() {
@@ -175,16 +173,10 @@
 </main>
 
 <!--<aside class="read-next">
-    <a class="read-next-story no-cover" href="/hiding-the-h1-option-in-the-wordpress-editor/">
+    <a class="read-next-story prev no-cover" href="/search-and-kill-processes/">
         <section class="post">
-            <h2>Hiding the H1 Option in the WordPress Editor</h2>
-            <p>Often when creating a WordPress theme, I will program the page.php template file to display the post title&hellip;</p>
-        </section>
-    </a>
-    <a class="read-next-story prev no-cover" href="/my-personal-bash-profile/">
-        <section class="post">
-            <h2>My Personal Bash Profile</h2>
-            <p>I don't know about anyone else, but I love finding and creating new things to put in my .bash_&hellip;</p>
+            <h2>Search and Kill Processes</h2>
+            <p>The other day I was working on getting a Vagrant box set up. I ran into an issue where&hellip;</p>
         </section>
     </a>
 </aside>-->
