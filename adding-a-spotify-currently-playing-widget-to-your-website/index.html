@@ -1,0 +1,225 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Adding a Spotify "Currently Playing" Widget to Your Website</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=1e0c081a23">
+    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css?v=1e0c081a23">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+
+    <link rel="canonical" href="http://kylebrumm.com/adding-a-spotify-currently-playing-widget-to-your-website/">
+
+    <meta property="og:site_name" content="Kyle Brumm">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content='Adding a Spotify "Currently Playing" Widget to Your Website'>
+    <meta property="og:description" content="When I started working on my new site, I was trying to come up with unique features that you don't really see on other portfolio sites. I thought it would be cool to allow people to see what song I...">
+    <meta property="og:url" content="http://kylebrumm.com/adding-a-spotify-currently-playing-widget-to-your-website/">
+    <meta property="article:published_time" content="2015-11-15T06:00:51.122Z">
+    <meta property="article:modified_time" content="2015-11-15T06:21:54.730Z">
+    <meta property="article:tag" content="Tips &amp;amp; Tricks">
+    <meta property="article:tag" content="JavaScript">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content='Adding a Spotify "Currently Playing" Widget to Your Website'>
+    <meta name="twitter:description" content="When I started working on my new site, I was trying to come up with unique features that you don't really see on other portfolio sites. I thought it would be cool to allow people to see what song I...">
+    <meta name="twitter:url" content="http://kylebrumm.com/adding-a-spotify-currently-playing-widget-to-your-website/">
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Kyle Brumm",
+    "author": {
+        "@type": "Person",
+        "name": "Kyle Brumm",
+        "image": "//www.gravatar.com/avatar/2757ca80a19c1afdaf8eb59fe0250152?s=250&d=mm&r=x",
+        "url": "http://kylebrumm.com/author/kyle",
+        "sameAs": null,
+        "description": "Developer. Designer. Photographer. Gamer."
+    },
+    "headline": "Adding a Spotify &quot;Currently Playing&quot; Widget to Your Website",
+    "url": "http://kylebrumm.com/adding-a-spotify-currently-playing-widget-to-your-website/",
+    "datePublished": "2015-11-15T06:00:51.122Z",
+    "dateModified": "2015-11-15T06:21:54.730Z",
+    "keywords": "Tips &amp;amp; Tricks, JavaScript",
+    "description": "When I started working on my new site, I was trying to come up with unique features that you don&#x27;t really see on other portfolio sites. I thought it would be cool to allow people to see what song I..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.6">
+    <link rel="alternate" type="application/rss+xml" title="Kyle Brumm" href="http://kylebrumm.com/rss/">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-32465732-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body class="post-template tag-tips-tricks tag-javascript nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="index.html#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://kylebrumm.com/">Home</a></li>
+            <li class="nav-about" role="presentation"><a href="http://kylebrumm.com/about/">About</a></li>
+            <li class="nav-case-studies" role="presentation"><a href="http://kylebrumm.com/tag/case-studies/">Case Studies</a></li>
+            <li class="nav-contact" role="presentation"><a href="http://kylebrumm.com/contact/">Contact</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="http://kylebrumm.com/rss/">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head">
+    <nav class="main-nav overlay clearfix">
+        <a class="btn-home icon-arrow-left" href="http://kylebrumm.com">Home</a>
+
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Adding a Spotify "Currently Playing" Widget to Your Website</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="11-15-2015">November 15, 2015</time>  on <a href="../tag/tips-tricks/">Tips &amp; Tricks</a>, <a href="../tag/javascript/">JavaScript</a>
+            </section>
+        </div>
+    </div>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-tips-tricks tag-javascript">
+
+        <section class="post-content">
+
+            <p>When I started working on my new site, I was trying to come up with unique features that you don't really see on other portfolio sites. I thought it would be cool to allow people to see what song I am currently listening to, or at least the song I have listened to most recently. I am a lover of <a href="https://www.spotify.com/">Spotify</a> and listen to basically all my music on it. I did some digging into their API and found that there isn't a way to get a users most recent song, so I made a workaround, using <a href="http://www.netlingo.com/word/scrobble.php">"scrobbling"</a> and <a href="http://www.last.fm/">Last.fm</a>.</p>
+
+<h2 id="gettingsetup">Getting Set Up</h2>
+
+<p>First things first, head on over to Github, <a href="https://github.com/kjbrum/spotify-currently-playing">download the repo</a>, and add it to your project. Before you can use the plugin, you will need to have Spotify and Last.fm accounts set up, as well as a <a href="http://www.last.fm/api">Last.fm API key</a>. Once you have all that set up, you will need to connect your Last.fm account to your Spotify account. You can do this by opening the desktop application and going to "Preferences". You will see a section with the heading "LAST.FM". Enter your username and password to give Spotify access.</p>
+
+<p><img src="../content/images/2015/11/lastfm-connect.png" alt=""></p>
+
+<p>Once you have that done, Spotify will be able to "scrobble" the songs you play to Last.fm. The next step is to use Last.fm's API to get that information. Lucky for you, the plugin handles all that. All you need to do is initialize it. You can do so by using a selector for the container you want the Spotify player to render in.</p>
+
+<p><strong>Something like this will do the trick:</strong></p>
+
+<pre><code>$('.js-current-track').spotify({
+    width: '100%',
+    height: 400,
+    username: 'YOUR_USERNAME',
+    api_key: 'YOUR_API_KEY'
+});
+</code></pre>
+
+<p>All you need to do is pass in an options object with your desired width and height (optional), as well as your Last.fm username and API key.</p>
+
+<p>That should do it. You should be able to navigate to the page on your site that has the targeted element and see a Spotify player rendered with your most recent Spotify song.</p>
+
+<p><img src="../content/images/2015/11/spotify-player.png" alt=""></p>
+
+<p>If you ran into any issues, let me know in the comments!</p>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <section class="author">
+                <h4>Kyle Brumm</h4>
+
+                    <p>Developer. Designer. Photographer. Gamer. Get ahold of me on <a href="http://github.com/kjbrum" class="github" target="_blank">Github</a>, <a href="https://www.linkedin.com/in/kylebrumm" target="_blank" class="linkedin">LinkedIn</a>, <a href="http://twitter.com/kyle_brumm" class="twitter" target="_blank">Twitter</a>, <a href="https://dribbble.com/kjbrum" class="dribbble" target="_blank">Dribbble</a>, or <a href="http://facebook.com/kylebrumm" class="facebook" target="_blank">Facebook</a>.</p>
+                <div class="author-meta">
+
+
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="js-social-share fa fa-twitter-square" href="https://twitter.com/share?text=Adding%20a%20Spotify%20%22Currently%20Playing%22%20Widget%20to%20Your%20Website&amp;url=http://kylebrumm.com/adding-a-spotify-currently-playing-widget-to-your-website/">
+                    <span class="hidden">Twitter</span>
+                </a>
+
+                <a class="js-social-share fa fa-facebook-square" href="https://www.facebook.com/sharer/sharer.php?u=http://kylebrumm.com/adding-a-spotify-currently-playing-widget-to-your-website/">
+                    <span class="hidden">Facebook</span>
+                </a>
+
+                <a class="js-social-share fa fa-google-plus-square" href="https://plus.google.com/share?url=http://kylebrumm.com/adding-a-spotify-currently-playing-widget-to-your-website/">
+                    <span class="hidden">Google+</span>
+                </a>
+
+                <a class="js-social-share fa fa-linkedin-square" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://kylebrumm.com/adding-a-spotify-currently-playing-widget-to-your-website/&amp;title=Adding%20a%20Spotify%20%22Currently%20Playing%22%20Widget%20to%20Your%20Website&amp;source=http://kylebrumm.com&amp;summary=When%20I%20started%20working%20on%20my%20new%20site,%20I%20was%20trying%20to%20come%20up%20with%20unique%20features%20that%20you%20don't%20really%20see%20on%20other%20portfolio%20sites.%20I%20thought%20it%20would%20be%20cool%20to%20allow%20people%20to%20see%20what%20song%20I%20am%20currently%20listening%20to,%20or%20at%20least%20the%20song%20I">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+        <hr>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'kylebrumm';
+            var disqus_identifier = 26;
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+    </article>
+</main>
+
+<!--<aside class="read-next">
+    <a class="read-next-story prev no-cover" href="/hiding-the-h1-option-in-the-wordpress-editor/">
+        <section class="post">
+            <h2>Hiding the H1 Option in the WordPress Editor</h2>
+            <p>Often when creating a WordPress theme, I will program the page.php template file to display the post title&hellip;</p>
+        </section>
+    </a>
+</aside>-->
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright">
+                <a href="http://kylebrumm.com">Kyle Brumm</a> © 2015
+            </section>
+            <section class="poweredby">
+                Proudly published with <a href="https://ghost.org" target="_blank">Ghost</a>
+            </section>
+        </footer>
+
+    </div>
+
+    <script src="../public/jquery.js?v=1e0c081a23"></script>
+
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=1e0c081a23"></script>
+    <script type="text/javascript" src="../assets/js/jquery.spotifyCurrentlyPlaying.js?v=1e0c081a23"></script>
+    <script type="text/javascript" src="../assets/js/index.js?v=1e0c081a23"></script>
+
+</body>
