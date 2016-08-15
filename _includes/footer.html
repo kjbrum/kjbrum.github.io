@@ -1,5 +1,5 @@
 <footer class="footer">
-    <strong>{{ site.title | escape }}</strong> &copy; {{ site.time | date: '%Y' }}
+    {{ site.title | escape }} &copy; {{ site.time | date: '%Y' }}
 </footer>
 
 <!-- jQuery -->
@@ -42,10 +42,12 @@
         }
 
         // spotifyCurrentlyPlaying.js
-        SCP({
-            username: 'kjbrum',
-            api_key: 'da3d6b59d72cbd535ce2405ec13b97be'
-        });
+        if(document.querySelector('.scp-container')) {
+            SCP({
+                username: 'kjbrum',
+                api_key: 'da3d6b59d72cbd535ce2405ec13b97be'
+            });
+        }
 
         // ScrollReveal.js
         window.sr = ScrollReveal({ origin: 'bottom', distance: '2rem', scale: 1 });

@@ -45,6 +45,7 @@
     top: 1rem;
     left: 1rem;
     text-transform: uppercase;
+    z-index: 99;
 
     @media (max-width: $max-width) {
         position: static;
