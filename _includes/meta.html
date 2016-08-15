@@ -23,8 +23,6 @@
     <meta name="twitter:description" content="{{ site.description }}">
 {% endif %}
 
-<!-- Other -->
-
 <!-- SEO -->
 <meta name="keywords" content="des moines, dsm, web development, web design, websites, kyle, brumm">
 <meta name="author" content="{{ site.title }}">
@@ -32,9 +30,20 @@
 <!-- Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ page.url | prepend: site.url }}">
-<meta property="og:image" content="{{ site.url }}/img/cover.jpg"/>
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="{{ page.url | prepend: site.url }}">
-<meta name="twitter:image" content="{{ site.url }}/img/cover.jpg"/>
+
+{% if page.featured_image %}
+    <meta property="og:image" content="{{ site.url }}/media/posts/{{ page.featured_image }}">
+    <meta property="twitter:image" content="{{ site.url }}/media/posts/{{ page.featured_image }}">
+{% else %}
+    <meta property="og:image" content="{{ site.url }}/media/cover.jpg">
+    <meta property="twitter:image" content="{{ site.url }}/media/cover.jpg">
+{% endif %}
+
+
+<!-- Other -->
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}/feed.xml">

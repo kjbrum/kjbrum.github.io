@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Hiding the H1 Option in the WordPress Editor"
-date:   2015-09-29
+title: "Hiding the H1 Option in the WordPress Editor"
+date: 2015-09-29
 categories: [Snippets, WordPress]
 ---
 

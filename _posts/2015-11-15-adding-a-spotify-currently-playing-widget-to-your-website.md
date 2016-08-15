@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Adding a Spotify \"Currently Playing\" Widget to Your Website"
-date:   2015-11-15
+title: "Adding a Spotify \"Currently Playing\" Widget to Your Website"
+date: 2015-11-15
 categories: [Tips & Tricks, JavaScript]
 ---
 

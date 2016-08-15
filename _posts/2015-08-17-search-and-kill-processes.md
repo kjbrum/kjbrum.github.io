@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Search and Kill Processes"
-date:   2015-08-17
+title: "Search and Kill Processes"
+date: 2015-08-17
 categories: [Bash]
 ---
 
