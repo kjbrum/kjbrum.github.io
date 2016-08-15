@@ -10,3 +10,23 @@
         margin: 0 auto;
     }
 }
+
+.section--home {
+    .posts li {
+        padding: 1rem;
+        border-bottom: 1px solid #efefef;
+        text-align: center;
+        margin: 0;
+    }
+
+    .post-title a {
+        color: #5aa8b3;
+        font-size: 2rem;
+        text-decoration: none;
+    }
+
+    .post-date {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+    }
+}
