@@ -5,6 +5,9 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
 
+<!-- spotifyCurrentlyPlaying.js -->
+<script src="{{ site.url }}/js/spotifyCurrentlyPlaying.min.js"></script>
+
 <!-- ScrollReveal -->
 <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script>
 
@@ -38,6 +41,13 @@
             });
         }
 
+        // spotifyCurrentlyPlaying.js
+        SCP({
+            username: 'kjbrum',
+            api_key: 'da3d6b59d72cbd535ce2405ec13b97be'
+        });
+
+        // ScrollReveal.js
         window.sr = ScrollReveal({ origin: 'bottom', distance: '2rem', scale: 1 });
         sr.reveal('.posts li');
     })(window);
