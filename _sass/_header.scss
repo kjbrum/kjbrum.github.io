@@ -1,0 +1,124 @@
+.header {
+    position: relative;
+    margin-bottom: 3rem;
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid $gray-ultralight;
+
+    img {
+        max-width: 150px;
+        border: 5px solid $gray-ultralight;
+        border-radius: 100%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        color: $primary;
+        font-weight: 500;
+
+        @media (min-width: $bp-xs) {
+            font-size: 2rem;
+        }
+
+        @media (min-width: $max-width) {
+            font-size: 3rem;
+        }
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 300;
+    }
+
+    .post-meta {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+    }
+}
+
+.header--post {
+    text-align: left;
+}
+
+.btn-home {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    text-transform: uppercase;
+
+    @media (max-width: $max-width) {
+        position: static;
+        border-width: 0 0 1px 0;
+        border-radius: 0;
+        width: 100%;
+        padding: 1rem !important;
+    }
+
+    i {
+        margin-right: 0.25rem;
+    }
+}
+
+.social-media {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    line-height: 0;
+    z-index: 99;
+    transform: translate(-50%,-50%);
+
+    a {
+        position: relative;
+        display: inline-block;
+        border: 1px solid $gray-ultralight;
+        font-size: 1.25rem;
+        border-radius: 100%;
+        background: #ffffff;
+        color: $secondary;
+        transition: 0.3s ease;
+        width: 40px;
+        height: 40px;
+        outline: none;
+
+        i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &:hover {
+            color: $primary;
+            border-color: $primary;
+        }
+    }
+
+
+    .github:hover {
+        color: #333333;
+        border-color: #333333;
+    }
+    .twitter:hover {
+        color: #55acee;
+        border-color: #55acee;
+    }
+    .google-plus:hover {
+        color: #dd4b39;
+        border-color: #dd4b39;
+    }
+    .linkedin:hover {
+        color: #007bb6;
+        border-color: #007bb6;
+    }
+    .dribbble:hover {
+        color: #ea4c89;
+        border-color: #ea4c89;
+    }
+    .facebook:hover {
+        color: #3b5998;
+        border-color: #3b5998;
+    }
+}

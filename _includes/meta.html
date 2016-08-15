@@ -1,0 +1,40 @@
+<!-- Goodies -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Titles -->
+{% if page.title %}
+    <meta property="og:title" content="{{ site.title | escape }} | {{ page.title }}">
+    <meta name="twitter:title" content="{{ site.title | escape }} | {{ page.title }}">
+{% else %}
+    <meta property="og:title" content="{{ site.title | escape }}">
+    <meta name="twitter:title" content="{{ site.title | escape }}">
+{% endif %}
+
+<!-- Descriptions -->
+{% if page.excerpt %}
+    <meta name="description" content="{{ page.excerpt| strip_html }}" />
+    <meta property="og:description" content="{{ page.excerpt| strip_html }}" />
+    <meta name="twitter:description" content="{{ page.excerpt| strip_html }}">
+{% else %}
+    <meta name="description" content="{{ site.description }}">
+    <meta property="og:description" content="{{ site.description }}" />
+    <meta name="twitter:description" content="{{ site.description }}">
+{% endif %}
+
+<!-- Other -->
+
+<!-- SEO -->
+<meta name="keywords" content="des moines, dsm, web development, web design, websites, kyle, brumm">
+<meta name="author" content="{{ site.title }}">
+
+<!-- Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="/">
+<meta property="og:image" content="{{ site.baseurl }}/img/cover.jpg"/>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="/">
+<meta name="twitter:image" content="{{ site.baseurl }}/img/cover.jpg"/>

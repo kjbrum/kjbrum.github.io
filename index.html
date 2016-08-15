@@ -1,0 +1,20 @@
+---
+layout: default
+slug: home
+---
+
+<section class="section section--home">
+    <ul class="posts">
+        {% for post in site.posts %}
+            <li class="post">
+                <div class="post-title">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </div>
+
+                <div class="post-date">
+                    {{ post.date | date: '%B %d, %Y' }}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

@@ -1,0 +1,30 @@
+{% if page.is_post %}
+    <a class="btn btn-home btn-secondary btn-small btn-outline" href="{{ site.url }}"><i class="fa fa-angle-left"></i> Home</a>
+
+    <header class="header header--post">
+
+        <!-- Social Share -->
+        {% include social-share.html %}
+
+        <div class="container">
+            <h1 class="post-title">{{ page.title | escape }}</h1>
+            <div class="post-meta">{{ page.date | date: '%B %d, %Y' }}</div>
+        </div>
+    </header>
+{% else %}
+    <header class="header">
+        <!-- Social media -->
+        {% include social-media.html %}
+
+        <div class="container">
+            <figure class="author-image">
+                <a href="{{ site.url }}/about">
+                    <img src="{{ site.url }}/media/cover.jpg" alt="Kyle Brumm's Avatar">
+                </a>
+            </figure>
+
+            <h1 class="page-title">{{ site.title | escape }}</h1>
+            <h2 class="page-description">{{ site.description | escape }}</h2>
+        </div>
+    </header>
+{% endif %}
