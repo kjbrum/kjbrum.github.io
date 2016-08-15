@@ -5,6 +5,10 @@ date:   2015-11-15
 categories: [Tips & Tricks, JavaScript]
 ---
 
+__Update:__ This article is no longer up to date. Please visit the [spotifyCurrentlyPlaying.js](http://kylebrumm.com/spotifyCurrentlyPlaying.js/) website to get started.
+
+---
+
 When I started working on my new site, I was trying to come up with unique features that you don't really see on other portfolio sites. I thought it would be cool to allow people to see what song I am currently listening to, or at least the song I have listened to most recently. I am a lover of <a href="https://www.spotify.com/">Spotify</a> and listen to basically all my music on it. I did some digging into their API and found that there isn't a way to get a users most recent song, so I made a workaround, using <a href="http://www.netlingo.com/word/scrobble.php">"scrobbling"</a> and <a href="http://www.last.fm/">Last.fm</a>.
 
 ### Getting Set Up

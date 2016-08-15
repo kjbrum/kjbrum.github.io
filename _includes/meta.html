@@ -5,8 +5,8 @@
 
 <!-- Titles -->
 {% if page.title %}
-    <meta property="og:title" content="{{ site.title | escape }} | {{ page.title }}">
-    <meta name="twitter:title" content="{{ site.title | escape }} | {{ page.title }}">
+    <meta property="og:title" content="{{ page.title | escape }} | {{ site.title | escape }}">
+    <meta name="twitter:title" content="{{ page.title | escape }} | {{ site.title | escape }}">
 {% else %}
     <meta property="og:title" content="{{ site.title | escape }}">
     <meta name="twitter:title" content="{{ site.title | escape }}">
@@ -14,12 +14,12 @@
 
 <!-- Descriptions -->
 {% if page.excerpt %}
-    <meta name="description" content="{{ page.excerpt| strip_html }}" />
-    <meta property="og:description" content="{{ page.excerpt| strip_html }}" />
-    <meta name="twitter:description" content="{{ page.excerpt| strip_html }}">
+    <meta name="description" content="{{ page.excerpt | strip_html }}">
+    <meta property="og:description" content="{{ page.excerpt | strip_html }}">
+    <meta name="twitter:description" content="{{ page.excerpt | strip_html }}">
 {% else %}
     <meta name="description" content="{{ site.description }}">
-    <meta property="og:description" content="{{ site.description }}" />
+    <meta property="og:description" content="{{ site.description }}">
     <meta name="twitter:description" content="{{ site.description }}">
 {% endif %}
 
@@ -31,10 +31,10 @@
 
 <!-- Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="/">
-<meta property="og:image" content="{{ site.baseurl }}/img/cover.jpg"/>
+<meta property="og:url" content="{{ page.url | prepend: site.url }}">
+<meta property="og:image" content="{{ site.url }}/img/cover.jpg"/>
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="/">
-<meta name="twitter:image" content="{{ site.baseurl }}/img/cover.jpg"/>
+<meta name="twitter:url" content="{{ page.url | prepend: site.url }}">
+<meta name="twitter:image" content="{{ site.url }}/img/cover.jpg"/>

@@ -26,7 +26,11 @@
             </figure>
 
             <h1 class="page-title">{{ site.title | escape }}</h1>
-            <h2 class="page-description">{{ site.description | escape }}</h2>
+            {% if page.permalink == 'about' %}
+                <a href="{{ site.url }}/feed.xml" class="btn btn-secondary btn-small btn-outline"><i class="fa fa-rss"></i> Subscribe</a>
+            {% else %}
+                <h2 class="page-description">{{ site.description | escape }}</h2>
+            {% endif %}
         </div>
     </header>
 {% endif %}
