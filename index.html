@@ -9,8 +9,15 @@ slug: home
             <li class="post">
                 <a href="{{ post.url }}" class="post-title">{{ post.title }}</a>
 
-                <div class="post-date">
-                    {{ post.date | date: '%B %d, %Y' }}
+                <div class="post-meta">
+                    <span>{{ post.date | date: '%B %d, %Y' }}</span> &#8212;
+                    {% for category in post.categories %}
+                        {% if forloop.last %}
+                            {{ category }}.
+                        {% else %}
+                            {{ category }},
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </li>
         {% endfor %}

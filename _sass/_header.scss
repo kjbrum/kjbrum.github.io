@@ -32,7 +32,10 @@
 
     .post-meta {
         font-size: 0.8rem;
-        text-transform: uppercase;
+
+        span {
+            text-transform: uppercase;
+        }
     }
 }
 
