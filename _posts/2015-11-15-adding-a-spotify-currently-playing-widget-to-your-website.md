@@ -3,9 +3,12 @@ layout: post
 title: "Adding a Spotify \"Currently Playing\" Widget to Your Website"
 date: 2015-11-15
 categories: [Tips & Tricks, JavaScript]
+featured_image: spotify-currently-playing.png
 ---
 
 __Update:__ This article is no longer up to date. Please visit the [spotifyCurrentlyPlaying.js](http://kylebrumm.com/spotifyCurrentlyPlaying.js/) website to get started.
+
+![spotifyCurrentlyPlaying.js]({{ site.url }}/media/posts/spotify-currently-playing.png)
 
 ---
 

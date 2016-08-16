@@ -17,10 +17,6 @@
         padding: 1rem;
         border-bottom: 1px solid $gray-ultralight;
         text-align: center;
-
-        &.heading:not(:first-of-type) {
-            padding-top: 2rem;
-        }
     }
 
     h4 {
