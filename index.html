@@ -34,24 +34,5 @@ slug: home
                 {% endif %}
             {% endunless %}
         {% endfor %}
-
-        {% comment %}
-            {% for post in site.posts %}
-                <li class="post">
-                    <a href="{{ post.url }}" class="post-title">{{ post.title }}</a>
-
-                    <div class="post-meta">
-                        <span>{{ post.date | date: '%B %d, %Y' }}</span> &#8212;
-                        {% for category in post.categories %}
-                            {% if forloop.last %}
-                                {{ category }}
-                            {% else %}
-                                {{ category }},
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </li>
-            {% endfor %}
-        {% endcomment %}
     </ul>
 </section>

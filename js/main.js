@@ -27,12 +27,12 @@
     }
 
     // spotifyCurrentlyPlaying.js
-    // if(document.querySelector('.scp-container')) {
+    if(document.querySelector('.scp-container')) {
         SCP({
             username: 'kjbrum',
             api_key: 'da3d6b59d72cbd535ce2405ec13b97be'
         });
-    // }
+    }
 
     // ScrollReveal.js
     window.sr = ScrollReveal({ origin: 'bottom', distance: '2rem', scale: 1 });

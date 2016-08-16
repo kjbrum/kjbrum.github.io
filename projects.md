@@ -4,11 +4,13 @@ title: Projects
 permalink: projects
 ---
 
+{:blank: target="_blank"}
+
 #### Des Moines Web Collective
 
 A community of web professionals in the Des Moines metro area.
 
-[Website](http://dsmwebcollective.com){:target="_blank"} \| [Github](https://github.com/dsmwebcollective/dsmwebcollective.github.io){:target="_blank"}
+[Website](http://dsmwebcollective.com){:blank} \| [Github](https://github.com/dsmwebcollective/dsmwebcollective.github.io){:blank}
 
 ---
 
@@ -16,7 +18,7 @@ A community of web professionals in the Des Moines metro area.
 
 Another stupid SCSS framework, but it's just mine.
 
-[Website](http://kylebrumm.com/justmy.scss){:target="_blank"} \| [Github](https://github.com/kjbrum/justmy.scss){:target="_blank"}
+[Website](http://kylebrumm.com/justmy.scss){:blank} \| [Github](https://github.com/kjbrum/justmy.scss){:blank}
 
 ---
 
@@ -24,7 +26,15 @@ Another stupid SCSS framework, but it's just mine.
 
 Display your currently playing Spotify song(s) using Last.fm scrobbling.
 
-[Website](http://kylebrumm.com/spotifyCurrentlyPlaying.js){:target="_blank"} \| [Github](https://github.com/kjbrum/spotifyCurrentlyPlaying.js){:target="_blank"}
+[Website](http://kylebrumm.com/spotifyCurrentlyPlaying.js){:blank} \| [Github](https://github.com/kjbrum/spotifyCurrentlyPlaying.js){:blank}
+
+---
+
+#### Surroundings
+
+An application that will allow you to share your personal experiences with others.
+
+[Process Book]({{ site.url }}/media/files/surroundings-process-book.pdf){:blank}
 
 ---
 
@@ -32,7 +42,7 @@ Display your currently playing Spotify song(s) using Last.fm scrobbling.
 
 Wedding website for Laura and I.
 
-[Website](http://pochobrumm.us){:target="_blank"} \| [Github](https://github.com/kjbrum/10.01.2016){:target="_blank"}
+[Website](http://pochobrumm.us){:blank} \| [Github](https://github.com/kjbrum/10.01.2016){:blank}
 
 ---
 
@@ -40,7 +50,7 @@ Wedding website for Laura and I.
 
 Mixins for life.
 
-[Website](http://kylebrumm.com/juice){:target="_blank"} \| [Github](https://github.com/kjbrum/juice){:target="_blank"}
+[Website](http://kylebrumm.com/juice){:blank} \| [Github](https://github.com/kjbrum/juice){:blank}
 
 ---
 
@@ -48,7 +58,7 @@ Mixins for life.
 
 Remove the vowels, keep it meta.
 
-[Website](http://kylebrumm.com/devoweler.js){:target="_blank"} \| [Github](https://github.com/kjbrum/devoweler.js){:target="_blank"}
+[Website](http://kylebrumm.com/devoweler.js){:blank} \| [Github](https://github.com/kjbrum/devoweler.js){:blank}
 
 ---
 
@@ -56,7 +66,7 @@ Remove the vowels, keep it meta.
 
 A WordPress plugin to display 500px photo streams.
 
-[Github](https://github.com/kjbrum/500px-Connector){:target="_blank"}
+[Github](https://github.com/kjbrum/500px-Connector){:blank}
 
 ---
 
@@ -64,7 +74,7 @@ A WordPress plugin to display 500px photo streams.
 
 A simple WordPress plugin that will allow users to upload raster images and convert them to usable SVGs with a shortcode.
 
-[Github](https://github.com/kjbrum/pxtosvg){:target="_blank"}
+[Github](https://github.com/kjbrum/pxtosvg){:blank}
 
 ---
 
@@ -72,7 +82,7 @@ A simple WordPress plugin that will allow users to upload raster images and conv
 
 A massive list of web agencies all around the world.
 
-[Github](https://github.com/kjbrum/web-agencies-worldwide){:target="_blank"}
+[Github](https://github.com/kjbrum/web-agencies-worldwide){:blank}
 
 ---
 
@@ -80,7 +90,7 @@ A massive list of web agencies all around the world.
 
 Iowa State College of Design redesign project.
 
-[Website](http://kylebrumm.com/cod){:target="_blank"} \| [Github](https://github.com/kjbrum/cod){:target="_blank"}
+[Website](http://kylebrumm.com/cod){:blank} \| [Github](https://github.com/kjbrum/cod){:blank}
 
 ---
 
@@ -88,7 +98,7 @@ Iowa State College of Design redesign project.
 
 Your one stop spot for parking.
 
-[Website](http://kylebrumm.com/spotvendr){:target="_blank"} \| [Github](https://github.com/kjbrum/spotvendr){:target="_blank"}
+[Website](http://kylebrumm.com/spotvendr){:blank} \| [Github](https://github.com/kjbrum/spotvendr){:blank}
 
 ---
 
@@ -96,7 +106,7 @@ Your one stop spot for parking.
 
 Just a simple notepad.
 
-[Website](http://kylebrumm.com/notepad){:target="_blank"} \| [Github](https://github.com/kjbrum/notepad){:target="_blank"}
+[Website](http://kylebrumm.com/notepad){:blank} \| [Github](https://github.com/kjbrum/notepad){:blank}
 
 ---
 
@@ -104,4 +114,4 @@ Just a simple notepad.
 
 A collection of my personal Alfred workflows.
 
-[Github](https://github.com/kjbrum/alfred-workflows){:target="_blank"}
+[Github](https://github.com/kjbrum/alfred-workflows){:blank}

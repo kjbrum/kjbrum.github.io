@@ -1,9 +1,11 @@
 <!-- Navigation -->
 {% include nav.html %}
 
-{% if page.slug != 'home' %}
-    <!-- <a class="btn btn-home btn-secondary btn-small btn-outline" href="/"><i class="fa fa-angle-left"></i> Home</a> -->
-{% endif %}
+{% comment %}
+    {% if page.slug != 'home' %}
+        <a class="btn btn-home btn-secondary btn-small btn-outline" href="/"><i class="fa fa-angle-left"></i> Home</a>
+    {% endif %}
+{% endcomment %}
 
 {% if page.is_post %}
     <header class="header header--post">
@@ -30,11 +32,9 @@
         {% include social-media.html %}
 
         <div class="container">
-            <figure class="author-image">
-                <a href="{{ site.url }}/about">
-                    <img src="{{ site.url }}/media/cover.jpg" alt="Kyle Brumm's Avatar">
-                </a>
-            </figure>
+            <a href="{{ site.url }}/about">
+                <img src="{{ site.url }}/media/cover.jpg" alt="Kyle Brumm's Avatar">
+            </a>
 
             <h1 class="page-title">{{ site.title | escape }}</h1>
             {% if page.permalink == 'about' %}
