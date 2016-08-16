@@ -35,7 +35,7 @@
     }
 
     // ScrollReveal.js
-    window.sr = ScrollReveal({ distance: '2rem', scale: 0.8, viewFactor: 0.8 });
-    sr.reveal('.posts li');
-    sr.reveal('.projects .page-content *');
+    // window.sr = ScrollReveal({ distance: '2rem', scale: 0.8, viewFactor: 0.8 });
+    // sr.reveal('.posts li');
+    // sr.reveal('.projects .page-content *');
 })(window);
