@@ -15,8 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Kyle Brumm
 email: kjbrumm@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Musings from development escapades.
+description: Musings from development escapades.
 baseurl: "" # the subpath of your site, e.g. /blog
 # url: "http://kyle2016.surge.sh" # the base hostname & protocol for your site
 url: "http://kylebrumm.com" # the base hostname & protocol for your site
