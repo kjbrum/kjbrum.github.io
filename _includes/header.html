@@ -1,10 +1,12 @@
+<!-- Navigation -->
+{% include nav.html %}
+
 {% if page.slug != 'home' %}
-    <a class="btn btn-home btn-secondary btn-small btn-outline" href="/"><i class="fa fa-angle-left"></i> Home</a>
+    <!-- <a class="btn btn-home btn-secondary btn-small btn-outline" href="/"><i class="fa fa-angle-left"></i> Home</a> -->
 {% endif %}
 
 {% if page.is_post %}
     <header class="header header--post">
-
         <!-- Social Share -->
         {% include social-share.html %}
 
@@ -19,7 +21,6 @@
                         {{ category }},
                     {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </header>
