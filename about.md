@@ -5,13 +5,11 @@ permalink: about
 slug: about
 ---
 
-<div class="text-center">
-    <p>Developer. Designer. Photographer. Gamer.</p>
+<p>Developer. Designer. Photographer. Gamer.</p>
 
-    <a href="{{ site.url }}/media/files/kylebrumm-resume.pdf" target="_blank">Download my resume</a>
+<a href="{{ site.url }}/media/files/kylebrumm-resume.pdf" target="_blank">Download my resume</a>
 
-    <p>&nbsp;</p>
+<p>&nbsp;</p>
 
-    <h4>Currently Playing:</h4>
-    <div class="scp-container"></div>
-</div>
+<h4>Currently Playing:</h4>
+<div class="scp-container"></div>

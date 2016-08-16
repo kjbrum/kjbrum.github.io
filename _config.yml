@@ -17,7 +17,6 @@ title: Kyle Brumm
 email: kjbrumm@gmail.com
 description: Musings from development escapades.
 baseurl: "" # the subpath of your site, e.g. /blog
-# url: "http://kyle2016.surge.sh" # the base hostname & protocol for your site
 url: "http://kylebrumm.com" # the base hostname & protocol for your site
 permalink: /:title
 
