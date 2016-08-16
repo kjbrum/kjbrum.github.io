@@ -44,6 +44,10 @@ social:
     icon: twitter
     url: http://twitter.com
     username: kyle_brumm
+  - name: CodePen
+    icon: codepen
+    url: http://codepen.io
+    username: kjbrum
   - name: Dribbble
     icon: dribbble
     url: http://dribbble.com

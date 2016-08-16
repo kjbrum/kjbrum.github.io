@@ -104,27 +104,31 @@
 
 
     .github:hover {
-        color: #333333;
-        border-color: #333333;
-    }
-    .twitter:hover {
-        color: #55acee;
-        border-color: #55acee;
-    }
-    .google-plus:hover {
-        color: #dd4b39;
-        border-color: #dd4b39;
+        color: map-get($brands, github);
+        border-color: map-get($brands, github);
     }
     .linkedin:hover {
-        color: #007bb6;
-        border-color: #007bb6;
+        color: map-get($brands, linkedin);
+        border-color: map-get($brands, linkedin);
+    }
+    .twitter:hover {
+        color: map-get($brands, twitter);
+        border-color: map-get($brands, twitter);
+    }
+    .codepen:hover {
+        color: map-get($brands, codepen);
+        border-color: map-get($brands, codepen);
     }
     .dribbble:hover {
-        color: #ea4c89;
-        border-color: #ea4c89;
+        color: map-get($brands, dribbble);
+        border-color: map-get($brands, dribbble);
     }
     .facebook:hover {
-        color: #3b5998;
-        border-color: #3b5998;
+        color: map-get($brands, facebook);
+        border-color: map-get($brands, facebook);
+    }
+    .google-plus:hover {
+        color: map-get($brands, google-plus);
+        border-color: map-get($brands, google-plus);
     }
 }
