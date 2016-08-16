@@ -2,6 +2,7 @@
 layout: page
 title: Projects
 permalink: projects
+slug: projects
 ---
 
 {:blank: target="_blank"}

@@ -1,8 +1,10 @@
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script> -->
 
-<!-- spotifyCurrentlyPlaying.js -->
-<script src="{{ site.url }}/js/spotifyCurrentlyPlaying.min.js"></script>
+{% if page.slug == 'about' %}
+    <!-- spotifyCurrentlyPlaying.js -->
+    <script src="{{ site.url }}/js/spotifyCurrentlyPlaying.min.js"></script>
+{% endif %}
 
 <!-- ScrollReveal -->
 <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script>

@@ -1,9 +1,19 @@
 <nav class="nav">
     <ul class="list-inline list-plain">
-        <li><a href="/">Articles</a></li>
+        <li {% if page.slug == 'home' %}class="active"{% endif %}>
+            <a href="/">Articles</a>
+        </li>
+
         <li class="divider">/</li>
-        <li><a href="{{ site.url }}/about">About</a></li>
+
+        <li {% if page.slug == 'about' %}class="active"{% endif %}>
+            <a href="{{ site.url }}/about">About</a>
+        </li>
+
         <li class="divider">/</li>
-        <li><a href="{{ site.url }}/projects">Projects</a></li>
+
+        <li {% if page.slug == 'projects' %}class="active"{% endif %}>
+            <a href="{{ site.url }}/projects">Projects</a>
+        </li>
     </ul>
 </nav>
