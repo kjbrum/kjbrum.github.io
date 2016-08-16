@@ -39,6 +39,8 @@
             <h1 class="page-title">{{ site.title | escape }}</h1>
             {% if page.permalink == 'about' %}
                 <a href="{{ site.url }}/feed.xml" class="btn btn-secondary btn-small btn-outline"><i class="fa fa-rss"></i> Subscribe</a>
+            {% else if page.permalink == 'projects' %}
+                <h2 class="page-description">Some awesome projects that I've built.</h2>
             {% else %}
                 <h2 class="page-description">{{ site.description | escape }}</h2>
             {% endif %}
