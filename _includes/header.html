@@ -38,7 +38,7 @@
 
             <h1 class="page-title">{{ site.title | escape }}</h1>
             {% if page.slug == 'about' %}
-                <a href="{{ site.url }}/feed.xml" class="btn btn-secondary btn-small btn-outline"><i class="fa fa-rss"></i> Subscribe</a>
+                <a href="{{ site.url }}/feed.xml" target="_blank" class="btn btn-secondary btn-small btn-outline"><i class="fa fa-rss"></i> Subscribe</a>
             {% elsif page.slug == 'projects' %}
                 <h2 class="page-description">Some awesome projects that I've built.</h2>
             {% else %}

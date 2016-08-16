@@ -8,7 +8,7 @@ slug: about
 <div class="text-center">
     <p>Developer. Designer. Photographer. Gamer.</p>
 
-    <a href="{{ site.url }}/media/files/kylebrumm-resume.pdf">Download my resume</a>
+    <a href="{{ site.url }}/media/files/kylebrumm-resume.pdf" target="_blank">Download my resume</a>
 
     <p>&nbsp;</p>
 
