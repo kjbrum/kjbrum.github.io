@@ -4,8 +4,10 @@ title: About
 permalink: about
 ---
 
-<center>
+<div class="text-center">
     <p>Developer. Designer. Photographer. Gamer.</p>
 
+    <h4>Currently Playing:</h4>
+
     <div class="scp-container"></div>
-</center>
+</div>
