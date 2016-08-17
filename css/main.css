@@ -5102,9 +5102,8 @@ hr {
     font-size: 1.2rem;
     font-weight: 300; }
   .header .post-meta {
-    font-size: 0.8rem; }
-    .header .post-meta span {
-      text-transform: uppercase; }
+    font-size: 0.8rem;
+    text-transform: uppercase; }
 
 .header--post {
   text-align: left; }
@@ -5209,6 +5208,10 @@ hr {
   font-size: 0.8rem; }
   .section--home .post-meta span {
     text-transform: uppercase; }
+
+.section--about .dribbble-shots a,
+.section--about .dribbble-shots img {
+  display: block; }
 
 .footer {
   text-align: center;

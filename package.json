@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Musings from development escapades.",
   "scripts": {
-    "prod": "jekyll build && postcss --use autoprefixer --output css/style.css _site/css/style.css",
+    "prod": "jekyll build && postcss --use autoprefixer --output css/main.css _site/css/main.css",
     "dev": "jekyll serve --config _config.yml,_config-dev.yml"
   },
   "repository": {
