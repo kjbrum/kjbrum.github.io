@@ -1,0 +1,18 @@
+{
+  "name": "kjbrum.github.io",
+  "version": "1.0.0",
+  "description": "Musings from development escapades.",
+  "scripts": {
+    "build": "jekyll build && postcss --use autoprefixer --output css/style.css _site/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kjbrum/kjbrum.github.io.git"
+  },
+  "author": "Kyle Brumm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kjbrum/kjbrum.github.io/issues"
+  },
+  "homepage": "https://github.com/kjbrum/kjbrum.github.io#readme"
+}
