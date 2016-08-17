@@ -1,5 +1,4 @@
-;
-(function(global) {
+;(function(global) {
     /**
      *  Social sharing popup window
      */
@@ -33,6 +32,20 @@
             username: 'kjbrum',
             api_key: 'da3d6b59d72cbd535ce2405ec13b97be'
         });
+    }
+
+    // Time to read
+    var wordsToMinutes = function(text, imgs) {
+        var words = text.split(' ').length;
+        var minutes = Math.floor((words + (imgs * 12)) / 275) || '< 1';
+        return minutes;
+    }
+
+    var $postContent = document.querySelector('.post-content');
+    if ($postContent) {
+        var numImgs = $postContent.getElementsByTagName('img').length;
+        var content = $postContent.outerText.replace(/\r?\n/g, '');
+        document.querySelector('.read-time').innerText = wordsToMinutes(content, numImgs) + ' min read';
     }
 
     // ScrollReveal.js
