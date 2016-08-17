@@ -50,10 +50,19 @@
 }
 
 .section--about {
-    .dribbble-shots {
+    .dribbble-shots,
+    .fivehundred-photos {
+        .gi {
+            padding: 0.5rem;
+        }
+
         a,
         img {
             display: block;
+        }
+
+        img {
+            margin: 0 auto;
         }
     }
 }

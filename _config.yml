@@ -50,6 +50,10 @@ social:
     icon: dribbble
     url: http://dribbble.com
     username: kjbrum
+  - name: 500px
+    icon: 500px
+    url: http://500px.com
+    username: kjbrum
   - name: Facebook
     icon: facebook
     url: http://facebook.com
