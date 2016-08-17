@@ -93,7 +93,7 @@
     //     request.send();
     // }
 
-    var requestData = function(options, callback) {
+    var serviceSnatcher = function(options, callback) {
         // Set the request URL
         var apiURL;
         switch (options.service) {
@@ -141,7 +141,7 @@
 
     // Display the Dribbble shots
     if (document.querySelector('.dribbble-shots')) {
-        requestData({
+        serviceSnatcher({
             service: 'dribbble',
             username: 'kjbrum',
             auth: '305b1f7fb8e23dd9375061f6fa5e26263fdfc0ecbfb50f30379b01f98829f259'
@@ -172,7 +172,7 @@
 
     // Display the 500px shots
     if (document.querySelector('.fivehundred-photos')) {
-        requestData({
+        serviceSnatcher({
             service: '500px',
             username: 'kjbrum',
             auth: 'VoO5pDr8HxVQtrDVeQXKqF6Kzx0PJdlvy0mjNEGt'
