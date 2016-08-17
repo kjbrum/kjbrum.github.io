@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<section class="section section--page">
+<section class="section section--page {% if page.slug %}section--{{ page.slug }}{% endif %}">
     <div class="container">
         <div class="page-content">
             {{ content }}

@@ -1,0 +1,110 @@
+- name: "Des Moines Web Collective"
+  description: "A community of web professionals in the Des Moines metro area."
+  links:
+    - text: "Website"
+      url: http://dsmwebcollective.com
+
+    - text: "Github"
+      url: https://github.com/dsmwebcollective/dsmwebcollective.github.io
+
+- name: "JustMy.scss"
+  description: "Another stupid SCSS framework, but it's just mine."
+  links:
+    - text: "Website"
+      url: http://kylebrumm.com/justmy.scss
+
+    - text: "Github"
+      url: https://github.com/kjbrum/justmy.scss
+
+- name: "spotifyCurrentlyPlaying.js"
+  description: "Display your currently playing Spotify song(s) using Last.fm scrobbling."
+  links:
+    - text: "Website"
+      url: http://kylebrumm.com/spotifyCurrentlyPlaying.js
+
+    - text: "Github"
+      url: https://github.com/kjbrum/spotifyCurrentlyPlaying.js
+
+- name: "Surroundings"
+  description: "An application that will allow you to share your personal experiences with others."
+  links:
+    - text: "Process Book"
+      url: "{{ site.url }}/media/files/surroundings-process-book.pdf"
+
+- name: "10.01.2016"
+  description: "Wedding website for Laura and I."
+  links:
+    - text: "Website"
+      url: http://pochobrumm.us
+
+    - text: "Github"
+      url: https://github.com/kjbrum/10.01.2016
+
+- name: "Juice"
+  description: "Mixins for life."
+  links:
+    - text: "Website"
+      url: http://kylebrumm.com/juice
+
+    - text: "Github"
+      url: https://github.com/kjbrum/juice
+
+- name: "Devoweler.js"
+  description: "Remove the vowels, keep it meta."
+  links:
+    - text: "Website"
+      url: http://kylebrumm.com/devoweler.js
+
+    - text: "Github"
+      url: https://github.com/kjbrum/devoweler.js
+
+- name: "500px Connector"
+  description: "A WordPress plugin to display 500px photo streams."
+  links:
+    - text: "Github"
+      url: https://github.com/kjbrum/500px-Connector
+
+- name: "PX to SVG"
+  description: "A simple WordPress plugin that will allow users to upload raster images and convert them to usable SVGs with a shortcode."
+  links:
+    - text: "Github"
+      url: https://github.com/kjbrum/pxtosvg
+
+- name: "Web Agencies Worldwide"
+  description: "A massive list of web agencies all around the world."
+  links:
+    - text: "Github"
+      url: https://github.com/kjbrum/web-agencies-worldwide
+
+- name: "CoD"
+  description: "Iowa State College of Design redesign project."
+  links:
+    - text: "Website"
+      url: http://kylebrumm.com/cod
+
+    - text: "Github"
+      url: https://github.com/kjbrum/cod
+
+- name: "SpotVendr"
+  description: "Your one stop spot for parking."
+  links:
+    - text: "Website"
+      url: http://kylebrumm.com/spotvendr
+
+    - text: "Github"
+      url: https://github.com/kjbrum/spotvendr
+
+- name: "Notepad"
+  description: "Just a simple notepad."
+  links:
+    - text: "Website"
+      url: http://kylebrumm.com/notepad
+
+    - text: "Github"
+      url: https://github.com/kjbrum/notepad
+
+- name: "Alfred Workflows"
+  description: "A collection of my personal Alfred workflows."
+  links:
+    - text: "Github"
+      url: https://github.com/kjbrum/alfred-workflows
