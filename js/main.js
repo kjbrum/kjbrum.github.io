@@ -37,7 +37,7 @@
     // Time to read
     var wordsToMinutes = function(text, imgs) {
         var words = text.split(' ').length;
-        var minutes = Math.floor((words + (imgs * 12)) / 275) || '< 1';
+        var minutes = Math.floor((words + (imgs * 5)) / 275) || '< 1';
         return minutes;
     }
 
