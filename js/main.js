@@ -66,6 +66,9 @@
             case '500px':
                 apiURL = 'https://api.500px.com/v1/photos?consumer_key=' + options.auth + '&feature=user&username=' + options.username + '&image_size=440';
                 break;
+            case 'codepen':
+                apiURL = 'http://cpv2api.com/pens/public/' + options.username;
+                break;
             case 'dribbble':
                 apiURL = 'https://api.dribbble.com/v1/users/' + options.username + '/shots';
                 break;
