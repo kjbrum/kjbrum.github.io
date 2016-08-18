@@ -56,6 +56,36 @@
 
 
 
+    var $jsonp = (function(){
+      var that = {};
+
+      that.send = function(src, options) {
+        var callback_name = options.callbackName || 'callback',
+          on_success = options.onSuccess || function(){},
+          on_timeout = options.onTimeout || function(){},
+          timeout = options.timeout || 10; // sec
+
+        var timeout_trigger = window.setTimeout(function(){
+          window[callback_name] = function(){};
+          on_timeout();
+        }, timeout * 1000);
+
+        window[callback_name] = function(data){
+          window.clearTimeout(timeout_trigger);
+          on_success(data);
+        }
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.src = src;
+
+        document.getElementsByTagName('head')[0].appendChild(script);
+      }
+
+      return that;
+    })();
+
     /******************************************************
      * Request API data from a specific service.
      ******************************************************/
@@ -72,7 +102,15 @@
             case 'dribbble':
                 apiURL = 'https://api.dribbble.com/v1/users/' + options.username + '/shots';
                 break;
+            case 'instagram':
+                apiURL = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=' + options.auth;
+                break;
         }
+
+        // if (options.service == 'instagram') {
+        //     var json = {"pagination": {}, "meta": {"code": 200}, "data": [{"attribution": null, "tags": [], "type": "image", "location": null, "comments": {"count": 1}, "filter": "Valencia", "created_time": "1343840675", "link": "https://www.instagram.com/p/Nyw6gDGyOc/", "likes": {"count": 33}, "images": {"low_resolution": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s320x320/e15/11138007_809306342479571_280607309_n.jpg?ig_cache_key=MjQ4NDc2MDU1ODMyODMwODc2.2", "width": 320, "height": 320}, "thumbnail": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s150x150/e15/11138007_809306342479571_280607309_n.jpg?ig_cache_key=MjQ4NDc2MDU1ODMyODMwODc2.2", "width": 150, "height": 150}, "standard_resolution": {"url": "https://scontent.cdninstagram.com/t51.2885-15/e15/11138007_809306342479571_280607309_n.jpg?ig_cache_key=MjQ4NDc2MDU1ODMyODMwODc2.2", "width": 612, "height": 612}}, "users_in_photo": [], "caption": null, "user_has_liked": false, "id": "248476055832830876_175436735", "user": {"username": "kjbrum", "profile_picture": "https://scontent.cdninstagram.com/t51.2885-19/10955285_461956607290789_899418425_a.jpg", "id": "175436735", "full_name": "Kyle Brumm"}}, {"attribution": null, "tags": [], "type": "image", "location": null, "comments": {"count": 1}, "filter": "Earlybird", "created_time": "1341799755", "link": "https://www.instagram.com/p/M18Kw4GyCV/", "likes": {"count": 12}, "images": {"low_resolution": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s320x320/e15/11176326_1579334695649134_1451422840_n.jpg?ig_cache_key=MjMxMzU1NTc4MzQ1NzkxNjM3.2", "width": 320, "height": 320}, "thumbnail": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s150x150/e15/11176326_1579334695649134_1451422840_n.jpg?ig_cache_key=MjMxMzU1NTc4MzQ1NzkxNjM3.2", "width": 150, "height": 150}, "standard_resolution": {"url": "https://scontent.cdninstagram.com/t51.2885-15/e15/11176326_1579334695649134_1451422840_n.jpg?ig_cache_key=MjMxMzU1NTc4MzQ1NzkxNjM3.2", "width": 612, "height": 612}}, "users_in_photo": [], "caption": null, "user_has_liked": true, "id": "231355578345791637_175436735", "user": {"username": "kjbrum", "profile_picture": "https://scontent.cdninstagram.com/t51.2885-19/10955285_461956607290789_899418425_a.jpg", "id": "175436735", "full_name": "Kyle Brumm"}}, {"attribution": null, "tags": [], "type": "image", "location": null, "comments": {"count": 0}, "filter": "Brannan", "created_time": "1338244328", "link": "https://www.instagram.com/p/LL-unJmyBR/", "likes": {"count": 5}, "images": {"low_resolution": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s320x320/e15/11085073_1434755403501907_586573615_n.jpg?ig_cache_key=MjAxNTMwNDkwMzY0ODI5Nzc3.2", "width": 320, "height": 320}, "thumbnail": {"url": "https://scontent.cdninstagram.com/t51.2885-15/s150x150/e15/11085073_1434755403501907_586573615_n.jpg?ig_cache_key=MjAxNTMwNDkwMzY0ODI5Nzc3.2", "width": 150, "height": 150}, "standard_resolution": {"url": "https://scontent.cdninstagram.com/t51.2885-15/e15/11085073_1434755403501907_586573615_n.jpg?ig_cache_key=MjAxNTMwNDkwMzY0ODI5Nzc3.2", "width": 612, "height": 612}}, "users_in_photo": [], "caption": {"created_time": "1338244328", "text": "Immaculate", "from": {"username": "kjbrum", "profile_picture": "https://scontent.cdninstagram.com/t51.2885-19/10955285_461956607290789_899418425_a.jpg", "id": "175436735", "full_name": "Kyle Brumm"}, "id": "17852001799012736"}, "user_has_liked": false, "id": "201530490364829777_175436735", "user": {"username": "kjbrum", "profile_picture": "https://scontent.cdninstagram.com/t51.2885-19/10955285_461956607290789_899418425_a.jpg", "id": "175436735", "full_name": "Kyle Brumm"}}]}
+        //     callback(json);
+        // }
 
         // Make the API request
         var request = new XMLHttpRequest();
@@ -169,4 +207,13 @@
             }
         });
     }
+
+    // Display the CodePen posts
+    serviceSnatcher({
+        service: 'instagram',
+        username: 'kjbrum',
+        auth: '175436735.49954d7.8ed44a3a4d8c49dd97c4219656c04e29'
+    }, function(data) {
+        console.log(data);
+    });
 })(window);
