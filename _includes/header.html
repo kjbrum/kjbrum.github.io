@@ -8,7 +8,7 @@
 {% endcomment %}
 
 {% if page.is_post %}
-    <header class="header header--post">
+    <header class="header header--post" {% if site.post_banner_images and page.featured_image %}style="background-image: url({{ site.url }}/media/posts/{{ page.featured_image }});"{% endif %}>
         <!-- Social Share -->
         {% include social-share.html %}
 
@@ -27,7 +27,7 @@
         </div>
     </header>
 {% else %}
-    <header class="header">
+    <header class="header" {% if site.banner_image %}style="background-image: url({{ site.banner_image }});"{% endif %}>
         <!-- Social media -->
         {% include social-media.html %}
 

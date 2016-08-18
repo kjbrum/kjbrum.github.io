@@ -28,6 +28,12 @@ defaults:
     values:
       is_post: true
 
+# Banner image
+# banner_image: "path/to/image"
+
+# Enable post images in banner (true|false)
+post_banner_images: false
+
 # Social Media
 social:
   - name: Github
