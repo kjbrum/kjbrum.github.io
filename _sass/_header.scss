@@ -104,45 +104,23 @@
         height: 40px;
         outline: none;
 
-        i {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
         &:hover {
             color: $primary;
             border-color: $primary;
         }
     }
 
-    .github:hover {
-        color: map-get($brands, github);
-        border-color: map-get($brands, github);
+    i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-    .linkedin:hover {
-        color: map-get($brands, linkedin);
-        border-color: map-get($brands, linkedin);
-    }
-    .twitter:hover {
-        color: map-get($brands, twitter);
-        border-color: map-get($brands, twitter);
-    }
-    .codepen:hover {
-        color: map-get($brands, codepen);
-        border-color: map-get($brands, codepen);
-    }
-    .dribbble:hover {
-        color: map-get($brands, dribbble);
-        border-color: map-get($brands, dribbble);
-    }
-    .facebook:hover {
-        color: map-get($brands, facebook);
-        border-color: map-get($brands, facebook);
-    }
-    .google-plus:hover {
-        color: map-get($brands, google-plus);
-        border-color: map-get($brands, google-plus);
+
+    @each $brand, $color in $brands {
+        .social-#{$brand}:hover {
+            color: $color;
+            border-color: $color;
+        }
     }
 }
