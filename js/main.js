@@ -57,42 +57,8 @@
 
 
     /******************************************************
-     * Get Dribbble shots for a specific user
+     * Request API data from a specific service.
      ******************************************************/
-    // var getDribbleShots = function(user, token, callback) {
-    //     // Set the request URL
-    //     var dribbble_api_url = 'https://api.dribbble.com/v1/users/' + user + '/shots';
-
-    //     // Make a request to the API
-    //     var request = new XMLHttpRequest();
-    //     request.open('GET', dribbble_api_url, true);
-    //     request.setRequestHeader('Authorization', 'Bearer ' + token);
-
-    //     // Check for a successful response
-    //     request.onload = function() {
-    //         // Parse the response
-    //         var data = JSON.parse(request.responseText);
-
-    //         // Check the status of the request
-    //         if (request.status >= 200 && request.status < 400) {
-    //             // Return the found data
-    //             callback(data);
-    //         } else {
-    //             // Error from the server
-    //             throw data.message;
-    //         }
-    //     };
-
-    //     // Handle any errors
-    //     request.onerror = function() {
-    //         // Connection error
-    //         throw 'connection error';
-    //     };
-
-    //     // Send the request
-    //     request.send();
-    // }
-
     var serviceSnatcher = function(options, callback) {
         // Set the request URL
         var apiURL;
@@ -170,7 +136,7 @@
         });
     }
 
-    // Display the 500px shots
+    // Display the 500px photos
     if (document.querySelector('.fivehundred-photos')) {
         serviceSnatcher({
             service: '500px',
