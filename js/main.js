@@ -142,7 +142,7 @@
                         var item = document.createElement('div');
                         item.className = 'gi shot';
 
-                        var shotHTML = '<a href="' + el.html_url + '" target="_blank"><img src="' + el.images.normal + '"></a>';
+                        var shotHTML = '<a href="' + el.html_url + '" target="_blank"><img src="' + el.images.normal + '" alt="' + el.title + '" title="' + el.title + '"></a>';
                         item.innerHTML = shotHTML;
 
                         // Add the new item to the list
@@ -173,7 +173,7 @@
                         var item = document.createElement('div');
                         item.className = 'gi photo';
 
-                        var photoHTML = '<a href="http://500px.com' + el.url + '" target="_blank"><img src="' + el.image_url + '"></a>';
+                        var photoHTML = '<a href="http://500px.com' + el.url + '" target="_blank"><img src="' + el.image_url + '" alt="' + el.name + '" title="' + el.name + '"></a>';
                         item.innerHTML = photoHTML;
 
                         // Add the new item to the list
