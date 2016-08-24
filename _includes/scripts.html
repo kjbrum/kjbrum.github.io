@@ -1,18 +1,21 @@
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+<script async src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous" async></script>
+
+<!-- FontAwesome -->
+<script src="https://use.fontawesome.com/{{ site.fa_id }}.js" async></script>
 
 {% if page.slug == 'about' %}
     <!-- spotifyCurrentlyPlaying.js -->
-    <script src="{{ site.url }}/js/spotifyCurrentlyPlaying.min.js"></script>
+    <script src="{{ site.url }}/js/spotifyCurrentlyPlaying.min.js" defer></script>
 {% endif %}
 
 <!-- ScrollReveal -->
 <!-- <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script> -->
 
 <!-- Main JS -->
-<script src="{{ site.url }}/js/main.js"></script>
+<script src="{{ site.url }}/js/main.js" defer></script>
 
 <!-- Disqus -->
 {% if page.is_post %}
-    <script id="dsq-count-scr" src="//kylebrumm.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="//kylebrumm.disqus.com/count.js" defer></script>
 {% endif %}
