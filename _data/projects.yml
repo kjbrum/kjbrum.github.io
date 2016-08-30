@@ -1,3 +1,12 @@
+- name: "SocialDig.js"
+  description: "Query data from your social profiles with ease."
+  links:
+    - text: "Website"
+      url: http://kylebrumm.com/SocialDig.js
+
+    - text: "Github"
+      url: https://github.com/kjbrum/SocialDig.js
+
 - name: "Des Moines Web Collective"
   description: "A community of web professionals in the Des Moines metro area."
   links:
