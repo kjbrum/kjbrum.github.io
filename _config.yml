@@ -40,14 +40,6 @@ social:
     icon: github
     url: http://github.com
     username: kjbrum
-  - name: LinkedIn
-    icon: linkedin
-    url: http://linkedin.com/in
-    username: kylebrumm
-  - name: Twitter
-    icon: twitter
-    url: http://twitter.com
-    username: kyle_brumm
   - name: CodePen
     icon: codepen
     url: http://codepen.io
@@ -56,6 +48,18 @@ social:
     icon: dribbble
     url: http://dribbble.com
     username: kjbrum
+  - name: Instagram
+    icon: instagram
+    url: http://instagram.com
+    username: kyle.brumm
+  - name: LinkedIn
+    icon: linkedin
+    url: http://linkedin.com/in
+    username: kylebrumm
+  - name: Twitter
+    icon: twitter
+    url: http://twitter.com
+    username: kyle_brumm
   - name: 500px
     icon: 500px
     url: http://500px.com
