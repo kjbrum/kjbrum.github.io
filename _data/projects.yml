@@ -38,7 +38,7 @@
   description: "An application that will allow you to share your personal experiences with others."
   links:
     - text: "Process Book"
-      url: "{{ site.url }}/media/files/surroundings-process-book.pdf"
+      url: "/media/files/surroundings-process-book.pdf"
 
 - name: "10.01.2016"
   description: "Wedding website for Laura and I."
