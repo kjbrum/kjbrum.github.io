@@ -42,6 +42,8 @@
                 <a href="{{ site.url }}/feed.xml" target="_blank" class="btn btn-secondary btn-small btn-outline"><i class="fa fa-rss"></i> Subscribe</a>
             {% elsif page.slug == 'projects' %}
                 <h2 class="page-description">Some awesome projects that I've built.</h2>
+            {% elsif page.slug == 'work' %}
+                <h2 class="page-description">Select works from previous employment.</h2>
             {% else %}
                 <h2 class="page-description">{{ site.description | escape }}</h2>
             {% endif %}

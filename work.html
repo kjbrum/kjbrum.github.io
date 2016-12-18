@@ -1,0 +1,18 @@
+---
+layout: page
+title: Work
+permalink: work
+slug: work
+---
+
+{% for work in site.data.work %}
+    <div class="item">
+        <h4><a href="{{ work.link }}" target="_blank">{{ work.name }}</a></h4>
+
+        <strong>{{ work.role }}</strong>
+
+        <p>{{ work.description }}</p>
+
+        <hr>
+    </div>
+{% endfor %}
