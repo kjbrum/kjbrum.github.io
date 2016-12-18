@@ -11,7 +11,7 @@
     {% include meta.html %}
 
     <!-- Main Styles -->
-    <link rel="stylesheet" href="{{ site.url }}/css/main.css">
+    <link rel="stylesheet" href="{{ site.url }}/css/main.css?{{site.time | date: '%s%N'}}">
 
     <!-- Google Analytics -->
     <script>
