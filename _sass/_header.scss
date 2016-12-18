@@ -100,9 +100,14 @@
         background: #ffffff;
         color: $secondary;
         transition: 0.3s ease;
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         outline: none;
+
+        @media (min-width: $bp-xs) {
+            width: 40px;
+            height: 40px;
+        }
 
         &:hover {
             color: $primary;
