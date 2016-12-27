@@ -88,3 +88,19 @@
         text-align: left;
     }
 }
+
+.section--projects {
+    .description {
+        margin-bottom: 0.5rem;
+    }
+
+    .links {
+        a {
+            margin: 0 0.25rem;
+        }
+
+        .fa {
+            font-size: 1.75rem;
+        }
+    }
+}
