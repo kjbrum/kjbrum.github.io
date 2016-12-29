@@ -82,6 +82,18 @@
     - icon: "github"
       url: https://github.com/kjbrum/500px-Connector
 
+- name: "Kraken CLI"
+  description: "Bash script for optimizing images with the Kraken.io API."
+  links:
+    - icon: "github"
+      url: https://github.com/kjbrum/kraken-cli
+
+- name: "Randpass"
+  description: "Bash script for generating a random password and copying it to your clipboard."
+  links:
+    - icon: "github"
+      url: https://github.com/kjbrum/randpass
+
 - name: "PX to SVG"
   description: "A simple WordPress plugin that will allow users to upload raster images and convert them to usable SVGs with a shortcode."
   links:
