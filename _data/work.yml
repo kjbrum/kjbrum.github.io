@@ -16,7 +16,7 @@
 - name: "Chocolate Storybook"
   link: "https://chocolatestory.com"
   role: "Front-End Development"
-  description: "My primary focus with this project was developing the front-end. With this project we were tasked with migrating their products from their old system. The website was built with WordPress, and Woocommerce was used for the ecommerce functionality."
+  description: "My primary focus with this project was developing the front-end. With this project we were tasked with migrating their products from their old system. The website was built with WordPress, and WooCommerce was used for the ecommerce functionality."
 
 - name: "Power Life Yoga"
   link: "http://powerlifeyoga.com"
