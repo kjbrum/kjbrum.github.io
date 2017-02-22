@@ -132,9 +132,3 @@
 
     - icon: "github"
       url: https://github.com/kjbrum/notepad
-
-- name: "Alfred Workflows"
-  description: "A collection of my personal Alfred workflows."
-  links:
-    - icon: "github"
-      url: https://github.com/kjbrum/alfred-workflows
