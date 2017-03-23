@@ -7,24 +7,6 @@
     - icon: "github"
       url: https://github.com/kjbrum/SocialDig.js
 
-- name: "Des Moines Web Collective"
-  description: "A community of web professionals in the Des Moines metro area."
-  links:
-    - icon: "globe"
-      url: http://dsmwebcollective.com
-
-    - icon: "slack"
-      url: http://dsmwebcollective.herokuapp.com/
-
-    - icon: "facebook-square"
-      url: https://www.facebook.com/groups/dsmwebcollective/
-
-    - icon: "twitter"
-      url: https://twitter.com/dmwebcollective
-
-    - icon: "github"
-      url: https://github.com/dsmwebcollective/dsmwebcollective.github.io
-
 - name: "Surroundings"
   description: "An application that will allow you to share your personal experiences with others."
   links:
@@ -58,14 +40,11 @@
     - icon: "github"
       url: https://github.com/kjbrum/juice
 
-- name: "Des Moines Front-End"
-  description: "A monthly meetup for front-end developers and designers."
+- name: "Weave"
+  description: "Prototyping made easy."
   links:
-    - icon: "globe"
-      url: https://dsmfrontend.github.io/
-
     - icon: "github"
-      url: https://github.com/dsmfrontend/dsmfrontend.github.io
+      url: https://github.com/kjbrum/weave
 
 - name: "10.01.2016"
   description: "Wedding website for Laura and I."
@@ -75,6 +54,33 @@
 
     - icon: "github"
       url: https://github.com/kjbrum/10.01.2016
+
+- name: "Des Moines Web Collective"
+  description: "A community of web professionals in the Des Moines metro area."
+  links:
+    - icon: "globe"
+      url: http://dsmwebcollective.com
+
+    - icon: "slack"
+      url: http://dsmwebcollective.herokuapp.com/
+
+    - icon: "facebook-square"
+      url: https://www.facebook.com/groups/dsmwebcollective/
+
+    - icon: "twitter"
+      url: https://twitter.com/dmwebcollective
+
+    - icon: "github"
+      url: https://github.com/dsmwebcollective/dsmwebcollective.github.io
+
+- name: "Des Moines Front-End"
+  description: "A monthly meetup for front-end developers and designers."
+  links:
+    - icon: "globe"
+      url: https://dsmfrontend.github.io/
+
+    - icon: "github"
+      url: https://github.com/dsmfrontend/dsmfrontend.github.io
 
 - name: "500px Connector"
   description: "A WordPress plugin to display 500px photo streams."
@@ -123,13 +129,3 @@
 
     - icon: "github"
       url: https://github.com/kjbrum/spotvendr
-
-- name: "Notepad"
-  description: "Just a simple notepad."
-  links:
-    - icon: "globe"
-      url: http://kylebrumm.com/notepad
-
-    - icon: "github"
-      url: https://github.com/kjbrum/notepad
-
