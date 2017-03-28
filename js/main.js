@@ -193,4 +193,7 @@
     //     username: 'kjbrum',
     //     auth: '175436735.49954d7.8ed44a3a4d8c49dd97c4219656c04e29'
     // });
+
+    // Oh hello
+    console.log("%cOh hello, I'm Kyle :D","background: #514F6F; color: #5AA8B3; line-height: 25px; padding: 5px 10px;")
 })(window);
