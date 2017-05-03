@@ -5,6 +5,10 @@
     margin: 0 -1rem;
     zoom: 1;
 
+    &.g-np {
+        margin: 0;
+    }
+
     &:before,
     &:after {
         content: '';

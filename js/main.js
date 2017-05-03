@@ -58,123 +58,34 @@
     // sr.reveal('.posts li');
     // sr.reveal('.projects .page-content *');
 
-
-
-
-
-    /******************************************************
-     * Request API data from a specific service.
-     ******************************************************/
-    var serviceSnatcher = function(options, callback) {
-        // Set the request URL
-        var apiURL;
-        switch (options.service) {
-            case '500px':
-                apiURL = 'https://api.500px.com/v1/photos?consumer_key=' + options.auth + '&feature=user&username=' + options.username + '&image_size=440';
-                break;
-            case 'codepen':
-                apiURL = 'http://cpv2api.com/pens/public/' + options.username;
-                break;
-            case 'dribbble':
-                apiURL = 'https://api.dribbble.com/v1/users/' + options.username + '/shots';
-                break;
-            // case 'instagram':
-            //     apiURL = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=' + options.auth + '&callback=instagramFeed';
-            //     break;
-        }
-
-
-        // Make the API request
-        // if (options.service == 'instagram') {
-        //     var script = document.createElement('script');
-        //     script.src = apiURL
-
-        //     document.getElementsByTagName('head')[0].appendChild(script);
-        // } else {
-            var request = new XMLHttpRequest();
-            request.open('GET', apiURL, true);
-
-            // Enable additional headers
-            if (options.service == 'dribbble') {
-                request.setRequestHeader('Authorization', 'Bearer ' + options.auth);
-            }
-
-            // Check for a successful response
-            request.onload = function() {
-                // Parse the response
-                var data = JSON.parse(request.responseText);
-
-                // Check the status of the request
-                if (request.status >= 200 && request.status < 400) {
-                    // Return the found data
-                    callback(data);
-                } else {
-                    // Error from the server
-                    throw data.message;
-                }
-            };
-
-            // Handle any errors
-            request.onerror = function() {
-                // Connection error
-                throw 'connection error';
-            };
-
-            // Send the request
-            request.send();
-        // }
-    }
-
-    // Display the Dribbble shots
-    if (document.querySelector('.dribbble-shots')) {
-        serviceSnatcher({
-            service: 'dribbble',
-            username: 'kjbrum',
-            auth: '305b1f7fb8e23dd9375061f6fa5e26263fdfc0ecbfb50f30379b01f98829f259'
+    // Display the Instagram photos
+    if (document.querySelector('.instagram-photos')) {
+        SocialDig({
+            selector: '.instagram-photos',
+            service: 'instagram',
+            user: 'kjbrum',
+            auth: '175436735.49954d7.8ed44a3a4d8c49dd97c4219656c04e29'
         }, function(data) {
-            if (data.length > 0) {
+            if (data.data.length > 0) {
                 var list = document.createElement('div');
-                list.className = 'g g-s-2 shots';
-
-                // Loop through the shots
-                data.forEach(function(el, idx, arr) {
-                    if (idx < 4) {
-                        var item = document.createElement('div');
-                        item.className = 'gi shot';
-
-                        var shotHTML = '<a href="' + el.html_url + '" target="_blank"><img src="' + el.images.normal + '" alt="' + el.title + '" title="' + el.title + '"></a>';
-                        item.innerHTML = shotHTML;
-
-                        // Add the new item to the list
-                        list.appendChild(item);
-                    }
-                });
-
-                // Add the list to the page
-                document.querySelector('.dribbble-shots').appendChild(list);
-            }
-        });
-    }
-
-    // Display the 500px photos
-    if (document.querySelector('.fivehundred-photos')) {
-        serviceSnatcher({
-            service: '500px',
-            username: 'kjbrum',
-            auth: 'VoO5pDr8HxVQtrDVeQXKqF6Kzx0PJdlvy0mjNEGt'
-        }, function(data) {
-            if (data.photos.length > 0) {
-                var list = document.createElement('div');
-                list.className = 'g g-s-2 photos';
+                list.className = 'g g-np g-xs-2 g-s-3 g-l-4 photos';
 
                 // Loop through the photos
-                data.photos.forEach(function(el, idx, arr) {
-                    if (idx < 4) {
+                data.data.forEach(function(el, idx, arr) {
+                    if (idx < 12) {
                         var item = document.createElement('div');
                         item.className = 'gi photo';
 
-                        var photoHTML = '<a href="http://500px.com' + el.url + '" target="_blank"><img src="' + el.image_url + '" alt="' + el.name + '" title="' + el.name + '"></a>';
-                        item.innerHTML = photoHTML;
+                        var caption = '';
+                        if (el.caption) {
+                            caption = '<br>' + el.caption.text;
+                        }
+
+                        // Embed
+                        // item.innerHTML = '<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style="background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;"> <div style="background:url(' + el.images.standard_resolution.url + '); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style="margin:8px 0 0 0; padding:0 4px;"> <a href="' + el.link + '" style="color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">' + caption + '</a></p> <p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A photo posted by ' + el.user.full_name + ' (@' + el.user.username + ').</p></div></blockquote>';
+
+                        // Custom
+                        item.innerHTML = '<a href="' + el.link + '" target="_blank"><div class="img" style="background-image: url(' + el.images.standard_resolution.url + ')"><div class="likes"><div class="text"><i class="fa fa-heart"></i>' + el.likes.count + '</div></div></div></a>';
 
                         // Add the new item to the list
                         list.appendChild(item);
@@ -182,17 +93,17 @@
                 });
 
                 // Add the list to the page
-                document.querySelector('.fivehundred-photos').appendChild(list);
+                document.querySelector('.instagram-photos').appendChild(list);
+
+                // Add the embed script
+                var instaScript = document.createElement('script');
+                instaScript.src = '//platform.instagram.com/en_US/embeds.js';
+                instaScript.async = true;
+                instaScript.defer = true;
+                document.getElementsByTagName('body')[0].appendChild(instaScript);
             }
         });
     }
-
-    // Display the Instagram posts
-    // serviceSnatcher({
-    //     service: 'instagram',
-    //     username: 'kjbrum',
-    //     auth: '175436735.49954d7.8ed44a3a4d8c49dd97c4219656c04e29'
-    // });
 
     // Oh hello
     console.log("%cOh hello, I'm Kyle :D","background: #514F6F; color: #5AA8B3; line-height: 25px; padding: 5px 10px;")
