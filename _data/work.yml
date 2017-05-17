@@ -1,3 +1,8 @@
+- name: "The Seam"
+  link: "http://seam.surge.sh/"
+  role: "Front-End Development"
+  description: "This was a really fun project to work on. I built the front-end for a web app dashboard that was later connected to a back-end. Finally got to start putting some animations to use and was able to experiment with new techniques."
+
 - name: "Stafast"
   link: "https://sta-fast.com"
   role: "Front-End Development"
