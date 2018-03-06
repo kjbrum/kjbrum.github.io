@@ -1,7 +1,12 @@
 - name: "The Seam"
-  link: "http://seam.surge.sh/"
+  link: "https://simplefocus.github.io/theseam"
   role: "Front-End Development"
-  description: "This was a really fun project to work on. I built the front-end for a web app dashboard that was later connected to a back-end. Finally got to start putting some animations to use and was able to experiment with new techniques."
+  description: "This was a really fun project to work on. I built the front-end for a web app dashboard that was later connected to a back-end. I finally had a chance to start putting some animations to use and was able to experiment with new techniques."
+
+- name: "Ballpark"
+  link: "https://www.getballpark.com/"
+  role: "Full-Stack Development"
+  description: "The new Ballpark website was built using Craft CMS. Throughout the site you can see nice subtle animations, mixed with a lot of fun and interactive components."
 
 - name: "Stafast"
   link: "https://sta-fast.com"
@@ -20,7 +25,7 @@
 
 - name: "Chocolate Storybook"
   link: "https://chocolatestory.com"
-  role: "Front-End Development"
+  role: "Full-Stack Development"
   description: "My primary focus with this project was developing the front-end. With this project we were tasked with migrating their products from their old system. The website was built with WordPress, and WooCommerce was used for the ecommerce functionality."
 
 - name: "Power Life Yoga"
@@ -41,4 +46,4 @@
 - name: "Fuse Flooring"
   link: "http://fuseflooring.com"
   role: "Full-Stack Development"
-  description: "This was my first site ever building with WordPress. It was fun building the product detail page functionality."
+  description: "This was my first site I had ever built with WordPress. It was fun building the product detail page functionality."
