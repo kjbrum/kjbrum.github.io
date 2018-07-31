@@ -7,11 +7,31 @@ slug: work
 
 {% for work in site.data.work %}
     <div class="item">
-        <h4><a href="{{ work.link }}" target="_blank">{{ work.name }}</a></h4>
+        {% if work.name == 'The Seam' %}
+            <h4>{{ work.name }} - <a href="{{ work.app }}" target="_blank">App</a> / <a href="{{ work.website }}" target="_blank">Website</a></h4>
+        {% else %}
+            <h4><a href="{{ work.link }}" target="_blank">{{ work.name }}</a></h4>
+        {% endif %}
 
         <strong>{{ work.role }}</strong>
 
+        {% if work.tools %}
+            <ul class="list-plain list-inline">
+                {% for tool in work.tools %}
+                    <li>{{ tool }}</li>
+
+                    {% comment %}
+                    {% if forloop.last != true %}
+                        <li class="divider">/</li>
+                    {% endif %}
+                    {% endcomment %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% comment %}
         <p>{{ work.description }}</p>
+        {% endcomment %}
 
         <hr>
     </div>
