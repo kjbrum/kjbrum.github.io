@@ -11,7 +11,15 @@ slug: work
 
         <strong>{{ work.role }}</strong>
 
-        <p>{{ work.description }}</p>
+        <!-- <p>{{ work.description }}</p> -->
+
+        {% if work.tools %}
+            <ul class="list-plain list-inline">
+                {% for tool in work.tools %}
+                    <li><small>{{ tool }}</small></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
         <hr>
     </div>

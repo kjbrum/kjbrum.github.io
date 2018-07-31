@@ -1,0 +1,49 @@
+- name: "The Seam"
+  link: "https://simplefocus.github.io/theseam"
+  role: "Front-End Development"
+  description: "This was a really fun project to work on. I built the front-end for a web app dashboard that was later connected to a back-end. I finally had a chance to start putting some animations to use and was able to experiment with new techniques."
+
+- name: "Ballpark"
+  link: "https://www.getballpark.com/"
+  role: "Full-Stack Development"
+  description: "The new Ballpark website was built using Craft CMS. Throughout the site you can see nice subtle animations, mixed with a lot of fun and interactive components."
+
+- name: "Stafast"
+  link: "https://sta-fast.com"
+  role: "Front-End Development"
+  description: "The Stafast website was built on the Magento platform. I built the front-end of the site using the Foundation framework and some light jQuery. I built the marketing and product templates pages and then handed them off to be implemented."
+
+- name: "Bowl for Kids' Sake"
+  link: "http://desmoinesbowl.org"
+  role: "Full-Stack Development"
+  description: "This project was an amazing opporunity to work on a site that would have a lasting impact, benefitting Big Brothers Big Sisters of Central Iowa. Users needed to be able to sign up for the event, create or join a bowling team, and collect donations for the cause. Many of the front facing pages are just simple WordPress pages, the real magic was on the team and player pages. Each team and player has their own profile page, which they are able to share on social media to allow friends/family to donate."
+
+- name: "The Art of Education"
+  link: "https://theartofed.com"
+  role: "Front-End Development"
+  description: "This was the largest and most content heavy I have worked on to date. The site was built using WordPress. I built most of the front-end functionality, being sure to make things as modular as possible, so they could easily be reused throughout the site. I also helped out with some of the back-end functionality, including their custom ad plugin, conference pages, and product pages. Having to transfer so much content from one site to another, this was a fun project to be able to write some Bash scripts using the WP-CLI to handle the migration."
+
+- name: "Chocolate Storybook"
+  link: "https://chocolatestory.com"
+  role: "Full-Stack Development"
+  description: "My primary focus with this project was developing the front-end. With this project we were tasked with migrating their products from their old system. The website was built with WordPress, and WooCommerce was used for the ecommerce functionality."
+
+- name: "Power Life Yoga"
+  link: "http://powerlifeyoga.com"
+  role: "Full-Stack Development"
+  description: "This was a fun website for a local yoga studio. I handled building the front-end and back-end functionality."
+
+- name: "Ramsey Used Center"
+  link: "https://ramseyusedcenter.com"
+  role: "Full-Stack Development"
+  description: "WordPress website for a local car dealership. I built the front-end and implemented all the back-end functionality. The vehicles on this site are synced with the vehicles they upload to dealer.com. I built a custom plugin that would allow us to get and parse a csv file of the exported dealer.com data. We would then add, update, or delete vehicles on this website."
+
+- name: "Cooking With Alessandra"
+  link: "http://cookingwithalessandra.com"
+  role: "Full-Stack Development"
+  description: "WordPress website for a local company that offers cooking classes. I handled building the front-end and back-end functionality for this site. We built a custom WordPress plugin for easily syncing her classes from Eventbrite to her classes section on her site."
+
+- name: "Fuse Flooring"
+  link: "http://fuseflooring.com"
+  role: "Full-Stack Development"
+  description: "This was my first site I had ever built with WordPress. It was fun building the product detail page functionality."
