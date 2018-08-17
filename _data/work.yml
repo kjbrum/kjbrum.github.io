@@ -43,6 +43,7 @@
   role: "Full-Stack Development"
   tools:
     - Shopify
+    - GSAP
     - jQuery
     - SCSS
   description: ""
