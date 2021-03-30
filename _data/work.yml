@@ -38,6 +38,13 @@
     - Laravel
     - Tailwind CSS
 
+- name: "CSC Design System"
+  link: "https://csc-style-guide.now.sh/"
+  role: "Front-End Development"
+  tools:
+    - Twig
+    - SCSS
+
 - name: "The Seam"
   app: "https://the-seam.simplefocus.dev/"
   website: "https://theseam.com/"
