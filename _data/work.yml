@@ -46,7 +46,8 @@
     - SCSS
 
 - name: "The Seam"
-  app: "https://theseam-app.vercel.app/"
+  link: "https://theseam-app.vercel.app/"
+#   app: "https://theseam-app.vercel.app/"
 #   website: "https://theseam.com/"
   role: "Front-End Development"
   tools:
