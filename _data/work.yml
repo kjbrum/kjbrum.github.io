@@ -7,13 +7,6 @@
     - Barba.js
     - SCSS
 
-- name: "Próspera"
-  link: "https://prospera.hn/"
-  role: "Front-End Development"
-  tools:
-    - Gatsby.js
-    - styled-system
-
 - name: "Próspera Newsroom"
   link: "https://prospera.hn/news"
   role: "Full-Stack Development"
@@ -21,17 +14,24 @@
     - Craft CMS (headless)
     - Next.js
     - styled-system
-    
-- name: "AHS Real Estate Design System"
-  link: "https://ahs-real-estate-ui.simplefocus.dev/"
+
+- name: "Próspera"
+  link: "https://prospera.hn/"
   role: "Front-End Development"
   tools:
-    - Storybook
+    - Gatsby.js
+    - styled-system
+    
+- name: "AHS Real Estate Design System"
+  link: "https://ahs-real-estate-ui.vercel.app/"
+  role: "Front-End Development"
+  tools:
     - React
+    - Storybook
     - Tailwind CSS
 
 - name: "quure Design System"
-  link: "https://quure.simplefocus.dev/"
+  link: "https://quure-ui.vercel.app/"
   role: "Front-End Development"
   tools:
     - Storybook
@@ -39,18 +39,18 @@
     - Tailwind CSS
 
 - name: "CSC Design System"
-  link: "https://csc-style-guide.now.sh/"
+  link: "https://csc-ui.vercel.app/"
   role: "Front-End Development"
   tools:
     - Twig
     - SCSS
 
 - name: "The Seam"
-  app: "https://the-seam.simplefocus.dev/"
-  website: "https://theseam.com/"
-  role: "Full-Stack Development"
+  app: "https://theseam-app.vercel.app/"
+#   website: "https://theseam.com/"
+  role: "Front-End Development"
   tools:
-    - Jekyll
+    - Twig
     - GSAP
     - Barba.js
     - Bootstrap
