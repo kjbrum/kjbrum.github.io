@@ -7,7 +7,7 @@ slug: work
 
 {% for work in site.data.work %}
     <div class="item">
-        {% if work.name == 'The Seam' %}
+        {% if work.app %}
             <h4>{{ work.name }} - <a href="{{ work.app }}" target="_blank">App</a> / <a href="{{ work.website }}" target="_blank">Website</a></h4>
         {% else %}
             <h4><a href="{{ work.link }}" target="_blank">{{ work.name }}</a></h4>
