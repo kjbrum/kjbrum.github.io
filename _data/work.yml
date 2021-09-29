@@ -1,3 +1,26 @@
+- name: "AHS Real Estate Design System"
+  link: "https://ahs-real-estate-ui.vercel.app/"
+  role: "Front-End Development"
+  tools:
+    - React
+    - Storybook
+    - Tailwind CSS
+
+- name: "quure Design System"
+  link: "https://quure-ui.vercel.app/"
+  role: "Front-End Development"
+  tools:
+    - Storybook
+    - Laravel
+    - Tailwind CSS
+
+- name: "CSC Design System"
+  link: "https://csc-ui.vercel.app/"
+  role: "Front-End Development"
+  tools:
+    - Twig
+    - SCSS
+
 - name: "Frontdoor Corporate"
   link: "https://www.frontdoorhome.com/"
   role: "Front-End Development"
@@ -22,29 +45,6 @@
     - Gatsby.js
     - styled-system
     
-- name: "AHS Real Estate Design System"
-  link: "https://ahs-real-estate-ui.vercel.app/"
-  role: "Front-End Development"
-  tools:
-    - React
-    - Storybook
-    - Tailwind CSS
-
-- name: "quure Design System"
-  link: "https://quure-ui.vercel.app/"
-  role: "Front-End Development"
-  tools:
-    - Storybook
-    - Laravel
-    - Tailwind CSS
-
-- name: "CSC Design System"
-  link: "https://csc-ui.vercel.app/"
-  role: "Front-End Development"
-  tools:
-    - Twig
-    - SCSS
-
 - name: "The Seam"
   link: "https://theseam-app.vercel.app/"
 #   app: "https://theseam-app.vercel.app/"
